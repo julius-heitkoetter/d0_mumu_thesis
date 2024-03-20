@@ -1,0 +1,130 @@
+\begin{thebibliography}{20}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[dlm(2023)]{dlmf}
+{NIST} {D}igital library of mathematical functions, March 2023.
+\newblock URL \url{https://dlmf.nist.gov/}.
+
+\bibitem[{American Mathematical Society} and {The \LaTeX\
+  Project}(2020)]{amsmath}
+{American Mathematical Society} and {The \LaTeX\ Project}.
+\newblock \emph{User's Guide for the \textsf{amsmath} Package}.
+\newblock Comprehensive \TeX\ Archive Network, February 2020.
+\newblock URL
+  \url{https://ctan.org/tex-archive/macros/latex/required/amsmath/amsldoc.pdf}.
+
+\bibitem[Churchill(1948)]{churchill1948}
+Winston~S. Churchill.
+\newblock {The Gathering Storm}, 1948.
+\newblock URL \url{https://www.worldcat.org/oclc/3025315}.
+
+\bibitem[Clauser(1956)]{clauser56}
+Francis~H. Clauser.
+\newblock The turbulent boundary layer.
+\newblock In H.~L. Dryden and Th. von K\'arm\'an, editors, \emph{Advances in
+  Applied Mechanics}, volume~4, pages 1--51. Elsevier, Amsterdam, The
+  Netherlands, 1956.
+\newblock \doi{10.1016/S0065-2156(08)70370-3}.
+
+\bibitem[Edwards(1969)]{DKE1969}
+Donald~K. Edwards.
+\newblock Radiative transfer characteristics of materials.
+\newblock \emph{{ASME} J. Heat Transfer}, 91\penalty0 (1):\penalty0 1--15,
+  February 1969.
+\newblock \doi{10.1115/1.3580108}.
+
+\bibitem[Euler(1740)]{euler1740}
+Leonard Euler.
+\newblock De summis serierum reciprocarum.
+\newblock \emph{Commentarii Acad\-emiae Scientiarum Petropolitanae},
+  7:\penalty0 123--134, 1740.
+
+\bibitem[Fong(2015)]{Fong2015}
+Chamberlain Fong.
+\newblock Analytical methods for squaring the disc.
+\newblock {\itshape ArXiv e-prints}, September 2015.
+
+\bibitem[Fourier(1822)]{fourier1822}
+Jean Baptiste~Joseph Fourier.
+\newblock \emph{Th\'{e}orie Analytique de la Chaleur}.
+\newblock Firmin Didot, P\`{e}re et Fils, Paris, 1822.
+\newblock URL \url{https://archive.org/details/analyticaltheory00fourrich}.
+
+\bibitem[Galassi et~al.(2017)Galassi, Davies, Theiler, Gough, Jungman, Alken,
+  Booth, Rossi, and Ulerich]{GSL}
+Mark Galassi, Jim Davies, James Theiler, Brian Gough, Gerard Jungman, Patrick
+  Alken, Michael Booth, Fabrice Rossi, and Rhys Ulerich.
+\newblock \emph{{GNU} Scientific Library}.
+\newblock Free Software Foundation, Boston, MA, 2017.
+\newblock URL \url{https://www.gnu.org/software/gsl/}.
+
+\bibitem[Gibbs(1863)]{gibbs1863}
+Joisah~Willard Gibbs.
+\newblock On the form of the teeth of wheels in spur gearing, 1863.
+
+\bibitem[Johnson(1980)]{johnson1980}
+Howard Johnson, editor.
+\newblock \emph{Title of Edited Book}.
+\newblock John Wiley and Sons, Inc., New York, NY, 1980.
+
+\bibitem[Johnson(1965)]{johnson1965}
+Howard~W. Johnson, editor.
+\newblock \emph{The Title of the Proceedings}, volume~2, 1965. Organization.
+\newblock URL \url{https://news.mit.edu/2009/obit-johnson}.
+
+\bibitem[Kirk(2288)]{kirk2288a}
+James~Tiberius Kirk.
+\newblock \emph{Decline and Fall of the Romulan Empire}.
+\newblock Number~23 in Humankind's Greatest Writings. Vulcan Free Press,
+  T'Paal, 7 edition, 2288.
+
+\bibitem[Lienhard(2020)]{lienhard2020}
+John~H. Lienhard.
+\newblock Heat transfer in flat-plate boundary layers: A correlation for
+  laminar, transitional, and turbulent flow.
+\newblock \emph{{ASME} J. Heat Transfer}, 142\penalty0 (6):\penalty0 061805,
+  June 2020.
+\newblock \doi{10.1115/1.4046795}.
+
+\bibitem[Montijano et~al.(2014)Montijano, P{\'{e}}rez, R{\'{a}}ndez, and
+  Varona]{montijano2014}
+Juan~I. Montijano, Mario P{\'{e}}rez, Luis R{\'{a}}ndez, and Juan~Luis Varona.
+\newblock Numerical methods with lualatex.
+\newblock \emph{TUGboat}, 35\penalty0 (1):\penalty0 51--56, January 2014.
+\newblock URL \url{https://tug.org/TUGboat/tb35-1/tb109montijano.pdf}.
+
+\bibitem[Reynolds et~al.(1958)Reynolds, Kays, and Kline]{reynolds1958}
+William~C. Reynolds, William~M. Kays, and Stephen~J. Kline.
+\newblock Heat transfer in the incompressible turbulent boundary layer.
+  {I}---constant wall temperature, December 1958.
+
+\bibitem[Sharpe(2022)]{sharpe1}
+Michael Sharpe.
+\newblock New {TX} font package, March 2022.
+\newblock URL \url{https://ctan.org/pkg/newtx}.
+
+\bibitem[Swaminathan et~al.(2017)Swaminathan, Stover, Tow, Warsinger, and
+  Lienhard]{Swaminathan2017IDABRO}
+Jaichander Swaminathan, Richard~L. Stover, Emily~W. Tow, David~M. Warsinger,
+  and John~H. Lienhard.
+\newblock Effect of practical losses on optimal design of batch {RO} systems.
+\newblock In \emph{Proceedings of IDA World Congress on Desalination and Water
+  Reuse}, number IDA17WC-58334. International Desalination Association, October
+  2017.
+
+\bibitem[{van der Walt} and Smith(2015)]{mpl}
+St{\'e}fan {van der Walt} and Nathaniel Smith.
+\newblock {mpl} colormaps, September 2015.
+\newblock URL \url{https://bids.github.io/colormap/}.
+
+\bibitem[Whittaker and Watson(1920)]{ww1920}
+Edwin~Taylor Whittaker and George~Neville Watson.
+\newblock \emph{A Course of Modern Analysis}.
+\newblock Cambridge University Press, Cambridge, UK, 3 edition, 1920.
+\newblock URL \url{https://archive.org/details/courseofmodernan00whit}.
+
+\end{thebibliography}

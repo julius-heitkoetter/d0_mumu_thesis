@@ -1,0 +1,3 @@
+[submodule "dmmfitter"]
+	path = dmmfitter
+	url = ssh://git@gitlab.cern.ch:7999/jheitkoe/dmmfitter.git
