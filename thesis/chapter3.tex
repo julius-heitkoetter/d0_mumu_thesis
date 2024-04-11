@@ -1,0 +1,80 @@
+\chapter{$D^0 \to \mu^+\mu^-$ Branching Fraction Measurement}
+
+\section{Analysis overview}
+
+TODO
+
+\section{Triggers and datasets}
+
+\subsection{Data samples}
+
+The events used for this analysis are collected from proton-proton collisions at the LHC at a center of mass of 13.6 TeV. Specifically, we use data from the CMS detector during the years 2022 and 2023. The CMS collaboration marks specific run ranges as good runs and groups them into datasets marked with letters. The data we use is denoted as 2022C, 2022D, 2022E, 2022F, 2022G, 2023C, and 2023D. 
+
+There are two triggers used for the analysis:
+\begin{enumerate}
+    \item The \texttt{HLT\_DoubleMu4\_3\_LowMass} trigger is used to collect $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \mu^+ \mu^-$ signal events by triggering on the dimuon final product. During the collection of the data samples of the analysis, the trigger was virtually unchanged and unprescaled, making it convenient to use for signal collection.
+    \item The \texttt{HLT\_ZeroBias} trigger was used to collect $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \pi^+ \pi^-$ normalization events. Unlike the signal trigger, this trigger does not filter for a specific signature. However, the expected branching fraction of $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \pi^+ \pi^-$ is large enough to generate a sufficient number of desired events. During the collection of the data samples of the analysis, the trigger was virtually unchanged and was prescaled at the HLT and L1 triggers on the order of 1e6. 
+\end{enumerate}
+
+The events collected by these two triggers and grouped into two datasets, ZeroBias and Parking DoubleMuonLowMass, respectively. We use the NanoAOD file format, designed by CMS to contain ntuples of per-event information and used for most analysis at CMS. Specifically, we use the NanoAODv12 recipe which is processed from MiniAOD. In this processing, we apply the muon data certification to ensure high quality muon objects. 
+
+\subsection{Monte Carlo samples}
+
+TODO
+
+\section{Selections and efficiency}
+
+Once we've attained the data and monte carlo samples needed for this analysis, we filter through them using event selections, carefully tracking the \textit{acceptance} and \textit{efficiency} for each selection\footnote{We define \textit{acceptance} as TODO and \textit{efficiency} as TODO}. The selection process can be broken down into three main stages:
+\begin{enumerate}
+    \item The \textit{preselection} stage provides the selections which are tied to trigger requirements, reconstruction requirements, and dataset size limitations.
+    \item The \textit{baseline selection} stage primarily is used to reject background samples while keeping the efficiency high, the sidebands of the signal region large, and the signal shape unperturned. 
+    \item The \textit{multivariate analysis (MVA) selection} stage uses ML-methods to optimize the background rejection.
+\end{enumerate}
+
+\subsection{Preselection}
+
+The preselection is used to create reconstructed event candidates which pass the triggers discussed in section TODO. To stay consistent between signal and normalization events, we keep a similar preselection process for both $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \mu^+ \mu^-$ and $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \pi^+ \pi^-$ events.
+
+In order to properly reconstruct the $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \mu^+ \mu^-$ and $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \pi^+ \pi^-$ events, we first must reconstruct their decay products: the muons and pion. Pions are reconstructed from charged tracks found in the tracker. These track are reconstructed using particle flow (PF) algorithms\footnote{The primary goal of these algorithms is to reconstruct individual particles using the data read out from the detector itself. This is made especially difficult because of the high lumonisties of run3 resulting in a large amount of \textit{pileup}, a phenomenon that occurs due to multiple proton-proton collisions happening within a very short time frame resulting in multiple collisons per event. }, meaning the pions used in the analysis are labeled as PF candidates. Muons are reconstructed primarily using detector read out from the muon chambers. We use the well established CMS reconstruction algorithms \texttt{TrackerMuon} and \textt{GlobaleMuon} as well as use the collaboration's \textt{LooseMuonID} for muon identification. To reduce background noise and increase detector resolution, we also cut at $p_T>4$ GeV and require a \textt{highPurity} inner track in the tracker for both pions and muons.
+
+Once we have the muon and/or pion candidates for the $D^0$ decay, we use vertex reconstruction to reconstruct the full decay candidate. A \textit{vertex} is the location in 3D space where a process occured and the \textit{primary vertex} is the location of the interaction of the quarks of the two colliding protons, which in our case produce the $D^{*\pm}$. Due to the short mean lifetime of the $D^{*\pm}$ ($ 6.9 \pm 1.9 \times 10^{-21} \; s$) TODO (find citation), we can label the $D^{*\pm} \to D^0 \pi^\pm$ vertex using the primary vertex. The kinematic vertex reconstruction begins by identifying the dimuon or dipion decay candidates (i.e two pions or two muons which came from the same decay). The two 4-momentum vectors of these two candidates is added together to get a dimuon or dipion 4-momentum vector. We call this dimuon/dipion system a $D^0$ candidate. Using the $D^0$ candidate 4-momentum vector, we calculate the transverse momentum of $D^0$ candidate and extrapolate it to its intersection with the beamline. Then, in order to determine which primary vertex\footnote{There are often many primary vertices in one event due to pileup} the $D^{*\pm} \to D^0 \pi^\pm$ decay came from, we calculate the 3D distance between each primary vertex candidate and the extrapolated intersection point, known as the \textit{3D-impact parameter}, and find the primary vertex which minimizes this parameter. Lastly, since the decay at the primary vertex is $D^{*\pm} \to D^0 \pi^\pm$, we check if there exists a soft pion which came from the selected primary vertex. This kinematic vertex reconstruction is then used to gather reconstructed signal and normalization events as well as refit the $D^0$ candidates to a common vertex using a kinematic vertex fitting tool (TODO: insert citation), generating \textit{refitted} candidates. The events which pass this reconstruction are thus the events that pass the preselection. 
+
+TODO: insert figure of reconstruction (started in google drawing)
+
+\subsection{Baseline selection}
+
+Using the reconstruction described in section (TODO: link preselection), we are able to extract several kinematic variables from $D^{*\pm} \to D^0 \pi^\pm$ candidates outputted by the preselection. These variables are used in the baseline selection as well as in other parts of the analysis. They are defined here as follows:
+\begin{enumerate}
+    \item Reconstructed $D^0$ mass: the mass calculated from from the addition of the two 4-momentum vectors of the $D^0$'s product candidates (either dimuon or dipion). 
+    \item Refitted $D^0$ mass: the mass calculated from from the addition of the two 4-momentum vectors of the $D^0$'s product candidates (either dimuon or dipion) once they have been refitted using the kinematic vertex fitting. 
+    \item Reconstructed $\Delta m$: the mass difference between the reconstructed $D^{*\pm}$ candidates and the reconstructed $D^0$ candidates. 
+    \item Refitted $\Delta m$: the mass difference between the $D^{*\pm}$ and the $D^0$ candidates once they have been refitted using the kinematic vertex fitting.
+    \item $\delta_{3D}$: the 3D impact parameter. (TODO: see section Preselection for more information))
+    \item $\delta_{3D}/\sigma\left(\delta_{3D}\right)$: the significance of the 3D impact parameter. This is calculated by taking the value of the 3D impact parameter and dividing it by the square root of the expected variance of the parameter. 
+    \item $l_{3D}$: the 3D distance between the vertex of the $D^{*\pm} \to D^0 \pi^\pm$ decay (primary vertex) and the vertex of the $D^0 \to l l$ decay. This can also be called the $\textit{flight length}$ of the $D^0$ meson. 
+    \item $l_{3D}/\sigma\left(l_{3D}\right)$: the significance of the 3D distance between the vertex of the $D^{*\pm} \to D^0 \pi^\pm$ decay (primary vertex) and the vertex of the $D^0 \to l l$ decay. Calculated by taking the value of the distance and dividing it by the square root of the expected variance of the distance. 
+    \item $l_{xy}$: the distance in the $xy$ plane (perpendicular to the beam line) between the vertex of the $D^{*\pm} \to D^0 \pi^\pm$ decay (primary vertex) and the vertex of the $D^0 \to l l$ decay.  This can also be called the $\textit{transverse flight length}$ of the $D^0$ meson. 
+    \item $l_{xy}/\sigma\left(l_{xy}\right)$: the significance of the distance in the $xy$ plane between the vertex of the $D^{*\pm} \to D^0 \pi^\pm$ decay (primary vertex) and the vertex of the $D^0 \to l l$ decay. Calculated by taking the value of the distance and dividing it by the square root of the expected variance of the distance. 
+    \item $\alpha_{3D}$ : the angle between the $D^0$ momentum and flight direction. 
+    \item $D^0$ vertex probability: the probability given by the $\chi^2$ fit which reconstructs the $D^0$ vertex 
+    \item $D^*$ vertex probability: the probability given by the $\chi^2$ fit which reconstructs the $D^*$ vertex
+\end{enumerate}
+Note that, unless otherwise stated, the refitted variables are used over the reconstructed ones. 
+
+Using these variables, we impart a baseline selection on the preselected events. The goal of the baseline selection is to reject much of the background while keeping the signal efficiency high and not perturbing the signal shape. To achieve this, we select a $D^0$ reconstructed mass in the range of TODO INSERT RANGE, $D^0$ refitted mass in the range of TODO: INSERT RANGE, reconstructed $\Delta m$ in the range of TODO: INSERT RANGE, and refitted $\Delta m$ in the range TODO: INSERT RANGE. As seen in figure TODO: INSERt FIGURE, these ranges are picked such that there are large sidebands on the signal, keeping signal efficiency high as shown in table: TODO INSERT TABLE.
+
+The other set of baseline selections are on the vertices themselves. We require the $D^*$ vertex probability to be greater that $0.1$ and the $D^0$ vertex probability to be greater than $0.01$. This is done such that there is some confidence in the vertex reconstruction and such that we can match the double muon trigger requirement of $0.005$. To gain further confidence in the vertex reconstruction, we limit $\alpha_{3D} < 0.1$ radians and the flight length significance to be greater than 3. Lastly, to keep the normalization channel (which is gathered from a ZeroBias trigger) under the same selection as the signal channel (which is gather from a HLT\_DoubleMuon trigger), we require the event in the normalization channel to have fired the \texttt{HLT\_DoubleMu4\_3\_LowMass} trigger. Note, this does not mean than the specific decay we reconstruct fired the trigger, in fact usually some other event has fired the trigger. 
+
+TODO: insert figure of variable plots
+
+TODO: insert table of efficiencies
+
+
+
+
+
+
+\subsection{Multivariate Analysis (MVA)}
+
+
+
