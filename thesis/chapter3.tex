@@ -18,6 +18,30 @@ There are two triggers used for the analysis:
 
 The events collected by these two triggers and grouped into two datasets, ZeroBias and Parking DoubleMuonLowMass, respectively. We use the NanoAOD file format, designed by CMS to contain ntuples of per-event information and used for most analysis at CMS. Specifically, we use the NanoAODv12 recipe which is processed from MiniAOD. In this processing, we apply the muon data certification to ensure high quality muon objects. 
 
+\subsection{Backgrounds}
+
+A key component of the analysis is the accurate modeling of background, specifically because of how small the anticpated limit of the signal strength is. There are two main types of backgrounds to consider: 
+\begin{enumerate}
+    \item Combinatorial backgrounds: backgrounds which are characterized by noise from random combinations of particles produced in secondary particle collisions. 
+    \item Peaking backgrounds: backgrounds which are characterized by a peaking structure near the signal region.
+\end{enumerate}
+
+TODO: INSERT Combinatorial background section
+
+Unlike combinatorial backgrounds, peaking backgrounds must be carefully studied to ensure that the background peak in the signal region is not modeled as signal. These peaking backgrounds occur most commonly from detector misreconstruction. For example, pions can be misreconstructed as muons, resulting in some $D^0 \to \pi^+ \pi^-$ events being reconstructed as $D^0 \to \mu^+ \mu^-$ events, causing a peaking background near the signal region. Specifically, we know that pions and kaons are the only 2 particles which are (1) common decay products of the $D^0$ and (2) are relatively frequently misreconstructed as muons\footnote{See section TODO: add section for pion and kaon fake rates}. Therefore, the candidates for peaking background are two body hadronic decays of the $D^0$ meson and non-$D^{*\pm} \to D^0 \pi^\pm$ decays. 
+
+For each of the peaking backgrounds, we check their $\Delta m$ and dimuon mass against the $\Delta m$ and dimuon mass of the signal. While the non-$D^{*\pm} \to D^0 \pi^\pm$ decays exhibit a dimuon mass distribution which is virtually identical to the signal, their $\Delta m$ contribution is expected to be combinatorial so they do no overlap with the signal's signature. The dominate two body hadronic decays of the $D^0$ meson therefore are the only contributions to peaking background and are listed below.
+\begin{enumerate}
+    \item $D^0 \to \pi^+ \pi^-$
+    \item $D^0 \to K^\pm \pi^\mp$
+    \item $D^0 \to K^+ K^-$
+    \item $D^0 \to \pi^\pm \mu^mp$
+\end{enumerate}
+For each of these, we use \texttt{TGenPhaseSpace} to simulate the effects of the misreconstructed on the peaking background distributions in both $\Delta m$ and the invarient dimuon mass and compare them to the signal distribution. As can be seen in figure TODO INSERT FIGURE, every decay except $D^0 \to \pi^+ \pi^-$ gives a distribution which is distinct from the signal distribution in either $\Delta m$ or the dimuon invariant mass. Therefore, the only peaking distribution which we must model and account for is $D^0 \to \pi^+ \pi^-$. 
+
+TODO: insert figure of peaking decays
+
+
 \subsection{Monte Carlo samples}
 
 TODO
@@ -68,10 +92,6 @@ The other set of baseline selections are on the vertices themselves. We require 
 TODO: insert figure of variable plots
 
 TODO: insert table of efficiencies
-
-
-
-
 
 
 \subsection{Multivariate Analysis (MVA)}
