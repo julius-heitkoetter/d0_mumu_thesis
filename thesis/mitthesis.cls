@@ -47,7 +47,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{mitthesis}[\versiondate MIT Thesis Template (JHL)]
 
-\LoadClass[12pt,openright]{report}% [twoside] option can be issued in the .tex file; point size must be set here.
+\LoadClass[12pt,openany]{report}% [twoside] option can be issued in the .tex file; point size must be set here.
 
 \ExplSyntaxOn
   \str_const:Nn \ClassName {mitthesis}
@@ -929,7 +929,7 @@
     		pdfauthor={\g__author_pdfca_tl},
     		pdfcaptionwriter = {\g__author_pdfca_tl},
     	}
-	\cleardoublepage
+	\clearpage
 }
 
 %%%%%%%%%%  End title page module  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -957,7 +957,7 @@
 	\tl_if_blank:nT {#1} { MISSING\ ABSTRACT!  \msg_error:nn { \ClassName } { missing_abstract } }
 }{
 	\__supervisor_abstractblock:
-	\cleardoublepage
+	\clearpage
 }
 \msg_new:nnnn { \ClassName } { missing_abstract } {Missing\ Abstract!! } { No\ file\ was\ input\ for\ the\ abstract.\  You\ need\ to\ do\ \string\input{abstract.tex}.}
 
