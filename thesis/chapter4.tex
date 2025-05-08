@@ -8,6 +8,8 @@ TODO
 
 \subsection{Data samples}
 
+\ref{subsec:data_samples}
+
 The events used for this analysis are collected from proton-proton collisions at the LHC at a center of mass of 13.6 TeV. Specifically, we use data from the CMS detector during the years 2022 and 2023. The CMS collaboration marks specific run ranges as good runs and groups them into datasets marked with letters. The data we use is denoted as 2022C, 2022D, 2022E, 2022F, 2022G, 2023C, and 2023D. 
 
 There are two triggers used for the analysis:
@@ -19,6 +21,7 @@ There are two triggers used for the analysis:
 The events collected by these two triggers and grouped into two datasets, ZeroBias and Parking DoubleMuonLowMass, respectively. We use the NanoAOD file format, designed by CMS to contain ntuples of per-event information and used for most analysis at CMS. Specifically, we use the NanoAODv12 recipe which is processed from MiniAOD. In this processing, we apply the muon data certification to ensure high quality muon objects. 
 
 \subsection{Backgrounds}
+\label{subsec:backgrounds}
 
 A key component of the analysis is the accurate modeling of background, specifically because of how small the anticpated limit of the signal strength is. There are two main types of backgrounds to consider: 
 \begin{enumerate}
@@ -28,7 +31,7 @@ A key component of the analysis is the accurate modeling of background, specific
 
 \subsubsection{Combinatorial Backgrounds}
 
-TODO: INSERT Combinatorial background section
+Combinatorial backgrounds are signals that originate from random combinations of particles that do not come from a common physical process. The existence of combinatorial backgrounds is present in virtually every experiment performed at the LHC due to the large amounts of events generated in each proton-proton bunch collision. Combinatorial backgrounds are often characterized by smooth, non-peaking shapes due to the lack of a unifying physical process to generate a peak. There are many shapes that are used to fit to combinatorial backgrounds, with the most common being exponential functions or polynomial functions. The functions allow for the needed degrees of freedom and overall shape to converge on the smooth combinatorial shape. In other applications, more specific combinatorial functions are derived to properly model the background. 
 
 \subsubsection{Peaking Backgrounds}
 
@@ -61,7 +64,60 @@ For each of these, we use \texttt{TGenPhaseSpace} to simulate the effects of the
 
 \subsection{Monte Carlo samples}
 
-TODO
+The main component of constructing the Monte Carlo (MC)simulation samples is properly modeling the $D^*$ meson by replicating their production in the CMS detector. The $D^*$ has two primary production mechanisms at the LHC
+\begin{enumerate}
+    \item Production through hadronization of charm quark directly from the proton-proton collision, creating prompt $D^*$ mesons close to the primary vertex. 
+    \item Production through decay of other hadrons, most commonly the $B$ meson, creating displaced $D^*$ mesons from a secondary vertex
+\end{enumerate}
+
+It is important to model both of these production mechanisms of the $D^*$ decay to generate a reliable MC simulation sample. Specifically, the first method produces a prompt soft pion in the $D^*\pm \to D^0 \pi^\pm$ process while the second method produces a displaced soft pion, resulting in significant differences in vertex parameters used in reconstruction and classification. Therefore, over 200 seperate MC samples are produced for this analysis. Their full complexity extends beyond the scope of this thesis, but table \ref{tab:mc-samples} displays some of the most used samples.
+
+\begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \textbf{Sample Name} & \textbf{Attributes} \\
+    \hline
+    DstarToD0Pi\_D0To2Mu\_MuFilter &
+    \begin{itemize}
+      \item SoftQCD:nonDiffractive (MinBias)
+      \item force $D^* \to D^0\pi$, $D^0 \to \mu^+\mu^-$ decay
+      \item $|\eta(D^*)| < 3.0$
+      \item $|\eta(D^0)| < 3.0$ for $D^0$ originating from $D^*$
+      \item $|\eta| < 2.6$, $p_T > 3.0$ for muons originating from $D^0$
+    \end{itemize} \\
+    \hline
+    DstarToD0Pi\_D0To2Pi\_PiFilter &
+    \begin{itemize}
+      \item SoftQCD:nonDiffractive (MinBias)
+      \item force $D^* \to D^0\pi$, $D^0 \to \pi^+\pi^-$ decay
+      \item $|\eta(D^*)| < 3.0$
+      \item $|\eta(D^0)| < 3.0$ for $D^0$ originating from $D^*$
+      \item $|\eta| < 2.6$, $p_T > 3.0$ for pions originating from $D^0$
+    \end{itemize} \\
+    \hline
+    DstarToD0Pi\_D0ToKPi\_KPiFilter &
+    \begin{itemize}
+      \item SoftQCD:nonDiffractive (MinBias)
+      \item force $D^* \to D^0\pi$, $D^0 \to K^-\pi^+$ decay
+      \item $|\eta(D^*)| < 3.0$
+      \item $|\eta(D^0)| < 3.0$ for $D^0$ originating from $D^*$
+      \item $|\eta| < 2.6$, $p_T > 3.0$ for pions originating from $D^0$
+    \end{itemize} \\
+    \hline
+    DstarToD0Pi\_D0To2Pi\_PiToMuPiFilter\_PiLifetime0p02 &
+    \begin{itemize}
+      \item SoftQCD:nonDiffractive (MinBias)
+      \item force $D^* \to D^0\pi$, $D^0 \to \pi^+\pi^- \to \mu^+\nu_\mu\mu^-\nu_\mu$ decay
+      \item reduced lifetime for charged pions by a factor of 50 from $c\tau = 7.8\,\text{m}$ to $c\tau = 15.6\,\text{cm}$
+      \item pion decay limits: $R < 2$ m, $|z| < 4$ m
+      \item $|\eta(D^*)| < 3.0$
+      \item $|\eta(D^0)| < 3.0$ for $D^0$ originating from $D^*$
+      \item $|\eta| < 2.6$, $p_T > 3.0$ for pions originating from $D^0$
+      \item $|\eta| < 2.6$, $p_T(\mu) > 3.0$ for muons originated from charged pions
+    \end{itemize} \\
+    \hline
+\end{tabularx}
+
+TODO: fix this table
 
 \section{Selections and efficiency}
 
@@ -123,7 +179,7 @@ The preselection and baseline selections optimize signal efficiency, but not ove
 
 The decision tree model used is based on the XGBoost (Extreme Gradient Boosting) library, which builds a forest of regression trees trained sequentially to minimize a regularized objective function. Each tree in the sequence focuses on correcting the erros of the previous tree and the scores from the trees are combined to get a final prediction on the classifiction of the event from the forest. Each tree is constructed using a greedy algorithm that selects splits based on gain, with regularization terms penalizing model complexity to prevent overfitting. The loss function is binary logistic loss, which is optimized using boosting under second-order gradient information with an evaluation metric based on the area under the receiver-operating characteristic (ROC) curve, known as AUC in the literature. Each tree has a maximum depth of 3 and is trained using a learning rate of $\eta = 0.1$. An additional regularization is applied with an L1 penalty. A minimum loss reduction threshold for tree splits\footnote{This requirement only allows additional trees to form if their contribution causes the loss to decrease by some number, set in this analysis to be $2.0$} and a sub-sample ratio\footnote{This is the fraction of training data that each tree sees, which for this analysis is kept (as is standard) at $60\%$} are employed to additionally prevent overfitting. The model is trained for over 4000 epochs in each training round.
 
-The signal events used for training are taken from simulated $D^0 \to \mu^+ \mu^-$ MC samples. The background events are taken from the data sidebands using the $\delta m$ parameter with a distance of over $5\sigma$ right of the expected value ($\delta m \in [0.150, 0.155]$ GeV) and dimuon mass in the signal range of $[1.81, 2.45]$ GeV. The dimuon mass is kept in the signal range to align the training data with not obviously rejected events. Should the background training data be selected outside the signal dimuon mass window, the classification of signal and background events would become trivial, leading to a less effective model.
+The signal events used for training are taken from simulated $D^0 \to \mu^+ \mu^-$ MC samples. The background events are taken from the data sidebands using the $\delta M$ parameter with a distance of over $5\sigma$ right of the expected value ($\delta m \in [0.150, 0.155]$ GeV) and dimuon mass in the signal range of $[1.81, 2.45]$ GeV. The dimuon mass is kept in the signal range to align the training data with not obviously rejected events. Should the background training data be selected outside the signal dimuon mass window, the classification of signal and background events would become trivial, leading to a less effective model.
 
 The variables used in the training are
 \begin{enumerate}
@@ -148,7 +204,7 @@ The correlation matrix for both the signal and background can be seen in figure 
 
 Due to the relatively small amount of data avilable, the data is split into 5 groups and 5 seperate models are training, each using a different data group as testing data sets and the remaining 4 as training datasets. This ensures the models have been exposed on the entire dataset while not overfitting on any particular events. Once the models have been trained, the event number (which is independent of the contents of the event), is used to decide which model to use for classification of that event. 
 
-It is important that the classification parameter is not correlated with any variables used later in the analysis for fitting (namely $\delta m$ and the dimuon mass) so as to not skew the fit. Due to this, the kinematic variable given to the model are restricted to $p_T$ and vertex parameters, so that it is not possible to reconstruct masses. To check that the correlations don't exist, a correlation matrix between the classification parameter, $\delta m$, and the dimuon mass is created and shown in figure \ref{fig:mva_correlation_matrix_for_fit_variables}. As expected, there is no correlation.
+It is important that the classification parameter is not correlated with any variables used later in the analysis for fitting (namely $\delta M$ and the dimuon mass) so as to not skew the fit. Due to this, the kinematic variable given to the model are restricted to $p_T$ and vertex parameters, so that it is not possible to reconstruct masses. To check that the correlations don't exist, a correlation matrix between the classification parameter, $\delta M$, and the dimuon mass is created and shown in figure \ref{fig:mva_correlation_matrix_for_fit_variables}. As expected, there is no correlation.
 
 
 \begin{figure}[htp]
@@ -157,12 +213,12 @@ It is important that the classification parameter is not correlated with any var
       \includegraphics[width=0.45\textwidth]{figures/chapter4/mva/Correlation_dmm_obs.png}\\
     \end{center}
     \caption{
-      Correlation matrix comparing the MVA classification parameter to $\delta m$ and the dimuon mass. Shown left is the training background events generated from data and shown right is the training signal events generated from MC.
+      Correlation matrix comparing the MVA classification parameter to $\delta M$ and the dimuon mass. Shown left is the training background events generated from data and shown right is the training signal events generated from MC.
     }
     \label{fig:mva_correlation_matrix_for_fit_variables}
 \end{figure}
 
-It is also important to note that the classifier is being trained and tested on simulated signal samples, yet for the analysis the efficiency of the classifier on real data is needed. Due to mismodeling effect in the simulation, the simulation efficiency is not necessarily the same as the data efficiency. Getting the efficiency is difficult to measure directly since the expected branching fraction of $D^0 \to \mu^+ \mu^-$ is so low that we do not have a reliable data sample for the signal. Instead, the efficiency is derived from the $D^0 \to \pi^+ \pi^-$ decay using the zero bias dataset and the $D^0 \to \pi^+ \pi^-$ monte-carlo simulation samples. Since the $D^0 \to \pi^+ \pi^-$ decay behaves similarly to the $D^0 \to \mu^+ \mu^-$ decay in terms of reconstruction/vertex parameters and the MVA classifier is independent of $\delta m$ and dimuon mass in both cases, the efficiency derived from $D^0 \to \pi^+ \pi^-$ is similar to the efficiency of $D^0 \to \mu^+ \mu^-$. Therefore, the same classifier with the same cut is used on both the normalization channel and the signal channel, causing the efficiencies to cancel in the branching fraction equation. TODO: link equation. We calculate the efficiency in data on the $D^0 \to \pi^+ \pi^-$ decay by performing the UML fit outlined in section TODO: (insert section link) on different $\text{MVA}_D$ cut values and comparing to the \texttt{ZeroBias} dataset. In simulated data, we are able to directly tag the signal events that were created from the simulation, so calculating the efficiency is trivial. A list of efficency values at specific $\text{MVA}_D$ cuts can be found in table \ref{tab:mva_cut_efficiencies} and a graphical representation over a more diverse $\text{MVA}_D$ cut range can be found in \ref{fig:mva_cut_efficiencies}.
+It is also important to note that the classifier is being trained and tested on simulated signal samples, yet for the analysis the efficiency of the classifier on real data is needed. Due to mismodeling effect in the simulation, the simulation efficiency is not necessarily the same as the data efficiency. Getting the efficiency is difficult to measure directly since the expected branching fraction of $D^0 \to \mu^+ \mu^-$ is so low that we do not have a reliable data sample for the signal. Instead, the efficiency is derived from the $D^0 \to \pi^+ \pi^-$ decay using the zero bias dataset and the $D^0 \to \pi^+ \pi^-$ monte-carlo simulation samples. Since the $D^0 \to \pi^+ \pi^-$ decay behaves similarly to the $D^0 \to \mu^+ \mu^-$ decay in terms of reconstruction/vertex parameters and the MVA classifier is independent of $\delta M$ and dimuon mass in both cases, the efficiency derived from $D^0 \to \pi^+ \pi^-$ is similar to the efficiency of $D^0 \to \mu^+ \mu^-$. Therefore, the same classifier with the same cut is used on both the normalization channel and the signal channel, causing the efficiencies to cancel in the branching fraction equation. TODO: link equation. We calculate the efficiency in data on the $D^0 \to \pi^+ \pi^-$ decay by performing the UML fit outlined in section TODO: (insert section link) on different $\text{MVA}_D$ cut values and comparing to the \texttt{ZeroBias} dataset. In simulated data, we are able to directly tag the signal events that were created from the simulation, so calculating the efficiency is trivial. A list of efficency values at specific $\text{MVA}_D$ cuts can be found in table \ref{tab:mva_cut_efficiencies} and a graphical representation over a more diverse $\text{MVA}_D$ cut range can be found in \ref{fig:mva_cut_efficiencies}.
 
 \begin{table}[htbp]
     \centering
@@ -224,20 +280,145 @@ Lastly, a very conservative systematic error is assigned to the $\text{MVA}_{D, 
 
 Now that we have given accurate descriptions of the datasets and selection processes used in this analysis, we are now ready to extract the two main values needed for this analysis, the number of $D^0 \to \pi^+ \pi^-$ events, denoted $N_{D^0 \to \pi^+ \pi^-}$, the number of $D^0 \to \mu^+ \mu^-$ events, denoted $N_{D^0 \to \mu^+ \mu^-}$.
 
-In order to do this, we perform two unbinned maximum likelihood (UML) fits on the events in our data that passes the preselection, baseline selection, and MVA selection processes. Maximum likelihood (ML) fits are statistical methods used to estimated parameters of a model given observed data. A ML fit is a UML fit when the data is not binned into a histogram, but rather the exact data values are used. UML fits define a model $f(\vec{x}; \theta, \theta_N$, which is a PDF over some set of observed variables, $\vec{x}$ and some model parameters $\theta$ and $\vec{\theta}_N$. The goal of a UML fit is to extract a model parameter $\theta$ given some observed data $\vec{x}_1, \vec{x}_2,...,\vec{x}_N$. $\vec{\theta}_N$ are considered nuisance parameters and are important to defining the model, but are not parameters of interest to the analysis. Once a model has been defined, a likelihood is defined as
+In order to do this, we perform two unbinned maximum likelihood (UML) fits on the events in our data that passes the preselection, baseline selection, and MVA selection processes. Maximum likelihood (ML) fits are statistical methods used to estimated parameters of a model given observed data. A ML fit is a UML fit when the data is not binned into a histogram, but rather the exact data values are used. UML fits define a model $f(\vec{x}; \theta, \theta_N)$, which is a PDF over some set of observed variables, $\vec{x}$ and some model parameters $\theta$ and $\vec{\theta}_N$. The goal of a UML fit is to extract a model parameter $\theta$ given some observed data $\vec{x}_1, \vec{x}_2,...,\vec{x}_N$. $\vec{\theta}_N$ are considered nuisance parameters and are important to defining the model, but are not parameters of interest to the analysis. Once a model has been defined, a likelihood is defined as
 \begin{equation}
     \mathcal{L}(\theta, \vec{\theta}_N) = \prod^N_{i=1} f(\vec{x}_i; \theta, \vec{\theta}_N)
 \end{equation}
 In this formulation, the UML fit can be represented as finding $\hat{\theta} \hat{\vec{\theta}_N}= \text{argmax}_{\theta, \vec{\theta}_N} \mathcal{L}(\theta, \vec{\theta}_N)$\footnote{In practice, this isn't quite true. Often in applications with lots of nuisance parameters, UML fits operate using profile likelihoods. However, the point of this discussion is merely an overview of UML and the complexities will be ignored.}. 
 
-In our analysis, $\theta$ is the true number of signal events (in the normalization channel this is $N_{D^0 \to \pi^+ \pi^-}$ and in our signal channel this is $N_{D^0 \to \mu^+ \mu^-}$), $\vec{x}$ is the $\delta m$ and $m(D^0)$ of our data, and $\vec{\theta}_N$ are the variance parameters needed to construct the signal and background PDFs. A more precise discussion of this construction follows in the sections below. 
+In our analysis, $\theta$ is the true number of signal events (in the normalization channel this is $N_{D^0 \to \pi^+ \pi^-}$ and in our signal channel this is $N_{D^0 \to \mu^+ \mu^-}$), $\vec{x}$ is the $\delta M$ and $m(D^0)$ of our data, and $\vec{\theta}_N$ are the variance parameters needed to construct the signal and background PDFs. As can be seen in figure \ref{fig:mva_correlation_matrix_for_fit_variables}, there exists practically no correlation between $\delta M$ and $m(D^0)$. This tells us that the 2D model can be split as a product of 1D models. More specifically, we have that
+\begin{equation}
+    f(\vec{x}; \theta, \theta_N) = f_{m(D^0)}(m(D^0); \theta, \theta_N) \times f_{\delta m}(\delta m; \theta, \theta_N)
+\end{equation}
+
+A more precise discussion of this construction follows in the sections below. For each of the two channels we begin by developing the models for both the signal and the background. Then, we outline the specifics of the fit and any corrections applied to it. Lastly, we outline the results of the fit. 
 
 \subsection{Normalization Channel Fit}
 
-
+The goal of the normalization channel is to extract $N_{D^0 \to \pi^+ \pi^-}$. This is done using the HLT\_ZeroBias trigger dataset, as is described in section \ref{subsec:data_samples}. Perhaps the largest difficulty of the UML fit on the normlization channel is that the HLT\_ZeroBias trigger dataset does not contain many of the $D^{*\pm}\to D^0 \pi^\pm, D^0 \to \pi^+ \pi^-$ signal events due to the fact that the trigger doesn't filter for a specific signal. The below section, in part, describes in detail how this difficulty is overcome. % TODO: texttt the HLT trigger and HLT zerobias
 
 \subsubsection{Signal Model}
 
+The signal model for the normalization channel describes the $\delta M$ and $m(D^0)$ of the $D^{*\pm}\to D^0 \pi^\pm, D^0 \to \pi^+ \pi^-$ decay. As is common to do for masses in signal distributions, the model for $m(D^0)$ is a sum of two Gaussian distributions forced to share a common mean. Similarly, the model for $\delta M$ is a sum of three Gaussian distributions forced to share a common mean.
+
+Due to the small number of signal events in data, the shape (composing of the means and standard deviations) of this model is determined by fits to simulated MC data. This is because the shape will be much more stable in MC compared to data, simply just because there are more samples in MC. Once the shape is found using MC, it is frozen and only the number of events is allowed to float when the fit is applied to data. The signal model fit to MC can be seen in figure \ref{ig:d0pipi_uml_fit_pipi_model}.
+
+\begin{figure}[htp]
+    \begin{center}
+      \includegraphics[width=0.9\textwidth]{figures/chapter4/normalization_fit/dpipi_fit_mc.pdf}
+    \end{center}
+    \caption{
+      The signal model fit on MC samples, with $m(D^0)$ displayed left and $\Delta m$ displayed right.
+    }
+    \label{fig:d0pipi_uml_fit_pipi_model}
+\end{figure}
+
+It is possible, however, that the shape varies slightly between the MC samples and data, due to mismodeling in MC. To account for this slight mismodeling affect, we derive correction factors $\mu_{\text{corr}}$ and $\sigma_{\text{corr}}$ such that
+\begin{equation}
+\begin{split}
+    \mu_{\text{data}} &= \mu_{\text{MC}} \times (1+\mu_{\text{corr}}) \\
+    \sigma^i_{\text{data}} &= \sigma_{\text{MC}} \times (1+\sigma_{\text{corr}}) 
+\end{split}
+\label{eq:shape_correction_definition}
+\end{equation}
+where $i$ is used to denote that each of the models has multiple width parameters (one for each Gaussian distribution that is summed) but only one mean parameter.
+
+To derive what this correction factor is, we use the \texttt{HLT\_DoubleMu4\_3\_LowMass} trigger to construct a dataset with enough signal samples to construct a reliable data-driven fit shape. We then run the full normalization channel UML fit (including the background models) on this data. Comparing that to the shape obtained from MC, we can easily derive the $\mu_{\text{corr}}$ from equation \ref{eq:shape_correction_definition}. 
+
+Initially, it might seem that one could apply the same procedure to find $\sigma_{\text{corr}}$. However, this dimuon trigger enhances the amount of $b\bar{b}$ production in the sample, which biases the width of the $D^{*\pm}\to D^0 \pi^\pm, D^0 \to \pi^+ \pi^-$ decay. Therefore, one must first properly understand that bias before applying the correction in the same way as the mass was done. To understand the bias effect between the Dimuon and Zerobias triggers, we compare $D^{*\pm}\to D^0 \pi^\pm, D^0 \to K^\pm \pi^\mp$ fits from the Dimuon and Zerobias dataset. This is possible because the Kaon decay mode is much more frequent than the pion decay mode. The fitting process is the same as before and the width correction 
+can be obtained as
+\begin{equation}
+    \begin{split}
+        1+\sigma_{\text{corr}} &= \left(1+\sigma_{\text{corr, DoubleMuon}}^{D^0\to\pi^+\pi^-}\right) \\
+        &\times \frac{
+            1+\sigma_{\text{corr, ZeroBias}}^{D^0\to\pi^\pm\pi^\mp}
+        }{
+            1+\sigma_{\text{corr, DoubleMuon}}^{D^0\to K^\pm\pi^\mp}
+        }
+    \end{split}
+\end{equation}    
+All of the corrections to the signal shape are summarized below
+
+TODO: add table of width corrections. 
+
 \subsubsection{Background Model}
 
+As described in section \ref{subsec:backgrounds}, there are 3 peaking backgrounds and a combinatorial background to consider in the normalization channel. 
+
+To begin, we describe the 3 peaking backgrounds. The first, as most prominant, of these three backgrounds is the $D^{*\pm} \to D^0\pi^\pm, D^0 \to K^\pm \pi^\mp$. As shown in figure \ref{fig:reconstructed_D0_comparison}, the $m(D^0)$ peak is shifted signficiantly to the left due to incorrect mass of the pion imposed on the kaon during reconstruction. In fact, the mean in shifted so far that only the tail of the Gaussian distribution persists in the mass region of our fit. Since the tail of a Gaussian distribution is approximately an exponential function, we use an exponential function to fit the $m(D^0)$ parameter. This fit proves to be significantly more stable as the exponential function only has one shape parameter that requires fitting while the Gaussian distribution has two. In contrast, the $\Delta m$ distribution of the $D^{*\pm} \to D^0\pi^\pm, D^0 \to K^\pm \pi^\mp$ decay closely follows the shape of the signal. Therefore, we similarly use a sum of three Gaussian distributions with a common mean do model the $\Delta m$ distribution. The convergence of the fit is verified using MC samples and is displayed in figure \ref{fig:d0pipi_uml_fit_kpi_model}. The data fit remains stable even when these shape parameters are allowed to vary. Therefore, we allow the shape of this peaking background to vary when fit to data. 
+
+\begin{figure}[htp]
+    \begin{center}
+      \includegraphics[width=0.9\textwidth]{figures/chapter4/normalization_fit/dpipi_fit_mc_kpi.pdf}
+    \end{center}
+    \caption{
+      The $D^{*\pm} \to D^0\pi^\pm, D^0 \to K^\pm \pi^\mp$ model fit on MC samples, with $m(D^0)$ displayed left and $\Delta m$ displayed right.
+    }
+    \label{fig:d0pipi_uml_fit_kpi_model}
+\end{figure}
+
+The other two peaking backgrounds correspond to $D^0 \to \mu^+ \mu^-$ and $D^0 \to K^\pm \pi^\mp$ decays where the $D^0$ meson does not originate from a $D^*$ meson. Importantly, these have the same $m(D^0)$ shape as their $D^{*\pm} \to D^0 \pi^\pm$ counterparts, so the shape derived from their counterparts is copied exactly into their models. The $\Delta m$ of these decays, however, does not represent a peak but rather a combinatorial signature. This is due to the combinatorial nature of the production mechanisms of the $D^0$ meson that pass the selection criterion. Therefore, we fit a combinatorial background model for the $\Delta m$ values of both non-$D^{*\pm} \to D^0 \pi^\pm$ decays. 
+
+The combinatorial background for $m(D^0)$ is an exponential function, as is common for modeling combinatorial backgrounds of reconstructed rest masses. The combinatorial background for $\Delta m$, however, has more complex shape than just an exponential. In this work, we use the $\texttt{RooDstD0Bg}$ function \cite{ref:verkerke2003roofit} given by
+\begin{equation}
+    P(m|m_0, A, B, C) = \left(1 - \exp \left(-\frac{m-m_0}{C} \right) \right) \left( \frac{m}{m_0}\right)^A
+\end{equation}
+The shape of these functions is derived from fits to the data side-band regions where the distance from the signal resonance guarantees virtually no peaking background contribution. This shape is frozen to allow for fit stability when the model is used in the final data fit. Figure TODO: add figure shows the convergence of the shape on the data side-bands.
+
 \subsubsection{Fit Results}
+
+The final model used for the fit is a sum of signal model and all the background model. We check the convergence of this model on the \texttt{HLT\_DoubleMu4\_3\_LowMass} data, which contains significantly more signal events than the \texttt{HLT\_ZeroBias} trigger samples, allowing us to visually inspect the stability of the fit, as is seen in figure \ref{fig:d0pipi_uml_fit_dimuon} and table \ref{tab:d0pipi_uml_fit_results}. Importantly, the $D^0 \to K^\pm \pi^\mp$ decays where the $D^0$ meson does not originate from a $D^*$ meson contibutes virtually no events to the fit. Therefore, to increase the stability of the fit, we force the integral under this the non-$D^*,D^0 \to K^\pm \pi^\mp$ model to 0. 
+
+Finally, the fit is applied to the \texttt{HLT\_ZeroBias} trigger samples. A graphical representation of the fit can be seen in figure \ref{fig:d0pipi_uml_fit} and the results are summarized in table \ref{tab:d0pipi_uml_fit_results}.
+
+
+\begin{figure}[htp]
+    \begin{center}
+      \includegraphics[width=0.45\textwidth]{figures/chapter4/normalization_fit/m_pipiDimuon_afterMvaCut.pdf}
+      \includegraphics[width=0.45\textwidth]{figures/chapter4/normalization_fit/dm_pipiDimuon_afterMvaCut.pdf}\\
+    \end{center}
+    \caption{
+        The full $D^0 \to \pi^+ \pi^-$ model fit on \texttt{HLT\_ZeroBias} data, with $m(D^0)$ displayed left and $\Delta m$ displayed right.
+    }
+    \label{fig:d0pipi_uml_fit}
+\end{figure}
+
+\begin{figure}[htp]
+    \begin{center}
+      \includegraphics[width=0.9\textwidth]{figures/chapter4/normalization_fit/dpipi_fit.pdf}
+    \end{center}
+    \caption{
+      The full $D^0 \to \pi^+ \pi^-$ model fit on \texttt{HLT\_DoubleMu4\_3\_LowMass} data, with $m(D^0)$ displayed left and $\Delta m$ displayed right. The green line follows the combinatorial model, the blue line follows the signal model, the red line follows the $D^{*\pm} \to D^0\pi^\pm, D^0 \to K^\pm \pi^\mp$ background model, the red dashed line following the non-$D^{*\pm} \to D^0\pi^\pm, D^0 \to K^\pm \pi^\mp$ background model, and the blue dashed line follows the non-$D^{*\pm} \to D^0\pi^\pm, D^0 \to \pi^+ \pi^-$ background model.
+    }
+    \label{fig:d0pipi_uml_fit_dimuon}
+\end{figure}
+
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{@{}lrr@{}}
+    \toprule
+    \toprule
+    \textbf{\texttt{HLT\_DoubleMu4\_3\_LowMass} data}& Fitted count & Fitted error  \\
+    \midrule
+    $D^*, D^0 \to \pi\pi$ Yield        & 23787 & $\pm$509 \\
+    $D^*, D^0 \to K\pi$ Yield          & 21558  & $\pm$749 \\
+    Combinatorial Yield               & 155088 & $\pm$1722 \\
+    non--$D^*$, $D^0 \to \pi\pi$ Yield & 2140   & $\pm$685 \\
+    non--$D^*$, $D^0 \to K\pi$ Yield   & 181     & $\pm$1410 \\
+    \bottomrule
+    \toprule
+    \textbf{\texttt{HLT\_ZeroBias} data} & Fitted count & Fitted error \\
+    \midrule
+    $D^*, D^0 \to \pi\pi$ Yield        & 11390 & $\pm$397 \\
+    $D^*, D^0 \to K\pi$ Yield          & 9138  & $\pm$650 \\
+    Combinatorial Yield               & 35167 & $\pm$956 \\
+    non--$D^*$, $D^0 \to \pi\pi$ Yield & 390   & $\pm$361 \\
+    non--$D^*$, $D^0 \to K\pi$ Yield   & 0     & $\pm$302 \\
+    \bottomrule
+    \bottomrule
+    \end{tabular}
+    \caption{Fitted yields and associated uncertainties for the normalization UML fit.}
+    \label{tab:d0pipi_uml_fit_results}
+    \end{table}
+
