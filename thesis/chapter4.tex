@@ -2,13 +2,15 @@
 
 \section{Analysis overview}
 
-TODO
+\label{sec:analysis_overview}
+
+TODO: discuss blinding
 
 \section{Triggers and datasets}
 
 \subsection{Data samples}
 
-\ref{subsec:data_samples}
+\label{subsec:data_samples}
 
 The events used for this analysis are collected from proton-proton collisions at the LHC at a center of mass of 13.6 TeV. Specifically, we use data from the CMS detector during the years 2022 and 2023. The CMS collaboration marks specific run ranges as good runs and groups them into datasets marked with letters. The data we use is denoted as 2022C, 2022D, 2022E, 2022F, 2022G, 2023C, and 2023D. 
 
@@ -17,6 +19,10 @@ There are two triggers used for the analysis:
     \item The \texttt{HLT\_DoubleMu4\_3\_LowMass} trigger is used to collect $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \mu^+ \mu^-$ signal events by triggering on the dimuon final product. During the collection of the data samples of the analysis, the trigger was virtually unchanged and unprescaled, making it convenient to use for signal collection.
     \item The \texttt{HLT\_ZeroBias} trigger was used to collect $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \pi^+ \pi^-$ normalization events. Unlike the signal trigger, this trigger does not filter for a specific signature. However, the expected branching fraction of $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \pi^+ \pi^-$ is large enough to generate a sufficient number of desired events. During the collection of the data samples of the analysis, the trigger was virtually unchanged and was prescaled at the HLT and L1 triggers on the order of 1e6. 
 \end{enumerate}
+
+TODO: calculate exact prescaling factor $S_{ZB} = \frac{\text{total luminosity}}{\text{ZeroBias luminosity}}$
+
+TODO: add full length of dataset tables and perform the above calculation.
 
 The events collected by these two triggers and grouped into two datasets, ZeroBias and Parking DoubleMuonLowMass, respectively. We use the NanoAOD file format, designed by CMS to contain ntuples of per-event information and used for most analysis at CMS. Specifically, we use the NanoAODv12 recipe which is processed from MiniAOD. In this processing, we apply the muon data certification to ensure high quality muon objects. 
 
@@ -145,6 +151,7 @@ Once we have the muon and/or pion candidates for the $D^0$ decay, we use vertex 
 \end{figure}
 
 \subsection{Baseline selection}
+\label{subsec:baseline_selection}
 
 Using the reconstruction described in section \ref{subsec:preselection}, we are able to extract several kinematic variables from $D^{*\pm} \to D^0 \pi^\pm$ candidates outputted by the preselection. These variables are used in the baseline selection as well as in other parts of the analysis. They are defined here as follows:
 \begin{enumerate}
@@ -174,6 +181,7 @@ TODO: insert table of efficiencies
 
 
 \subsection{Multivariate Analysis}
+\label{subsec:mva}
 
 The preselection and baseline selections optimize signal efficiency, but not overall analysis sensitivity. In order to optimize the analysis sensitivity, we train a classifier using a decision tree model driven multivariate analysis (MVA). This single classifying parameter can then be used as a selection parameter named $\text{MVA}_D$ and the cut can be tuned to optimize analysis sensitivity.
 
@@ -294,14 +302,15 @@ In our analysis, $\theta$ is the true number of signal events (in the normalizat
 A more precise discussion of this construction follows in the sections below. For each of the two channels we begin by developing the models for both the signal and the background. Then, we outline the specifics of the fit and any corrections applied to it. Lastly, we outline the results of the fit. 
 
 \subsection{Normalization Channel Fit}
+\label{subsec:normalization_channel_fit}
 
-The goal of the normalization channel is to extract $N_{D^0 \to \pi^+ \pi^-}$. This is done using the HLT\_ZeroBias trigger dataset, as is described in section \ref{subsec:data_samples}. Perhaps the largest difficulty of the UML fit on the normlization channel is that the HLT\_ZeroBias trigger dataset does not contain many of the $D^{*\pm}\to D^0 \pi^\pm, D^0 \to \pi^+ \pi^-$ signal events due to the fact that the trigger doesn't filter for a specific signal. The below section, in part, describes in detail how this difficulty is overcome. % TODO: texttt the HLT trigger and HLT zerobias
+The goal of the normalization channel is to extract $N_{D^0 \to \pi^+ \pi^-}$. This is done using the \texttt{HLT\_ZeroBias} trigger dataset, as is described in section \ref{subsec:data_samples}. Perhaps the largest difficulty of the UML fit on the normalization channel is that the \texttt{HLT\_ZeroBias} trigger dataset does not contain many of the $D^{*\pm}\to D^0 \pi^\pm, D^0 \to \pi^+ \pi^-$ signal events due to the fact that the trigger doesn't filter for a specific signal. The below section, in part, describes in detail how this difficulty is overcome by using MC data to inform the fit and correcting for MC mismodeling effects when needed in the final fit. 
 
 \subsubsection{Signal Model}
 
 The signal model for the normalization channel describes the $\delta M$ and $m(D^0)$ of the $D^{*\pm}\to D^0 \pi^\pm, D^0 \to \pi^+ \pi^-$ decay. As is common to do for masses in signal distributions, the model for $m(D^0)$ is a sum of two Gaussian distributions forced to share a common mean. Similarly, the model for $\delta M$ is a sum of three Gaussian distributions forced to share a common mean.
 
-Due to the small number of signal events in data, the shape (composing of the means and standard deviations) of this model is determined by fits to simulated MC data. This is because the shape will be much more stable in MC compared to data, simply just because there are more samples in MC. Once the shape is found using MC, it is frozen and only the number of events is allowed to float when the fit is applied to data. The signal model fit to MC can be seen in figure \ref{ig:d0pipi_uml_fit_pipi_model}.
+Due to the small number of signal events in data, the shape (composing of the means and standard deviations) of this model is determined by fits to simulated MC data. This is because the shape will be much more stable in MC compared to data, simply just because there are more samples in MC. Once the shape is found using MC, it is frozen and only the number of events is allowed to float when the fit is applied to data. The signal model fit to MC can be seen in figure \ref{fig:d0pipi_uml_fit_pipi_model}.
 
 \begin{figure}[htp]
     \begin{center}
@@ -337,9 +346,9 @@ can be obtained as
         }
     \end{split}
 \end{equation}    
-All of the corrections to the signal shape are summarized below
+%All of the corrections to the signal shape are summarized TODO: add table reference.
 
-TODO: add table of width corrections. 
+%TODO: add table of width corrections.  Likely won't do this
 
 \subsubsection{Background Model}
 
@@ -363,11 +372,21 @@ The combinatorial background for $m(D^0)$ is an exponential function, as is comm
 \begin{equation}
     P(m|m_0, A, B, C) = \left(1 - \exp \left(-\frac{m-m_0}{C} \right) \right) \left( \frac{m}{m_0}\right)^A
 \end{equation}
-The shape of these functions is derived from fits to the data side-band regions where the distance from the signal resonance guarantees virtually no peaking background contribution. This shape is frozen to allow for fit stability when the model is used in the final data fit. Figure TODO: add figure shows the convergence of the shape on the data side-bands.
+The shape of these functions is derived from fits to the data side-band regions where the distance from the signal resonance guarantees virtually no peaking background contribution. This shape is frozen to allow for fit stability when the model is used in the final data fit. Figure \ref{fig:d0pipi_uml_fit_comb_model} shows the convergence of the shape on the data side-bands.
+
+\begin{figure}[htp]
+    \begin{center}
+      \includegraphics[width=0.9\textwidth]{figures/chapter4/normalization_fit/dpipi_fit_comb.pdf}
+    \end{center}
+    \caption{
+      The combinatorial model fit on data side-bands, with $m(D^0)$ displayed left and $\Delta m$ displayed right.
+    }
+    \label{fig:d0pipi_uml_fit_comb_model}
+\end{figure}
 
 \subsubsection{Fit Results}
 
-The final model used for the fit is a sum of signal model and all the background model. We check the convergence of this model on the \texttt{HLT\_DoubleMu4\_3\_LowMass} data, which contains significantly more signal events than the \texttt{HLT\_ZeroBias} trigger samples, allowing us to visually inspect the stability of the fit, as is seen in figure \ref{fig:d0pipi_uml_fit_dimuon} and table \ref{tab:d0pipi_uml_fit_results}. Importantly, the $D^0 \to K^\pm \pi^\mp$ decays where the $D^0$ meson does not originate from a $D^*$ meson contibutes virtually no events to the fit. Therefore, to increase the stability of the fit, we force the integral under this the non-$D^*,D^0 \to K^\pm \pi^\mp$ model to 0. 
+The final model used for the fit is a sum of signal model and all the background models. We check the convergence of this model on the \texttt{HLT\_DoubleMu4\_3\_LowMass} data, which contains significantly more signal events than the \texttt{HLT\_ZeroBias} trigger samples, allowing us to visually inspect the stability of the fit, as is seen in figure \ref{fig:d0pipi_uml_fit_dimuon} and table \ref{tab:d0pipi_uml_fit_results}. Importantly, the $D^0 \to K^\pm \pi^\mp$ decays where the $D^0$ meson does not originate from a $D^*$ meson contibutes virtually no events to the fit. Therefore, to increase the stability of the fit, we force the integral under this the non-$D^*,D^0 \to K^\pm \pi^\mp$ model to 0. 
 
 Finally, the fit is applied to the \texttt{HLT\_ZeroBias} trigger samples. A graphical representation of the fit can be seen in figure \ref{fig:d0pipi_uml_fit} and the results are summarized in table \ref{tab:d0pipi_uml_fit_results}.
 
@@ -410,11 +429,11 @@ Finally, the fit is applied to the \texttt{HLT\_ZeroBias} trigger samples. A gra
     \toprule
     \textbf{\texttt{HLT\_ZeroBias} data} & Fitted count & Fitted error \\
     \midrule
-    $D^*, D^0 \to \pi\pi$ Yield        & 11390 & $\pm$397 \\
-    $D^*, D^0 \to K\pi$ Yield          & 9138  & $\pm$650 \\
-    Combinatorial Yield               & 35167 & $\pm$956 \\
-    non--$D^*$, $D^0 \to \pi\pi$ Yield & 390   & $\pm$361 \\
-    non--$D^*$, $D^0 \to K\pi$ Yield   & 0     & $\pm$302 \\
+    $D^*, D^0 \to \pi\pi$ Yield        & 195 & $\pm$17 \\
+    $D^*, D^0 \to K\pi$ Yield          & 74  & $\pm$21 \\
+    Combinatorial Yield               & 140 & $\pm$20 \\
+    non--$D^*$, $D^0 \to \pi\pi$ Yield & 0   & $\pm$11 \\
+    non--$D^*$, $D^0 \to K\pi$ Yield   & 0     & $\pm$0 \\
     \bottomrule
     \bottomrule
     \end{tabular}
@@ -422,3 +441,74 @@ Finally, the fit is applied to the \texttt{HLT\_ZeroBias} trigger samples. A gra
     \label{tab:d0pipi_uml_fit_results}
     \end{table}
 
+\subsection{Signal Channel Fit}
+
+The goal of the signal channel is to extract $N_{D^0 \to \mu^+ \mu^-}$. This is done using the \texttt{HLT\_DoubleMu4\_3\_LowMass} trigger dataset, as is described in section \ref{subsec:backgrounds}. As with the normalization channel, the largest difficult of this UML fit is the lack of signal events due to the small branching fraction of the $D^0$ meson. Similarly to the normalization channel, the signal channel uses MC samples to inform the shapes for data, applying corrections when needed. Additionally, the results of the normalization channel are used to fix the background yields. These techniques are described in the remaineder of the section.
+
+It is worth mentioning that much of the machinery needed for this fit has been developed in section \ref{subsec:normalization_channel_fit} and is therefore not repeated here. Namely, this section focuses on the differences in the signal channel that require special attention.
+
+\subsubsection{Signal Model}
+
+The signal model for the normalization channel describes the $\delta M$ and $m(D^0)$ of the $D^{*\pm}\to D^0 \pi^\pm, D^0 \to \pi^+ \pi^-$ decay. The same procedure for determining the normalization channel signal model is used in determining this signal model, with the mean and width corrections derived from the normalization channel.
+
+The signal model fit to MC can be seen in figure \ref{fig:d0mumu_uml_fit}.
+
+\begin{figure}[htp]
+    \begin{center}
+      \includegraphics[width=0.45\textwidth]{figures/chapter4/signal_fit/d0mm_2022_2023_0_m.pdf}
+      \includegraphics[width=0.45\textwidth]{figures/chapter4/signal_fit/d0mm_2022_2023_0_dm.pdf}\\
+    \end{center}
+    \caption{
+      The signal model fit on MC samples, with $m(D^0)$ displayed left and $\Delta m$ displayed right.
+    }
+    \label{fig:d0mumu_uml_fit}
+\end{figure}
+
+\subsubsection{Background Model}
+
+As is evident from section \ref{subsec:backgrounds}, there are 2 $D^{*\pm} \to D^0 \pi^\pm$ peaking backgrounds and a combinatorial background to consider in the normalization channel. Note that the non-$D^{*\pm} \to D^0 \pi^\pm$ backgrounds which were discussed extensively in the normalization channel are not relevant here due to the large uncertainty of the combinatorial background compared to the expected yield from these backgrounds. Therefore, any non-$D^{*\pm} \to D^0 \pi^\pm$ backgrounds are considered combinatorial and considered in the combinatorial model.
+
+The two peaking backgrounds are $D^{*\pm} \to D^0 \pi^\pm$ processes where the $D^0$ decays via either $D^0 \to \pi^+ \pi^- \to \mu^+ \nu_\mu \mu^- \bar{\nu}_\mu$ (hadronic mode) or via $D^0 \to \to \pi^- \mu^+ \nu_\mu$ (semileptonic mode). Both of these models are developed using the same process as the signal mode. Namely, the models are built out of sums of Gaussian distributions\footnote{Just like in the signal, two Gaussian distributions sharing a common mean are used for $m(D^0)$ and three Gaussian distributions sharing a common mean are used for $\Delta m$}, their shape is determined by fitting to MC samples, and their means and widths are corrected for using the correction derived in the normalization channel fit. 
+
+In the normalization channel, the yields of these models were left floating. In this channel, there are so few events that allowing for this would destabilize the fit. However, we have already calculated $N_{D^0 \to \pi^+ \pi^-} = 195 \pm 17$ in section \ref{subsec:normalization_channel_fit} and the branching fractions of $\mathcal{B}(D^0 \to \pi^+ \pi^-) = (1.454 \pm 0.024) \times 10^{-3}$ and $\mathcal{B}(D^0 \to \pi^-\mu^+ \nu_\mu) = (2.67 \pm 0.12) \times 10^{-3}$ are well known \cite{ref:pdg2024}. Lastly, in section TODO: add fake rate section, we calculate the fake rate, $f_{\pi \to \mu}$, or the rate at which pions decay to muons in the detector, which occurs once in the semi-leptonic mode and twice in the hadronic mode.
+
+Using these qualities, as well as efficiency and MC corrections, we can write
+\begin{equation}
+\begin{split}
+    \frac{N_{D^0 \to \pi^+ \pi^- \to \mu^+ \nu_\mu \mu^- \bar{\nu}_\mu}}{N_{D^0 \to \pi^+ \pi^-}} &= \left(f_{\pi \to \mu}\right)^2 \times \frac{\epsilon_{D^*, D^0\to\pi\pi\to\mu\mu}}{\epsilon_{D^*, D^0\to\pi\pi}} \times S_{ZB} \times \text{MVA}_D \times T_{\text{corr}} \\
+    \frac{N_{D^0 \to \pi^- \mu^ \nu_\mu}}{N_{D^0 \to \pi^+ \pi^-}} &=\frac{\mathcal{B}_{D^0 \to \pi^- \mu^ \nu_\mu}}{\mathcal{B}_{D^0 \to \pi^+ \pi^-}} \times \left(f_{\pi \to \mu}\right) \times \frac{\epsilon_{D^*, D^0\to\pi\mu\nu}}{\epsilon_{D^*, D^0\to\pi\pi}} \times S_{ZB} \times \text{MVA}_D \times T_{\text{corr}}
+    \label{eq:peaking_background_yield_calculation}
+\end{split}
+\end{equation}
+where $S_{ZB}$ is the trigger prescaling factor discussed in section $\ref{subsec:data_samples}$, $\epsilon$ is the efficiency discussed in section \ref{subsec:baseline_selection}, $\text{MVA}_D$ is the MVA correction discussed in section $\ref{subsec:mva}$, and $T_{\text{corr}}$ are the trigger corrections discussed in section TODO: add trigger correction section. The convergence of the two fits in MC is shown in figure \ref{fig:d0pimunu_uml_fit} and figure \ref{fig:d0munumunu_uml_fit}
+
+\begin{figure}[htp]
+    \begin{center}
+      \includegraphics[width=0.45\textwidth]{figures/chapter4/signal_fit/d0pimunu_2022_2023_0_m.pdf}
+      \includegraphics[width=0.45\textwidth]{figures/chapter4/signal_fit/d0pimunu_2022_2023_0_dm.pdf}\\
+    \end{center}
+    \caption{
+      The $D^{*\pm} \to D^0\pi^\pm, D^0 \to \to \pi^- \mu^+ \nu_\mu$ model fit on MC samples, with $m(D^0)$ displayed left and $\Delta m$ displayed right.
+    }
+    \label{fig:d0pimunu_uml_fit}
+\end{figure}
+
+\begin{figure}[htp]
+    \begin{center}
+      \includegraphics[width=0.45\textwidth]{figures/chapter4/signal_fit/d0pipimm_2022_2023_0_m.pdf}
+      \includegraphics[width=0.45\textwidth]{figures/chapter4/signal_fit/d0pipimm_2022_2023_0_dm.pdf}\\
+    \end{center}
+    \caption{
+      The $D^{*\pm} \to D^0\pi^\pm, D^0 \to \pi^+ \pi^- \to \mu^+ \nu_\mu \mu^- \bar{\nu}_\mu$ model fit on MC samples, with $m(D^0)$ displayed left and $\Delta m$ displayed right.
+    }
+    \label{fig:d0munumunu_uml_fit}
+\end{figure}
+
+
+The process for determining the combinatorial model is kept the same as for the normalization channel. The only difference is that due to the added complexity of the backgrounds, the $m(D^0)$ pdf function is a combination of a Bernstein polynomial, power law, and exponential function, instead of just an exponential function as was used in the normalization channel. Similar to the normalization channel, the shape and yield is determined using data side-bands, leaving no combinatorial variables left to fit in the main data region.
+
+\subsubsection{Fit Results}
+
+The final model used for the fit is a sum of signal model and all the background models. One important note is to emphasize that the signal shape and peaking background shape are entirely deriving from MC, the peaking background yeild is determined from equation \ref{eq:peaking_background_yield_calculation}, and combinatorial background shape and yield are determined by the data side-bands. Therefore, the only parameter of this fit is the actual parameter of interest, namely the $N_{D^0 \to \pi^+ \pi^-}$ events. 
+
+The results of this fit are only seen after unblinding the data in as discussed in section \ref{sec:analysis_overview}. Therefore, the results are presented in section TODO: add section of this thesis. 
