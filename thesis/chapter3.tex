@@ -1,6 +1,11 @@
 \chapter{The CMS Detector}
+\label{ch:3}
 
-TODO: add introduction
+This chapter descriptions the experimental foundation used to measure the $D^0 \to \mu^+ \mu^-$ branching fraction. It begins with a summary of the Large Hadron Collider at CERN, including the injector chain, magnets, running periods, and luminosity profile. 
+
+Then, this chapter describes the CMS detector beginning with a short overview of its geometry and coordinate system before diving into each of its subsystems including the silicon tracker, electromagnetic calorimeter, hadronic calorimeter, superconducting solenoid, and muon chambers. For each of the subsystems, this chapter describes both the basic engineering needed for these detectors and the effect on physics read-out from the detector. 
+
+The next section in this chapter describes how the CMS experiment uses a trigger system to balance the large amount of data with the need to capture sufficient numbers of rare particle interactions. Lastly, this chapter discusses how raw data is reconstructed into particle events and how events are simulated for use in analysis and to benchmark detector response and acceptance. 
 
 \section{The Large Hadron Collider}
 
@@ -29,6 +34,7 @@ where $q$ is the charge of the particles, $p$ is the momentum of the particle, $
 Another difficulty of high energy colliders is the rarity of physically interesting collisions. Not only is it difficult to have two protons collide, but it is also rare to have a collision that will get included in an analysis. Due to these factors, the LHC operates at a very high beam intensity, measured as luminosity. The luminosity of of an accelerator is given by
 \begin{equation}
     L = \frac{N_b^2n_b f_{rev} \gamma_r F}{4 \pi \epsilon_n \beta^*}
+\label{eq:luminosity}
 \end{equation}
 where $N_b$ is the number of protons per bunch, $n_b$ is the number of bunches per beam, $f_{rev}$ is the revolutuon freuqnecy, $\gamma_r$ is the Lorentz factor, $F$ a geometric factor, and lastly $\epsilon_n$ and $\beta^*$ determine the interaction rate at the interaction point. The high luminosity at the LHC is achieve largely with the $\approx 10^{11}$ protons per bunch. However, this causes an entire host of problems due to the high number of background collisions, which will we discuss further in the next section. 
 
@@ -118,6 +124,7 @@ There are three different types of gaseous detectors used in the muon system: dr
 
 
 \section{Triggers}
+\label{sec:triggers}
 
 As mentioned earlier, high energy colliders are faced with the problem that collisions that are interesting for physics analysis are rare. This results in a need for a very high rate of data production and a large amount of background. 
 At the LHC, bunch crossing happen every 25 ns and result in an average of 20 collisions. Processing a storing the data from all these collisions is not technologically possible. Therefore, a trigger system is built to "trigger" on interesting physics events while ignoring all others. This trigger reduces the event rate from 800 MHz to roughly 1 kHz. The quality of data output requires a computing farm running advanced algorithms, known as the High Level Trigger (HTL). However, the raw data rate is too large to give to any computer and must therefore be filtered by hardware, forming the Level-1 (L1) trigger. The L1 trigger reduces the event rate to 100kHz, where it can be processed by the HLT. % TODO should probably include this citation:  M. Tosi, “The CMS trigger in Run 2,” Tech. Rep. CMS-CR-2017-340, CERN, Geneva, Oct 2017.
