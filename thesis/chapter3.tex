@@ -13,7 +13,7 @@ The Large Hadron Collider (LHC) at the European Organization for Nuclear Researc
 
 The protons originate from hydrogen atoms and are stripped free using a large electric field. From there, a series of accelerators called the CERN LHC injector chain accelerates the protons to 450 GeV before injecting them into the LHC in bunches. At any given time, there are 39 batches of 72 proton bunches in the LHC with a 25 ns spacing between bunches in a batch to allow for LHC kicker rise time during injection. 
 
-Once injected, the proton bunches are accelerated to a center-of-mass energy of several TeV using two main types of magnets: (i) 1,232 dipole magnets with a field strength of 8.3 T, which bend and accelerate the protons along the circular beam pipes, and (ii) 492 superconducting quadrupole magnets, operated at 1.9\textdegree K, which focus the proton bunches to maintain beam stability.
+Once injected, the proton bunches are accelerated to a center-of-mass energy of several TeV using two main types of magnets: (i) 1,232 dipole magnets with a field strength of 8.3 T, which bend and accelerate the protons along the circular beam pipes, and (ii) 492 superconducting quadrupole magnets, operated at 1.9 K, which focus the proton bunches to maintain beam stability.
 
 Once the particles are accelerated to their target energy, they collide at four main interaction points within the LHC. These correspond to the four major LHC experiments: two general-purpose detectors capable of a broad range of physics analysis: ATLAS (A Toroidal LHC Apparatus) and CMS (Compact Muon Solenoid); one detector optimized for heavy-ion collisions: ALICE (A Large Ion Collider Experiment); and one detector focused on $b$-physics: LHCb. Five more smaller experiments exist at secondary sites in the LHC: two specialized in particles that brush past each other, one experiment near LHCb to look for magnetic monopoles, and two experiments near ATLAS specialized in light particles, such as neutrinos. The full CERN accelerator complex can be seen in figure \ref{fig:cern-accelerator-complex}
 
@@ -127,22 +127,22 @@ There are three different types of gaseous detectors used in the muon system: dr
 \label{sec:triggers}
 
 As mentioned earlier, high energy colliders are faced with the problem that collisions that are interesting for physics analysis are rare. This results in a need for a very high rate of data production and a large amount of background. 
-At the LHC, bunch crossing happen every 25 ns and result in an average of 20 collisions. Processing a storing the data from all these collisions is not technologically possible. Therefore, a trigger system is built to "trigger" on interesting physics events while ignoring all others. This trigger reduces the event rate from 800 MHz to roughly 1 kHz. The quality of data output requires a computing farm running advanced algorithms, known as the High Level Trigger (HTL). However, the raw data rate is too large to give to any computer and must therefore be filtered by hardware, forming the Level-1 (L1) trigger. The L1 trigger reduces the event rate to 100kHz, where it can be processed by the HLT. % TODO should probably include this citation:  M. Tosi, “The CMS trigger in Run 2,” Tech. Rep. CMS-CR-2017-340, CERN, Geneva, Oct 2017.
+At the LHC, bunch crossing happen every 25 ns and result in an average of 20 collisions. Processing a storing the data from all these collisions is not technologically possible. Therefore, a trigger system is built to "trigger" on interesting physics events while ignoring all others. This trigger reduces the event rate from 800 MHz to roughly a few kHz. The quality of data output requires a computing farm running advanced algorithms, known as the High Level Trigger (HTL). However, the raw data rate is too large to give to any computer and must therefore be filtered by hardware, forming the Level-1 (L1) trigger. The L1 trigger reduces the event rate to 100kHz, where it can be processed by the HLT. % TODO should probably include this citation:  M. Tosi, “The CMS trigger in Run 2,” Tech. Rep. CMS-CR-2017-340, CERN, Geneva, Oct 2017.
 
 The L1 trigger is entirely built on Field Programmable Gate Arrays (FPGAs), custom integrated circuits that can be configured even after manufacturing, allowing for CMS to tune its hardware triggers without replacing hardware. These L1 triggers are segregated in terms of detector sub-systems, meaning that they only trigger once an interesting ECAL energy deposit has been found, an interesting muon detecetion, etc. but not on the event as a whole. 
 
 In contrast to the L1 trigger, the HLT is a large computing center with over 30,000 cores. One of the most important features of the HLT are the large arrays of buffers that are able to hold information before or while the HLT processes it, ensuring that the HLT has enough time to consider the event as a whole. The HLT system can be abstracted as a series of paths that each specialize in a type of event. For example, one might be interested in dimuon events with high muon energy. Carefully selecting the trigger paths is one of the most important aspects of any analysis. 
 
-One of the largest difficulties that come with using triggers is avoiding the bias that comes with picking a specific HLT trigger path. Numerous methods are used to prevent large trigger bias in analysis, including normalization channels and measuring trigger efficency across whatever variable you are interested in. To allow these calculations to occur, a MinBias dataset is created, which is a random small sample of the raw data read out. A discussion on the triggers used for this analysis and their bias can be found in section ??% TODO: insert section name here. 
+One of the largest difficulties that come with using triggers is avoiding the bias that comes with picking a specific HLT trigger path. Numerous methods are used to prevent large trigger bias in analysis, including normalization channels and measuring trigger efficency across whatever variable you are interested in. To allow these calculations to occur, a MinBias dataset is created, which is a random small sample of the raw data read out. A discussion on the triggers used for this analysis and their bias can be found in section \ref{subsec:data_samples}.
 
-\section{Event Reconstruction}
+%\section{Event Reconstruction}
 
-\subsection{Electrons}
+%\subsection{Electrons}
 
-\subsection{Muons}
+%\subsection{Muons}
 
-\subsection{Jets}
+%\subsection{Jets}
 
-\section{Similation Data}
+%\section{Similation Data}
 
-TODO: not sure if I need to write about this
+%TODO: not sure if I need to write about this

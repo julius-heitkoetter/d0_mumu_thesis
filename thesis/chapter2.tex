@@ -5,15 +5,15 @@ This chapter lays the theoretical groundwork on which the remainder of the thesi
 
 Then, this chapter describes the Standard Model (SM), beginning with its local gauge symmetry structure and then building the fundamental particles and interactions from the resulting Lagrangian. Special attention is paid to the electroweak portion of the Lagrangian, giving an outline of the mechanism by which the Higgs field gives mass to the $W^\pm$ and $Z$ bosons, important mediators in the $D^0 \to \mu^+ \mu^-$ decay. 
 
-Lastly, this chapter applies the theoretical groundwork established in its first two sections as a motivation for the $D^0 \to \mu^+ \mu^-$ search. Namely, flavor-changing neutral currents are defined and calculated to be not allowed at tree level in the SM. Loop contributions to the $D^0 \to \mu^+ \mu^-$ decay are cited to bring the branching fraction of the decay rate to $\simeq 10^{-13}$. The chapter ends by giving motivation as to why this makes the $D^0 \to \mu^+ \mu^-$ probe to new physics and giving a brief survey of the new physics that this probe could illuminate. 
+Lastly, this chapter applies the theoretical groundwork established in its first two sections as a motivation for the $D^0 \to \mu^+ \mu^-$ search. Namely, FCNCs are defined and calculated to be not allowed at tree level in the SM. Loop contributions to the $D^0 \to \mu^+ \mu^-$ decay are cited to bring the branching fraction of the decay rate to $\simeq 10^{-13}$. The chapter ends by giving motivation as to why this makes the $D^0 \to \mu^+ \mu^-$ probe to new physics and giving a brief survey of the new physics that this probe could illuminate. 
 
 \section{The Theory of Our Universe}
 
-Since it's formulation in the early 1970's, the Standard Model of Particle Physics (SM) has become one of the most successful physics theories ever conceived. Not only does it describe 3 out of the 4 fundamental forces in our unniverse, but in the past 50 years it has explained virtually all small length scale experimental results and has made some of the most precise predictions in all of physics. For example, it predicted the discovery of the Higgs Boson that occurred in 2012 \cite{ref:cms2012observation}\cite{ref:atlas2012observation} and it predicted the anomalous magnetic dipole moment as $a = 0.00115965218059(13)$ \cite{ref:fan_2023}, which results into a prediction of the fine structure constant that has a precision of better than one part in a billion.
+Since its formulation in the early 1970's, the Standard Model of Particle Physics (SM) has become one of the most successful physics theories ever conceived. Not only does it describe 3 out of the 4 fundamental forces in our unniverse, but in the past 50 years it has explained virtually all small length scale experimental results and has made some of the most precise predictions in all of physics. For example, it predicted the discovery of the Higgs Boson that occurred in 2012 \cite{ref:cms2012observation}\cite{ref:atlas2012observation} and it predicted the anomalous magnetic dipole moment as $a = 0.00115965218059(13)$ \cite{ref:fan_2023}, which results into a prediction of the fine structure constant that has a precision of better than one part in a billion.
 
 However we know that the SM cannot be the complete theory of our universe due to a few, major short comings. Perhaps the largest of these is the lack of gravity in it's description of physics, meaning it cannot describe any long distance cosmological observations. Other problems also persist at small length scales, such as the observation of neutrino oscillations \cite{ref:duan2010collective} which cannot occur using the massless neutrinos that the SM predicts. 
 
-Therefore, physics analysis are often in search of Beyond the Standard Model (BSM) physics at small length scales to build a theory of particle physics that could solve many of the problems with the SM. Importantly, the SM is a quantum field theory, 
+Therefore, physics analysis are often in search of BSM physics at small length scales to build a theory of particle physics that could solve many of the problems with the SM. Importantly, the SM is a quantum field theory, 
 
 \section{Quantum Field Theory \cite{ref:harlow2024}}
 
@@ -52,7 +52,7 @@ where $A$ is a symmetric matrix determined by the action $S_\epsilon$. This can 
 \begin{equation}
 \int d^{d-1} x e^{\frac{1}{2}x^TAx + B^Tx} = \frac{1}{\sqrt{ \det\left( \frac{A}{2\pi}\right) } } e^{\frac{1}{2}B^T A^{-1} B}
 \end{equation}
-The process of evaluating these integrals can be long and tedious. In the late 1940s, Richard Feynman introduced the Feynman Diagram as a graphical method for writing down these integrals along with Feynman Rules describing how to graphically evaluate correlation functions without needing to explicitly compute the path integral. While Feynman diagrams are often seen as "collision diagrams", it is important to remember their one-to-one relationship with path integrals of correlation functions. Once the Feynman Rules have been derived from the path integral of a specific QFT, they can be applied to get correlation functions. An example of a feynman diagram can be seen in figure \ref{fig:example_feynman_diagram}.
+The process of evaluating these integrals can be long and tedious. In the late 1940s, Richard Feynman introduced the Feynman Diagram as a graphical method for writing down these integrals along with Feynman Rules describing how to graphically evaluate correlation functions without needing to explicitly compute the path integral. While Feynman diagrams are often seen as "collision diagrams", it is important to remember their one-to-one relationship with path integrals of correlation functions. Once the Feynman Rules have been derived from the path integral of a specific QFT, they can be applied to get correlation functions. An example of a Feynman diagram can be seen in figure \ref{fig:example_feynman_diagram}.
 
 \begin{figure}[ht!]
     \centering
@@ -102,11 +102,11 @@ SU(3) \times SU(2) \times U(1)
 \end{equation}
 Like many QFTs, there are two classifications of fields in the SM: bosons and fermions. While bosons are symmetric under exchange, fermions are antisymmetric under exchange. Consequently, the spin-statistic theorem states that fermions must have half integer spin while bosons have whole integer spin. Additionally, the spin-statistics theorem dictates that no two fermions may occupy the same state, making it very natural to think of them as matter. The total spin of two interacting half integer spin fermions must be whole integer, making it natural to think of bosons as mediators of interactions between fermions. 
 
-The three local symmetries of the standard model are in fact gauge symmetries. They represent redundancy in description of our model, similar to the classical electromagnetism gauge. Due to some formalism we haven't developed and will leave out of this analysis, the generators of these gauge groups induce gauge bosons. Specifically, the 8 generators of $SU(3)$ give rise to the eight gluons that describe Quantum Chromodynamics (QCD) and the other four generators of $SU(2) \times U(1)$ give rise to electroweak (EW) interactions. Due to this, it makes sense to break up the LaGrangian into QCD and EW terms, which we know can be written independently, due to the independence of their generators. Namely, we have that
+The three local symmetries of the standard model are in fact gauge symmetries. They represent redundancy in description of our model, similar to the classical electromagnetism gauge. Due to some formalism we haven't developed and will leave out of this analysis, the generators of these gauge groups induce gauge bosons. Specifically, the 8 generators of $SU(3)$ give rise to the eight gluons that describe Quantum Chromodynamics (QCD) and the other four generators of $SU(2) \times U(1)$ give rise to electroweak (EW) interactions. Due to this, it makes sense to break up the Lagrangian into QCD and EW terms, which we know can be written independently, due to the independence of their generators. Namely, we have that
 \begin{equation}
 \mathcal{L}_{SM} = \mathcal{L}_{EW} + \mathcal{L}_{QCD}
 \end{equation}
-In the following sections, we will analyze each of these LaGrangians independently, showing how they give rise to the various particles in the SM and their interactions. As a preview, the particles of the standard model and their quantum numbers are summarized in figure \ref{fig:particles_of_the_SM}. 
+In the following sections, we will analyze each of these Lagrangians independently, showing how they give rise to the various particles in the SM and their interactions. As a preview, the particles of the standard model and their quantum numbers are summarized in figure \ref{fig:particles_of_the_SM}. 
 
 \begin{figure}[ht!]
     \centering
@@ -140,7 +140,7 @@ The eight generators of $SU(3)$ are given by the Glenn-Mann matrices and yield t
   \end{table}
 
 
-By constructing a QFT that is invariant under $SU(3)$, one arrives at the LaGrangian
+By constructing a QFT that is invariant under $SU(3)$, one arrives at the Lagrangian
 \begin{equation}
     \mathcal{L}_{{QCD}} = \bar{q}^a\cancel{D}_{ab}q^b - m_{ab}\bar{q}^aq^b - \frac{1}{4}G^a_{\mu\nu}G_a^{\mu\nu}
 \end{equation}
@@ -199,11 +199,11 @@ The right handed fermions in this theory are not affected by the $SU(2)$ symmetr
 
 \subsubsection{The Higgs field}
 
-Now, there is one more subtly that must be addressed before introducing the LaGrangian for the electroweak interaction. Specifically, we know that in $d=4$, renormalizable QFTs can only contain non-invariant dimension-four operators, meaning that it cannot allow a term that would give mass to the bosons, such as $m^2 B_{\mu}^aB^{a\mu}$ for the weak isospin gauge bosons.  This is consistent with our formulation of QCD above due to the massless gluon, as well as consistent with our observation of the massless photon. However, the $W^\pm$ and $Z$ boson are observed to carry mass.
+Now, there is one more subtly that must be addressed before introducing the Lagrangian for the electroweak interaction. Specifically, we know that in $d=4$, renormalizable QFTs can only contain non-invariant dimension-four operators, meaning that it cannot allow a term that would give mass to the bosons, such as $m^2 B_{\mu}^aB^{a\mu}$ for the weak isospin gauge bosons.  This is consistent with our formulation of QCD above due to the massless gluon, as well as consistent with our observation of the massless photon. However, the $W^\pm$ and $Z$ boson are observed to carry mass.
 
-Therefore, we must introduce a scalar field that is allowed to break the $SU(2) \times U(1)$ symmetry and give rise to $Z$ and $W^\pm$ masses. This field is known as the Higgs field. While an in-depth discussion of the Higgs mechanism is out of the scope of this thesis, a short discussion should suffice to understand the EW LaGrangian.
+Therefore, we must introduce a scalar field that is allowed to break the $SU(2) \times U(1)$ symmetry and give rise to $Z$ and $W^\pm$ masses. This field is known as the Higgs field. While an in-depth discussion of the Higgs mechanism is out of the scope of this thesis, a short discussion should suffice to understand the EW Lagrangian.
 
-In order to give mass to the $W^\pm$ and $Z$ bosons, the field we add must allow for the full LaGrangian to remain invariant while resulting in a ground state that is not. One good way to think of this is known as the mexican hat potential, given by $f(r, \theta) = (r^2 - v^2)$ shown in figure \ref{fig:mexican_hat_potential}. This potential is completely rotationally symmetric, but the ground state lies away from the origin at $r = v$, meaning the ground state itself is not spherically symmetric. Additionally it satisfies all other properties of a valid potential by being continuous, well defined, and bounded from below. Therefore, we introduce a doublet under $SU(2)$, given by
+In order to give mass to the $W^\pm$ and $Z$ bosons, the field we add must allow for the full Lagrangian to remain invariant while resulting in a ground state that is not. One good way to think of this is known as the mexican hat potential, given by $f(r, \theta) = (r^2 - v^2)$ shown in figure \ref{fig:mexican_hat_potential}. This potential is completely rotationally symmetric, but the ground state lies away from the origin at $r = v$, meaning the ground state itself is not spherically symmetric. Additionally it satisfies all other properties of a valid potential by being continuous, well defined, and bounded from below. Therefore, we introduce a doublet under $SU(2)$, given by
 \begin{equation}
 h = \begin{pmatrix}
 h^+ \\ h^0
@@ -218,12 +218,12 @@ and put it in the mexican hat potential.
     \label{fig:mexican_hat_potential}
 \end{figure}
 
-To see that indeed this gives the $W$ and $Z$ bosons mass, we write down the LaGrangian of this field in the presence of the $W^a_\mu$ and $B_\mu$ fields as
+To see that indeed this gives the $W$ and $Z$ bosons mass, we write down the Lagrangian of this field in the presence of the $W^a_\mu$ and $B_\mu$ fields as
 \begin{equation}
 \mathcal{L}_{h} = (D_{\mu}h)(D^\mu h) - \lambda\left(|h|^2- \frac{v}{2}\right)^2
 \label{eq:higg-field-lagrangian}
 \end{equation}
-where $D_\mu = (\partial_\mu - \frac{ig}{2}\tau^a A^a_\mu - \frac{ig'Y}{2}B_\mu)$. Here $\tau^a$ (also known as the Pauli matrices) and $YI$ are the generators of $SU(2)$ and $U(1)$. Their corresponding eigenvalues are labeled as $T_a$\footnote{$T_a$ is actually the eigenvalue of $\frac{\tau^a}{2}$} and $Y$; they are known as the weak isospin and weak hypercharge quantum numbers and a convenient basis is often $T^2 = T_1^2 + T_2^2 + T_3^2$, $T_3$, and $Y$. Separately, note that $\lambda\left(|h|^2- \frac{v}{2}\right)^2$ is exactly a rescaled mexican hat potential. Now, it is straight forward to see that this LaGrangian contains the terms
+where $D_\mu = (\partial_\mu - \frac{ig}{2}\tau^a A^a_\mu - \frac{ig'Y}{2}B_\mu)$. Here $\tau^a$ (also known as the Pauli matrices) and $YI$ are the generators of $SU(2)$ and $U(1)$. Their corresponding eigenvalues are labeled as $T_a$\footnote{$T_a$ is actually the eigenvalue of $\frac{\tau^a}{2}$} and $Y$; they are known as the weak isospin and weak hypercharge quantum numbers and a convenient basis is often $T^2 = T_1^2 + T_2^2 + T_3^2$, $T_3$, and $Y$. Separately, note that $\lambda\left(|h|^2- \frac{v}{2}\right)^2$ is exactly a rescaled mexican hat potential. Now, it is straight forward to see that this Lagrangian contains the terms
 \begin{equation}
 \frac{v^2}{8}\left[g^2\left((A^{1}_{\mu})^2 + (A^{2}_{\mu})^2\right) + (gA_{\mu}^3 - g' B_{\mu})\right]
 \end{equation}
@@ -234,7 +234,7 @@ M_{W^+} = M_{W^-} = \frac{gv}{2} \quad\quad M_{Z} = \frac{gv}{2\cos(\theta_{W})}
 
 \subsubsection{Full Electroweak Theory}
 
-Finally, by constructing a QFT involving these fields and one that is invariant under $SU(3)$, one arrives at the LaGrangian
+Finally, by constructing a QFT involving these fields and one that is invariant under $SU(3)$, one arrives at the Lagrangian
 \begin{equation}
 \mathcal{L}_{EW} = \mathcal{L}_{g} + \mathcal{L}_{f} + \mathcal{L}_{h} + \mathcal{L}_{y}
 \end{equation}
@@ -260,13 +260,13 @@ Here, for notational convience we have dropped the flavor indices. $Y_{e,u,d}$ a
 
 \section{The $D^0 \to \mu^+ \mu^-$ decay.}
 
-In principal, now that we have written down the SM Lagrangian, one could follow the standard QFT formalism described above to calculate perturbitively $\Gamma(D^0 \to \mu^+ \mu_-)$. In practice, this is incredibly complex and involves decades of perturbative QFT formalisms. Therefore, in this section we will first categorize this decay as a flavor changing neutral current --describing it's significance as such-- and heuristically summarize the calculation of $\mathcal{B}(D^0 \to \mu^+ \mu^-)$ done by G. Burdman, E. Golowich, J. L. Hewett, and S. Pakvasa (BGHP) \cite{ref:burdman_2002}.
+In principal, now that we have written down the SM Lagrangian, one could follow the standard QFT formalism described above to calculate perturbitively $\Gamma(D^0 \to \mu^+ \mu^-)$. In practice, this is incredibly complex and involves decades of perturbative QFT formalisms. Therefore, in this section we will first categorize this decay as a FCNC and heuristically summarize the calculation of $\mathcal{B}(D^0 \to \mu^+ \mu^-)$ done by G. Burdman, E. Golowich, J. L. Hewett, and S. Pakvasa (BGHP) \cite{ref:burdman_2002}.
 
 \subsection{Flavor Changing Neutral Currents}
 
 Flavor changing neutral currents (FCNCs) are interactions that change the flavor of a fermion without altering it's electric charge. 
 
-The SM forbids flavor-changing neutral currents expicitly at tree level. Processes that are flavor-changing with neutral currents must first undergo a flavor change in a loop which combines to give a neutral current, the details of which are discussed later. To see explicitly why this is true, we start with the gluon-fermion interaction terms of the LaGrangian which we derived earlier. Namely we have that the interaction terms can be pulled out of equation \ref{eq:fermion_kinetic_term} to give us
+The SM forbids FCNCs expicitly at tree level. Processes that are flavor-changing with neutral currents must first undergo a flavor change in a loop which combines to give a neutral current, the details of which are discussed later. To see explicitly why this is true, we start with the gluon-fermion interaction terms of the Lagrangian which we derived earlier. Namely we have that the interaction terms can be pulled out of equation \ref{eq:fermion_kinetic_term} to give us
 \begin{equation}
 \mathcal{L}_{gf} = \sum_{f=\{ Q, L, u, d, e\}} \bar{f}_{i} \gamma^\mu \left(\partial_\mu - \frac{ig}{2} \tau^a A^a_\mu - ig' \frac{Y}{2} B_\mu\right)f_{i}
 \end{equation}
@@ -278,7 +278,7 @@ From this, we can easily isolate $\mathcal{L}_{gf}$ into neutral currents and ch
 \begin{equation}
 \mathcal{L}_{NC} = \sum_{f=\{ Q, L, u, d, e\}} \bar{f}_{i} \gamma^\mu \left( -\frac{g}{2} A^3_\mu\tau^3 - \frac{g'}{2}B_\mu Y\right)f_{i}
 \end{equation}
-Now, we notice that the LaGrangian only has interactions between fermions with the same flavor index. Therefore, the only flavor mixing that can occur is between the doublets. Therefore, we can expand out to get the candidates for FCNC interactions as
+Now, we notice that the Lagrangian only has interactions between fermions with the same flavor index. Therefore, the only flavor mixing that can occur is between the doublets. Therefore, we can expand out to get the candidates for FCNC interactions as
 \begin{equation}
 \begin{split}
 \mathcal{L}_{\text{FCNC Candidates}} = &-\frac{g}{2}\begin{pmatrix}
@@ -343,7 +343,7 @@ where the values of $T_3^{(f)}$, $Y^{(f)}$ and $Q^{(f)}$ can be found in table \
       \hline
     \end{tabular}
     \caption{Weak isospin $(T_3)$, weak hypercharge $(Y)$, and electric
-             charge $(Q)$ for the chiral fermions of one Standard‑Model
+             charge $(Q)$ for the chiral fermions of one Standard Model
              generation\,\cite{ref:pdg2024}.}
     \label{tab:ew_charges}
   \end{table}
@@ -356,16 +356,21 @@ More importantly, we notice that there are indeed no FCNC terms left. More speci
 
 Hadrons, such as the $D^0$ are collections of quarks in bound states. One defining property of QCD is that virtually all hadrons are in gluon-bound color-neutral states. These states therefore contain either a quark and an antiquark (known as baryons) or a quark and an antiquark (known as mesons). $D$ mesons are known a *charm mesons* and are any light meson that contains a charm quark. The $D^0$ is one such meson, being the only neutrally charge $D$ meson, composed of a *charm* and an *anti-up* quark. Note that there is also an anti-$D^0$ meson, being composed of an *anti-charm* and an *up* quark. 
 
-Now, since the $D^0$ meson is composed of a quark pair and the final state $\mu^+ \mu^-$ contains no quarks, therefore indicating that there must be a flavor change. However, importantly the $D^0$ is a neutral particle, as is the $\mu^+, \mu^-$ final state. Therefore, for there to be a tree-level contribution, there must be a tree-level FCNC, which is not allowed by the standard model. Therefore, the $D^0 \to \mu^+ \mu^-$  decay must involve many vertices and is thus heavily suppressed by the standard model.
+Now, since the $D^0$ meson is composed of a quark pair and the final state $\mu^+ \mu^-$ contains no quarks, therefore indicating that there must be a flavor change. However, importantly the $D^0$ is a neutral particle, as is the $\mu^+ \mu^-$ final state. Therefore, for there to be a tree-level contribution, there must be a tree-level FCNC, which is not allowed by the standard model. Therefore, the $D^0 \to \mu^+ \mu^-$  decay must involve many vertices and is thus heavily suppressed by the standard model.
 
 G. Burdman, E. Golowich, J. L. Hewett, and S. Pakvasa (BGHP) have carried out the most complete SM analysis of the $D^0 \to \mu^+ \mu^-$ decay that includes all short and long-distance effects. 
 
-To begin with the short distance (SD) effects, the quark level transition arises from electroweak penguin and box diagrams, an example of which is found in Feynman diagram in figure ??. After integrating over all possible diagrams, BGHP find that 
+To begin with the short distance (SD) effects, the quark level transition arises from electroweak penguin and box diagrams, an example of which is found in Feynman diagram in figure \ref{fig:D0_decay_diagrams}. After integrating over all possible diagrams, BGHP find that 
 \begin{equation}
 \mathcal{B}(D^0 \to \mu^+ \mu^-)_{SD} \simeq 10^{-18}
 \end{equation}
 
-TODO: add feynman diagram
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=1.0\textwidth]{figures/chapter2/d0_FCNC_decays.png}
+    \caption{Two Feynman diagrams contributing to rare \(D^0\) decays: (left) the leading SD contribution in the form of a penguin diagram and (right) the leading LD contribution, depicting the two-photon contribution. Note that the $D^0$/$\gamma$/$\gamma$ vertex hides additional complexity in the Feynman diagram, which is calculated by BGHP in the form of many SD and LD contributions combined and is abstracted away in the above diagrams.}
+  \label{fig:D0_decay_diagrams}
+\end{figure}
 
 Next, BGHP identify two distinct long distance (LD) mechanisms, single-particle unitary contributions and two-photon contributions. The single particle unitary contributions are dominated by weak-mixing with ground-state presudoscalars, such as $\pi^0, \eta, \eta'$, followed by these pseudoscalars decaying into a dimuon final state, $P^0 \to \mu^+ \mu^-$. The branching fraction of this calculation is given by
 \begin{equation}
@@ -375,7 +380,7 @@ In principal, there could be mixing with heavier $0^\pm$ resonances such as $\pi
 \begin{equation}
 \mathcal{B}(D^0 \to \mu^+ \mu^-)_{\pi(1800)} \simeq  5.0 \times 10^{-17}
 \end{equation}
-The two-photon contributions come from the dispersive two photon decay $D^0 \to \gamma \gamma \to \mu^+ \mu^-$. BGHP show that 
+The two-photon contributions come from the dispersive two photon decay $D^0 \to \gamma \gamma \to \mu^+ \mu^-$ shown in figure \ref{fig:D0_decay_diagrams}. BGHP show that 
 \begin{equation}
 \mathcal{B}(D^0 \to \mu^+ \mu^-)_{\gamma\gamma} \simeq 2.7 \times 10^{-5} \mathcal{B}(D^0 \to \gamma\gamma)
 \end{equation}
