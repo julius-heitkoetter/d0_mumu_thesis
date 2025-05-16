@@ -1,38 +1,38 @@
 \chapter{Theory and Motivation}
 \label{ch:2}
 
-This chapter lays the theoretical groundwork on which the remainder of the thesis is built and gives insight to why the rare decay $D^0 \to \mu^+ \mu^-$ is a valuable probe for the new physics. The chapter begins with a short survey of Quantum Field Theory (QFT), outlining how the adoption of special relativity into qunatum mechanics gives rise to a QFT that is characterized by a Lagrangian and a resulting correlation function that can be calculated perturbatively. This framework then describes the computational tools for calculating these correlation function, such as path integrals, Feynman diagrams, the LSZ formulation, which allows the calculation of scattering amplitudes from correlation functions. 
+This chapter lays the theoretical groundwork on which the remainder of the thesis is built and gives insight into why the rare decay $D^0 \to \mu^+ \mu^-$ is a valuable probe for the new physics. The chapter begins with a short survey of Quantum Field Theory (QFT), outlining how the adoption of special relativity into quantum mechanics gives rise to a QFT that is characterized by a Lagrangian and a resulting correlation function that can be calculated perturbatively. This framework then describes the computational tools for calculating these correlation functions, such as path integrals, Feynman diagrams, and the LSZ formulation, which allows the calculation of scattering amplitudes from correlation functions. 
 
-Then, this chapter describes the Standard Model (SM), beginning with its local gauge symmetry structure and then building the fundamental particles and interactions from the resulting Lagrangian. Special attention is paid to the electroweak portion of the Lagrangian, giving an outline of the mechanism by which the Higgs field gives mass to the $W^\pm$ and $Z$ bosons, important mediators in the $D^0 \to \mu^+ \mu^-$ decay. 
+Next, this chapter describes the Standard Model (SM), beginning with its local gauge symmetry structure and then building the fundamental particles and interactions from the resulting Lagrangian. Special attention is paid to the electroweak portion of the Lagrangian, giving an outline of the mechanism by which the Higgs field gives mass to the $W^\pm$ and $Z$ bosons, important mediators in the $D^0 \to \mu^+ \mu^-$ decay. 
 
-Lastly, this chapter applies the theoretical groundwork established in its first two sections as a motivation for the $D^0 \to \mu^+ \mu^-$ search. Namely, FCNCs are defined and calculated to be not allowed at tree level in the SM. Loop contributions to the $D^0 \to \mu^+ \mu^-$ decay are cited to bring the branching fraction of the decay rate to $\simeq 10^{-13}$. The chapter ends by giving motivation as to why this makes the $D^0 \to \mu^+ \mu^-$ probe to new physics and giving a brief survey of the new physics that this probe could illuminate. 
+Lastly, this chapter applies the theoretical groundwork established in its first two sections as a motivation for the $D^0 \to \mu^+ \mu^-$ search. Namely, FCNCs are defined and calculated to be not allowed at tree level in the SM. Loop contributions to the $D^0 \to \mu^+ \mu^-$ decay are calculated to bring the branching fraction of the decay rate to $\simeq 10^{-13}$. The chapter ends by giving motivation as to why this makes the $D^0 \to \mu^+ \mu^-$ decay a probe of new physics and provides a brief survey of the new physics that this probe could illuminate. 
 
 \section{The Theory of Our Universe}
 
-Since its formulation in the early 1970's, the Standard Model of Particle Physics (SM) has become one of the most successful physics theories ever conceived. Not only does it describe 3 out of the 4 fundamental forces in our unniverse, but in the past 50 years it has explained virtually all small length scale experimental results and has made some of the most precise predictions in all of physics. For example, it predicted the discovery of the Higgs Boson that occurred in 2012 \cite{ref:cms2012observation}\cite{ref:atlas2012observation} and it predicted the anomalous magnetic dipole moment as $a = 0.00115965218059(13)$ \cite{ref:fan_2023}, which results into a prediction of the fine structure constant that has a precision of better than one part in a billion.
+Since its formulation in the early 1970's, the Standard Model of Particle Physics (SM) has become one of the most successful physics theories ever conceived. Not only does it describe 3 out of the 4 fundamental forces in our universe, but in the past 50 years it has explained virtually all small length scale experimental results and has made some of the most precise predictions in all of physics. For example, it predicted the discovery of the Higgs Boson that occurred in 2012 \cite{ref:cms2012observation}\cite{ref:atlas2012observation} and it predicted the anomalous magnetic dipole moment as $a = 0.00115965218059(13)$ \cite{ref:fan_2023}, which results in a prediction of the fine structure constant that has a precision of better than one part in a billion.
 
-However we know that the SM cannot be the complete theory of our universe due to a few, major short comings. Perhaps the largest of these is the lack of gravity in it's description of physics, meaning it cannot describe any long distance cosmological observations. Other problems also persist at small length scales, such as the observation of neutrino oscillations \cite{ref:duan2010collective} which cannot occur using the massless neutrinos that the SM predicts. 
+However we know that the SM cannot be the complete theory of our universe due to a few, major shortcomings. Perhaps the largest of these is the lack of gravity in its description of physics, meaning it cannot describe any long distance cosmological observations. Other problems also persist at small length scales, such as the observation of neutrino oscillations \cite{ref:duan2010collective} which cannot occur using the massless neutrinos that the SM predicts. 
 
-Therefore, physics analysis are often in search of BSM physics at small length scales to build a theory of particle physics that could solve many of the problems with the SM. Importantly, the SM is a quantum field theory, 
+Therefore, physics analyses are often in search of BSM physics at small length scales to build a theory of particle physics that could solve many of the problems with the SM. Importantly, the SM is a quantum field theory, 
 
 \section{Quantum Field Theory \cite{ref:harlow2024}}
 
-Heuristically speaking, Quantum Field Theory (QFT) is a mathematical framework developed to unify the theories of classical special relativity and non-relavistic quantum mechanics. In the late 1920s, non-relativistic quantum mechanics had developed to a mature theory, modeling many of the phenomena that the physics of the 19th century simply couldn't explain. However, when put into context with Einstein's theory of special relativity, there were two central problems: 
+Heuristically speaking, Quantum Field Theory (QFT) is a mathematical framework developed to unify the theories of classical special relativity and non-relativistic quantum mechanics. In the late 1920s, non-relativistic quantum mechanics had developed to a mature theory, modeling many of the phenomena that the physics of the 19th century simply couldn't explain. However, when put into context with Einstein's theory of special relativity, there were two central problems: 
 \begin{enumerate}
-    \item Velocities and momentums are strictly non relativistic 
+    \item Velocities and momenta are strictly non-relativistic 
     \item Interactions are instantaneous. 
 \end{enumerate}
 Fixing these two issues forces the fundamental building block of any QFT to be fields, not particles, that obey causality. Specifically, physics in a QFT is modeled as interactions between dynamical fields over spacetime coordinates.
 
-In order to force compliance with special relativity and classical mechanics, the fields in any QFT must have 3 global symmetries:
+In order to force compliance with special relativity and classical mechanics, the fields in any QFT must have three global symmetries:
 \begin{enumerate}
     \item Translational symmetry along both spatial and temporal coordinates
     \item Rotational symmetry along two spatial coordinates
     \item Rotational symmetry along a spatial coordinate and the temporal coordinate
 \end{enumerate}
-The last symmetry gives rise to Lorentz transformation, which describe the invariance of inertial reference frames, one of the central properties of special relativity. These three global symmetries are often grouped together as Global Poincare Symmetry, which lays the framework for virtually all of QFT.
+The last symmetry gives rise to Lorentz transformation, which describe how physics is invariant under transformations between inertial reference frames, one of the central properties of special relativity. These three global symmetries are often grouped together as global Poincaré symmetry, which lays the framework for virtually all of QFT.
 
-To construct a QFT, the Lagrangian is first written down as the most general Lagrangian possible that satisfies Global Poincare Symmetry as well as any local symmetries that should be preserved. Importantly, the Lagrangian must be renormalizable, meaning that divergences can be absorbed into the parameters of your model to give real, physical interpretations of the results.
+To construct a QFT, the Lagrangian is first written down in the most general form possible that satisfies global Poincaré symmetry as well as any local symmetries that should be preserved. Importantly, the Lagrangian must be renormalizable, meaning that divergences can be absorbed into the parameters of your model to give real, physical interpretations of the results.
 
 \subsection{Correlation Functions}
 
@@ -52,7 +52,7 @@ where $A$ is a symmetric matrix determined by the action $S_\epsilon$. This can 
 \begin{equation}
 \int d^{d-1} x e^{\frac{1}{2}x^TAx + B^Tx} = \frac{1}{\sqrt{ \det\left( \frac{A}{2\pi}\right) } } e^{\frac{1}{2}B^T A^{-1} B}
 \end{equation}
-The process of evaluating these integrals can be long and tedious. In the late 1940s, Richard Feynman introduced the Feynman Diagram as a graphical method for writing down these integrals along with Feynman Rules describing how to graphically evaluate correlation functions without needing to explicitly compute the path integral. While Feynman diagrams are often seen as "collision diagrams", it is important to remember their one-to-one relationship with path integrals of correlation functions. Once the Feynman Rules have been derived from the path integral of a specific QFT, they can be applied to get correlation functions. An example of a Feynman diagram can be seen in figure \ref{fig:example_feynman_diagram}.
+The process of evaluating these integrals can be long and tedious. In the late 1940s, Richard Feynman introduced the Feynman Diagram as a graphical method for writing down these integrals along with Feynman Rules describing how to graphically evaluate correlation functions without needing to explicitly compute the path integral. While Feynman diagrams are often interpreted as collision diagrams, it is important to remember their one-to-one relationship with path integrals of correlation functions. Once the Feynman Rules have been derived from the path integral of a specific QFT, they can be applied to get correlation functions. An example of a Feynman diagram can be seen in figure \ref{fig:example_feynman_diagram}.
 
 \begin{figure}[ht!]
     \centering
@@ -96,28 +96,28 @@ This concludes the outline of how to arrive at a branching fraction for a genera
 
 \section{The Standard Model}
 
-Recall that a QFT is constructed by identifying a list of local symmetries and then writing down the most general, renormalizable Lagrangian that satisfies the symmetries. The local symmetries of the SM are given by
+Recall that a QFT is constructed by identifying a list of local symmetries and writing down the most general, renormalizable Lagrangian that satisfies the symmetries. The local symmetries of the SM are given by
 \begin{equation}
 SU(3) \times SU(2) \times U(1)
 \end{equation}
-Like many QFTs, there are two classifications of fields in the SM: bosons and fermions. While bosons are symmetric under exchange, fermions are antisymmetric under exchange. Consequently, the spin-statistic theorem states that fermions must have half integer spin while bosons have whole integer spin. Additionally, the spin-statistics theorem dictates that no two fermions may occupy the same state, making it very natural to think of them as matter. The total spin of two interacting half integer spin fermions must be whole integer, making it natural to think of bosons as mediators of interactions between fermions. 
+Like many QFTs, there are two classifications of fields in the SM: bosons and fermions. While bosons are symmetric under exchange, fermions are antisymmetric under exchange. Consequently, the spin-statistic theorem states that fermions must have half integer spin while bosons have integer spin. Additionally, the spin-statistics theorem dictates that no two fermions may occupy the same state, making it very natural to think of them as matter. The total spin of two interacting half integer spin fermions must be integer, making it natural to think of bosons as mediators of interactions between fermions. 
 
-The three local symmetries of the standard model are in fact gauge symmetries. They represent redundancy in description of our model, similar to the classical electromagnetism gauge. Due to some formalism we haven't developed and will leave out of this analysis, the generators of these gauge groups induce gauge bosons. Specifically, the 8 generators of $SU(3)$ give rise to the eight gluons that describe Quantum Chromodynamics (QCD) and the other four generators of $SU(2) \times U(1)$ give rise to electroweak (EW) interactions. Due to this, it makes sense to break up the Lagrangian into QCD and EW terms, which we know can be written independently, due to the independence of their generators. Namely, we have that
+The three local symmetries of the Standard Model are in fact gauge symmetries. They represent redundancy in the description of our model, similar to the classical electromagnetism gauge. Due to formalism beyond the scope of this thesis, the generators of these gauge groups induce gauge bosons. Specifically, the 8 generators of $SU(3)$ give rise to the eight gluons that describe Quantum Chromodynamics (QCD) and the other four generators of $SU(2) \times U(1)$ give rise to electroweak (EW) interactions. Due to this, it makes sense to break up the Lagrangian into QCD and EW terms, which we know can be written independently, due to the independence of their generators. Namely, we have that
 \begin{equation}
 \mathcal{L}_{SM} = \mathcal{L}_{EW} + \mathcal{L}_{QCD}
 \end{equation}
-In the following sections, we will analyze each of these Lagrangians independently, showing how they give rise to the various particles in the SM and their interactions. As a preview, the particles of the standard model and their quantum numbers are summarized in figure \ref{fig:particles_of_the_SM}. 
+In the following sections, we will analyze each of these Lagrangians independently, showing how they give rise to the various particles in the SM and their interactions. As a preview, the particles of the Standard Model and their quantum numbers are summarized in figure \ref{fig:particles_of_the_SM}. 
 
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/chapter2/particles_of_the_SM.png}
-    \caption{The particles of the standard model}
+    \caption{The particles of the Standard Model}
     \label{fig:particles_of_the_SM}
 \end{figure}
 
 \subsection{Quantum Chromodynamics}
 
-The eight generators of $SU(3)$ are given by the Glenn-Mann matrices and yield the 8 bosons of QCD, known as gluons. The three-dimensional basis of these matrices give rise to 3 colors, labeled $r$, $g$, and $b$ as well as their opposites $\bar{r}, \bar{g}, \bar{b}$, which are the fundamental charges of QCD. The Glenn-Mann matrices govern that each of the gluons can carry a color and an anti-color charge. The corresponding fermions in this theory are named quarks and simply carry one color charge or one anti-color charge for anti-quarks. There are 6 different flavors of quarks, summarized in table \ref{tab:quark_masses}. 
+The eight generators of $SU(3)$ are given by the Gell-Mann matrices and yield the 8 bosons of QCD, known as gluons. The three-dimensional basis of these matrices give rise to three colors, labeled $r$, $g$, and $b$, and three anti-colors, $\bar{r}, \bar{g}, \bar{b}$, which are the fundamental charges of QCD. The Gell-Mann matrices govern that each of the gluons can carry both a color and an anti-color charge. The corresponding fermions in this theory are named quarks and simply carry one color charge or one anti-color charge for anti-quarks. There are 6 different flavors of quarks, summarized in table \ref{tab:quark_masses}. 
 
 \begin{table}[htbp]
     \centering
@@ -158,7 +158,7 @@ In general, perturbative calculations in QCD can be quite complex and difficult.
 
 \subsection{Electroweak Interactions}
 
-The electromagnetic and weak nuclear forces are unified under EW interactions at energies above $\approx 250 \text{ GeV}$ or temperatures above $\approx10^{15}$\textdegree $K$, mediated by the $SU(2) \times U(1)$ symmetry. The generators of the $SU(2)$ group yield three gauge bosons of weak isospin, given by $A^i_{\mu}$, and the generators of the $U(1)$ group yeild three gauge bosons of of weak hypercharge, given by $B_{\mu}$. Importantly, $SU(2)$ is the chiral part of the electroweak symmetry, meaning it only affects left-handed fermions. Therefore, much of the discussion on electroweak interactions will differentiate between left handed and right handed particles.
+The electromagnetic and weak nuclear forces are unified under EW interactions at energies above $\approx 250 \text{ GeV}$ or temperatures above $\approx10^{15}$\textdegree $K$, mediated by the $SU(2) \times U(1)$ symmetry. The generators of the $SU(2)$ group yield three gauge bosons of weak isospin, given by $A^i_{\mu}$, and the generators of the $U(1)$ group yield three gauge bosons of weak hypercharge, given by $B_{\mu}$. Importantly, $SU(2)$ is the chiral part of the electroweak symmetry, meaning it only affects left-handed fermions. Therefore, much of the discussion on electroweak interactions will differentiate between left-handed and right-handed particles.
 
 Due to spontaneous symmetry breaking, the four vector bosons are mixed using the Weinberg angle, $\theta_W$, to produce the 4 physical gauge bosons: $\gamma$, $Z^0$, $W^\pm$. Note that the photon, $\gamma$ is sometimes written as the electromagnetic field $A_{\mu}$ and is not to be confused the weak isospin gauge bosons, $A_\mu^i$. Additionally, the $Z^0_{\mu}$ is often just written as $Z_{\mu}$, dropping the charge label. Specifically, the mixing under the Weinberg angle manifests as
 \begin{equation}
@@ -179,43 +179,43 @@ Due to spontaneous symmetry breaking, the four vector bosons are mixed using the
 \end{equation}
     
 
-The left handed fermions in this theory are given as doublets that transform under $SU(2) \times U(1)$ and can be categorized into leptons and quarks. Specifically the doublet notation is used to manifestly ensure transformation under $SU(2)$. This is similar to a two-state quantum spin system with $\ket{0} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$ and $\ket{1} = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$ with spin operators that act as $SU(2)$ rotations on the spin vectors. The components of these doublets are the $U(1)$ abiding states, similar to those given by QED interactions.
+The left-handed fermions in this theory are given as doublets that transform under $SU(2) \times U(1)$ and can be categorized into leptons and quarks. Specifically, the doublet notation is used to manifestly ensure transformation under $SU(2)$. This is similar to a two-state quantum spin system with $\ket{0} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$ and $\ket{1} = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$ with spin operators that act as $SU(2)$ rotations on the spin vectors. The components of these doublets are the $U(1)$ abiding states, similar to those given by QED interactions.
 
-Therefore, the left handed leptons are given by
+Therefore, the left-handed leptons are given by
 \begin{equation}
 L_{i} = \begin{pmatrix}
 \nu_{iL} \\ l_{iL}
 \end{pmatrix}
 \end{equation}
-where $\nu_{iL}$ are the three left handed neutrinos and the $l_{iL}$ particles are the three other left handed leptons. Notationally, we use $i$ to sum over all three flavors and $L$ to denote the left-handedness of the field. Left handed quarks are given by
+where $\nu_{iL}$ are the three left-handed neutrinos and the $l_{iL}$ particles are the three other left-handed leptons. Notationally, we use $i$ to sum over all three flavors and $L$ to denote the left-handedness of the field. Left-handed quarks are given by
 \begin{equation}
 Q_{i} = \begin{pmatrix}
 u_{iL} \\ V_{ij} d_{jL}
 \end{pmatrix}
 \end{equation}
-where $u_{iL}$ are the the three up quarks, $d_{iL}$ are the three down quarks, and $V_{ij}$ is the Cabibbo-Kobayashi-Maskawa (CKW) matrices that keep track of the Weinberg angle mixing coefficients.
+where $u_{iL}$ are the three up quarks, $d_{iL}$ are the three down quarks, and $V_{ij}$ is the Cabibbo-Kobayashi-Maskawa (CKM) matrices that keep track of the Weinberg angle mixing coefficients.
 
-The right handed fermions in this theory are not affected by the $SU(2)$ symmetry; they only transform trivially due to the chirality assigned to the $SU(2)$ symmetry. Therefore, right handed states are $SU(2)$ singlets that must only abide by $U(1)$ symmetry. We write these to be $u_{iR}$, $d_{iR}$, and $e_{iR}$. However, for notational ease, often the $R$ is dropped since all the left fields are in doublets. Therefore, we write the quark fields as $u_{i}$, $d_{i}$, and $e_{i}$.
+The right-handed fermions in this theory are not affected by the $SU(2)$ symmetry; they only transform trivially due to the chirality assigned to the $SU(2)$ symmetry. Therefore, right-handed states are $SU(2)$ singlets that must only abide by $U(1)$ symmetry. We write these to be $u_{iR}$, $d_{iR}$, and $e_{iR}$. However, for notational ease, often the $R$ is dropped since all the left fields are in doublets. Therefore, we write the quark fields as $u_{i}$, $d_{i}$, and $e_{i}$.
 
 \subsubsection{The Higgs field}
 
-Now, there is one more subtly that must be addressed before introducing the Lagrangian for the electroweak interaction. Specifically, we know that in $d=4$, renormalizable QFTs can only contain non-invariant dimension-four operators, meaning that it cannot allow a term that would give mass to the bosons, such as $m^2 B_{\mu}^aB^{a\mu}$ for the weak isospin gauge bosons.  This is consistent with our formulation of QCD above due to the massless gluon, as well as consistent with our observation of the massless photon. However, the $W^\pm$ and $Z$ boson are observed to carry mass.
+Now, there is one more subtlety that must be addressed before introducing the Lagrangian for the electroweak interaction. Specifically, we know that in $d=4$, renormalizable QFTs can only contain non-invariant dimension-four operators, meaning that it cannot allow a term that would give mass to the bosons, such as $m^2 B_{\mu}^aB^{a\mu}$ for the weak isospin gauge bosons.  This is consistent with our formulation of QCD above due to the massless gluon, as well as consistent with our observation of the massless photon. However, the $W^\pm$ and $Z$ boson are observed to carry mass.
 
 Therefore, we must introduce a scalar field that is allowed to break the $SU(2) \times U(1)$ symmetry and give rise to $Z$ and $W^\pm$ masses. This field is known as the Higgs field. While an in-depth discussion of the Higgs mechanism is out of the scope of this thesis, a short discussion should suffice to understand the EW Lagrangian.
 
-In order to give mass to the $W^\pm$ and $Z$ bosons, the field we add must allow for the full Lagrangian to remain invariant while resulting in a ground state that is not. One good way to think of this is known as the mexican hat potential, given by $f(r, \theta) = (r^2 - v^2)$ shown in figure \ref{fig:mexican_hat_potential}. This potential is completely rotationally symmetric, but the ground state lies away from the origin at $r = v$, meaning the ground state itself is not spherically symmetric. Additionally it satisfies all other properties of a valid potential by being continuous, well defined, and bounded from below. Therefore, we introduce a doublet under $SU(2)$, given by
+In order to give mass to the $W^\pm$ and $Z$ bosons, the field we add must allow for the full Lagrangian to remain invariant while resulting in a ground state that is not. One good way to think of this is known as the Mexican hat potential, given by $f(r, \theta) = (r^2 - v^2)$ shown in figure \ref{fig:Mexican_hat_potential}. This potential is completely rotationally symmetric, but the ground state lies away from the origin at $r = v$, meaning the ground state itself is not spherically symmetric. Additionally it satisfies all other properties of a valid potential by being continuous, well defined, and bounded from below. Therefore, we introduce a doublet under $SU(2)$, given by
 \begin{equation}
 h = \begin{pmatrix}
 h^+ \\ h^0
 \end{pmatrix}
 \end{equation}
-and put it in the mexican hat potential. 
+and put it in the Mexican hat potential. 
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.4\textwidth]{figures/chapter2/mexican_hat_potential.png}
-    \caption{The mexican hat potential, given by $f(r, \theta) = (r^2 - v^2)$, demonstrating ground state symmetry breaking in a symmetric potential}
-    \label{fig:mexican_hat_potential}
+    \includegraphics[width=0.4\textwidth]{figures/chapter2/Mexican_hat_potential.png}
+    \caption{The Mexican hat potential, given by $f(r, \theta) = (r^2 - v^2)$, demonstrating ground state symmetry breaking in a symmetric potential}
+    \label{fig:Mexican_hat_potential}
 \end{figure}
 
 To see that indeed this gives the $W$ and $Z$ bosons mass, we write down the Lagrangian of this field in the presence of the $W^a_\mu$ and $B_\mu$ fields as
@@ -223,11 +223,11 @@ To see that indeed this gives the $W$ and $Z$ bosons mass, we write down the Lag
 \mathcal{L}_{h} = (D_{\mu}h)(D^\mu h) - \lambda\left(|h|^2- \frac{v}{2}\right)^2
 \label{eq:higg-field-lagrangian}
 \end{equation}
-where $D_\mu = (\partial_\mu - \frac{ig}{2}\tau^a A^a_\mu - \frac{ig'Y}{2}B_\mu)$. Here $\tau^a$ (also known as the Pauli matrices) and $YI$ are the generators of $SU(2)$ and $U(1)$. Their corresponding eigenvalues are labeled as $T_a$\footnote{$T_a$ is actually the eigenvalue of $\frac{\tau^a}{2}$} and $Y$; they are known as the weak isospin and weak hypercharge quantum numbers and a convenient basis is often $T^2 = T_1^2 + T_2^2 + T_3^2$, $T_3$, and $Y$. Separately, note that $\lambda\left(|h|^2- \frac{v}{2}\right)^2$ is exactly a rescaled mexican hat potential. Now, it is straight forward to see that this Lagrangian contains the terms
+where $D_\mu = (\partial_\mu - \frac{ig}{2}\tau^a A^a_\mu - \frac{ig'Y}{2}B_\mu)$. Here $\tau^a$ (also known as the Pauli matrices) and $YI$ are the generators of $SU(2)$ and $U(1)$. Their corresponding eigenvalues are labeled as $T_a$\footnote{$T_a$ is actually the eigenvalue of $\frac{\tau^a}{2}$} and $Y$; they are known as the weak isospin and weak hypercharge quantum numbers and a convenient basis is often $T^2 = T_1^2 + T_2^2 + T_3^2$, $T_3$, and $Y$. Separately, note that $\lambda\left(|h|^2- \frac{v}{2}\right)^2$ is exactly a rescaled Mexican hat potential. Now, it is straightforward to see that this Lagrangian contains the terms
 \begin{equation}
 \frac{v^2}{8}\left[g^2\left((A^{1}_{\mu})^2 + (A^{2}_{\mu})^2\right) + (gA_{\mu}^3 - g' B_{\mu})\right]
 \end{equation}
-giving the intermediate weak isospin and weak hypercharge bosons mass. Using the Weinberg angle and letting $\tan(\theta_W) = g'/g$, the mass terms of the observed bosons become
+giving the intermediate weak isospin and weak hypercharge bosons mass. Using the definition of the Weinberg angle where $\tan(\theta_W) = g'/g$, the mass terms of the observed bosons become
 \begin{equation}
 M_{W^+} = M_{W^-} = \frac{gv}{2} \quad\quad M_{Z} = \frac{gv}{2\cos(\theta_{W})} \quad\quad M_{\gamma} = 0
 \end{equation}
@@ -238,7 +238,7 @@ Finally, by constructing a QFT involving these fields and one that is invariant 
 \begin{equation}
 \mathcal{L}_{EW} = \mathcal{L}_{g} + \mathcal{L}_{f} + \mathcal{L}_{h} + \mathcal{L}_{y}
 \end{equation}
-were $\mathcal{L}_g$ is the gauge term, similar to the QCD gauge term, given by
+where $\mathcal{L}_g$ is the gauge term, similar to the QCD gauge term, given by
 \begin{equation}
 \mathcal{L}_g = -\frac{1}{4}A^i_{\mu\nu}A^{i\mu\nu} - \frac{1}{4} B_{\mu\nu} B^{\mu\nu}
 \end{equation}
@@ -249,28 +249,28 @@ $\mathcal{L_f}$ is the fermion kinetic term, given by
 \mathcal{L}_{f} = \bar{L}_{i}\cancel{D}L_{i} + \bar{e}_{i}\cancel{D}e_{i} + \bar{Q}\cancel{D}Q + \bar{u} \cancel{D}u + \bar{d}\cancel{D}d
 \label{eq:fermion_kinetic_term}
 \end{equation}
-where again $\cancel{D}$ is the covariant derivative in the above section, $D_\mu$ contracted with a gamma matrix, $\gamma^\mu$ and the fields are defined in the above section as left handed doublets and right handed singlets.
+where again $\cancel{D}$ is the covariant derivative in the above section, $D_\mu$ contracted with a gamma matrix, $\gamma^\mu$ and the fields are defined in the above section as left-handed doublets and right-handed singlets.
 
-$\mathcal{L}_h$ has already been defined in the previous section and $\mathcal{L}_Y$ are the Yukawa interaction terms between the fermion fields and the higgs scalar field. This is given by
+$\mathcal{L}_h$ has already been defined in the previous section and $\mathcal{L}_Y$ are the Yukawa coupling terms between the fermion fields and the Higgs scalar field. This is given by
 \begin{equation}
 \mathcal{L}_{y} = - Y_{e} \bar{L}he + Y_{u}\bar{Q}h u + Y_{d} \bar{Q}h d
  + \text{h.c.}
 \end{equation}
-Here, for notational convience we have dropped the flavor indices. $Y_{e,u,d}$ are the three yukawa interaction term matrices. Similar to how the higg field gives the $W^\pm$ and $Z$ bosons mass, this is how the fermions gain mass in electroweak theory. 
+Here, for notational convience we have dropped the flavor indices. $Y_{e,u,d}$ are the three Yukawa coupling term matrices. Just as the Higgs field gives mass to the $W^\pm$ and $Z$ bosons, this mechanism provides mass to the fermions in electroweak theory. 
 
 \section{The $D^0 \to \mu^+ \mu^-$ decay.}
 
-In principal, now that we have written down the SM Lagrangian, one could follow the standard QFT formalism described above to calculate perturbitively $\Gamma(D^0 \to \mu^+ \mu^-)$. In practice, this is incredibly complex and involves decades of perturbative QFT formalisms. Therefore, in this section we will first categorize this decay as a FCNC and heuristically summarize the calculation of $\mathcal{B}(D^0 \to \mu^+ \mu^-)$ done by G. Burdman, E. Golowich, J. L. Hewett, and S. Pakvasa (BGHP) \cite{ref:burdman_2002}.
+In principle, now that we have written down the SM Lagrangian, one could follow the standard QFT formalism described above to calculate perturbatively $\Gamma(D^0 \to \mu^+ \mu^-)$. In practice, this is incredibly complex and involves decades of perturbative QFT formalisms. Therefore, in this section we will first categorize this decay as a FCNC and briefly summarize the heuristic structure of the calculation of $\mathcal{B}(D^0 \to \mu^+ \mu^-)$ as performed by G. Burdman, E. Golowich, J. L. Hewett, and S. Pakvasa (BGHP) \cite{ref:burdman_2002}.
 
 \subsection{Flavor Changing Neutral Currents}
 
-Flavor changing neutral currents (FCNCs) are interactions that change the flavor of a fermion without altering it's electric charge. 
+Flavor changing neutral currents (FCNCs) are interactions that change the flavor of a fermion without altering its electric charge. 
 
-The SM forbids FCNCs expicitly at tree level. Processes that are flavor-changing with neutral currents must first undergo a flavor change in a loop which combines to give a neutral current, the details of which are discussed later. To see explicitly why this is true, we start with the gluon-fermion interaction terms of the Lagrangian which we derived earlier. Namely we have that the interaction terms can be pulled out of equation \ref{eq:fermion_kinetic_term} to give us
+The SM forbids FCNCs explicitly at tree level. Processes that are flavor-changing with neutral currents must occur through loop processes that result in a neutral current, the details of which are discussed later. To illustrate this explicitly, we start with the gluon-fermion interaction terms of the Lagrangian which we derived earlier. Namely we have that the interaction terms can be pulled out of equation \ref{eq:fermion_kinetic_term} to give us
 \begin{equation}
 \mathcal{L}_{gf} = \sum_{f=\{ Q, L, u, d, e\}} \bar{f}_{i} \gamma^\mu \left(\partial_\mu - \frac{ig}{2} \tau^a A^a_\mu - ig' \frac{Y}{2} B_\mu\right)f_{i}
 \end{equation}
-Now, we begin to rotate into the Weinberg frame, using $\tau^\pm = \frac{\tau^1 \pm i\tau^2}{\sqrt{2}}$ and $W^\pm$ defined as in equation \ref{eq:Weinberg_mixing}. This gives us
+We now rotate into the Weinberg basis, using $\tau^\pm = \frac{\tau^1 \pm i\tau^2}{\sqrt{2}}$ and $W^\pm$ defined as in equation \ref{eq:Weinberg_mixing}. This gives us
 \begin{equation}
 \mathcal{L}_{gf} = \sum_{f=\{ Q, L, u, d, e\}} \bar{f}_{i} \gamma^\mu \left(\partial_\mu - \frac{ig}{\sqrt{2}} (W^+_\mu\tau^+ + W_\mu^- \tau^-) -\frac{g}{2} A^3_\mu\tau^3 - \frac{g'}{2}B_\mu Y\right)f_{i}
 \end{equation}
@@ -312,7 +312,7 @@ u_{iL} \\ d_{iL}
 \label{eq:large-eq-for-FCNC-candidates}
 \end{split}
 \end{equation}
-Now, we can consolidate this significantly by introducing $e = g\sin(\theta_W) = g'\cos(\theta_W)$\footnote{The second equality can be verified by using $\tan(\theta_W) = \frac{g'}{g}$}, $A^3_\mu = \cos(\theta_W)Z_\mu + \sin(\theta_W)A_\mu$, and $B_\mu = -\sin(\theta_W)Z_\mu + \cos(\theta_W) A_\mu$. The second two equations can be derived from equation \ref{eq:Weinberg_mixing}. Additionally, we can use the weak isospin and weak hypercharge eigenvalues $I_3$ and $Y$, defined below equation \ref{eq:higg-field-lagrangian}.  It is also useful to define the electric charge eigenvalue, $Q = I_3 + Y/2$. Using this, we can simply equation \ref{eq:large-eq-for-FCNC-candidates} greatly as
+Now, we can consolidate this significantly by introducing $e = g\sin(\theta_W) = g'\cos(\theta_W)$\footnote{The second equality can be verified by using $\tan(\theta_W) = \frac{g'}{g}$}, $A^3_\mu = \cos(\theta_W)Z_\mu + \sin(\theta_W)A_\mu$, and $B_\mu = -\sin(\theta_W)Z_\mu + \cos(\theta_W) A_\mu$. The second two equations can be derived from equation \ref{eq:Weinberg_mixing}. Additionally, we can use the weak isospin and weak hypercharge eigenvalues $I_3$ and $Y$, defined below equation \ref{eq:higg-field-lagrangian}.  It is also useful to define the electric charge eigenvalue, $Q = I_3 + Y/2$. Using this, we can greatly simplify equation \ref{eq:large-eq-for-FCNC-candidates} to
 \begin{equation}
 \begin{split}
 \mathcal{L}_{\text{FCNC Candidates}} &= -\sum_{f = u_{L},d_{L},l_{L}, \nu_{L}} \left[\frac{e}{\sin(\theta_{W})\cos(\theta_{W})} \bar{f}_{i}\gamma^\mu Z_{\mu}\left(T_{3}^{(f)} -Q^{(f)}\sin^2(\theta_{W})\right)\bar{f}_{i}\right]\\
@@ -350,13 +350,13 @@ where the values of $T_3^{(f)}$, $Y^{(f)}$ and $Q^{(f)}$ can be found in table \
   
   
 
-More importantly, we notice that there are indeed no FCNC terms left. More specifically, there are no terms that allow for interactions between fermions of two different flavors. Therefore, we have that $\mathcal{L}_{FCNC} = 0$ under the SM, preventing FCNC at tree level. 
+More importantly, we confirm that no flavor-changing neutral current terms remain at tree level in the SM. More specifically, there are no terms that allow for interactions between fermions of two different flavors. Therefore, we have that $\mathcal{L}_{FCNC} = 0$ under the SM, preventing FCNC at tree level. 
 
 \subsection{The $D^0 \to \mu^+ \mu^-$ decay as a FCNC}
 
-Hadrons, such as the $D^0$ are collections of quarks in bound states. One defining property of QCD is that virtually all hadrons are in gluon-bound color-neutral states. These states therefore contain either a quark and an antiquark (known as baryons) or a quark and an antiquark (known as mesons). $D$ mesons are known a *charm mesons* and are any light meson that contains a charm quark. The $D^0$ is one such meson, being the only neutrally charge $D$ meson, composed of a *charm* and an *anti-up* quark. Note that there is also an anti-$D^0$ meson, being composed of an *anti-charm* and an *up* quark. 
+Hadrons, such as the $D^0$ are collections of quarks in bound states. One defining property of QCD is that virtually all hadrons are in gluon-bound color-neutral states. These states therefore contain either a quark triplet (known as baryons) or a quark and an antiquark (known as mesons). $D$ mesons are known as charm mesons and are any light meson that contains a charm quark. The $D^0$ is one such meson, being the only neutral $D$ meson, composed of a charm and an anti-up quark. Note that there is also an anti-$D^0$ meson, being composed of an anti-charm and an up quark. 
 
-Now, since the $D^0$ meson is composed of a quark pair and the final state $\mu^+ \mu^-$ contains no quarks, therefore indicating that there must be a flavor change. However, importantly the $D^0$ is a neutral particle, as is the $\mu^+ \mu^-$ final state. Therefore, for there to be a tree-level contribution, there must be a tree-level FCNC, which is not allowed by the standard model. Therefore, the $D^0 \to \mu^+ \mu^-$  decay must involve many vertices and is thus heavily suppressed by the standard model.
+Now, since the $D^0$ meson is composed of a quark pair and the final state $\mu^+ \mu^-$ contains no quarks, therefore implying a flavor change. However, importantly the $D^0$ is a neutral particle, as is the $\mu^+ \mu^-$ final state. Therefore, for there to be a tree-level contribution, there must be a tree-level FCNC, which is not allowed by the Standard Model. Therefore, the $D^0 \to \mu^+ \mu^-$  must proceed via higher-order loop processes, resulting in strong suppression in the SM.
 
 G. Burdman, E. Golowich, J. L. Hewett, and S. Pakvasa (BGHP) have carried out the most complete SM analysis of the $D^0 \to \mu^+ \mu^-$ decay that includes all short and long-distance effects. 
 
@@ -376,7 +376,7 @@ Next, BGHP identify two distinct long distance (LD) mechanisms, single-particle 
 \begin{equation}
 \mathcal{B}(D^0 \to \mu^+ \mu^-)_{\pi^0, \eta, \eta'} \simeq 2.5 \times 10^{-18}
 \end{equation}
-In principal, there could be mixing with heavier $0^\pm$ resonances such as $\pi(1800)$, however the decays of $\pi(1800) \to \mu^+\mu^-$ occur with a branching fraction likely around $10^{-12}$, leading to
+In principle, there could be mixing with heavier $0^\pm$ resonances such as $\pi(1800)$; however, the decays of $\pi(1800) \to \mu^+\mu^-$ occur with a branching fraction likely around $10^{-12}$, leading to
 \begin{equation}
 \mathcal{B}(D^0 \to \mu^+ \mu^-)_{\pi(1800)} \simeq  5.0 \times 10^{-17}
 \end{equation}
@@ -388,7 +388,7 @@ where their own calculations show that, by considering short distance contributi
 \begin{equation}
 \mathcal{B}(D^0 \to \mu^+ \mu^-)_{\gamma\gamma} \simeq 10^{-13}
 \end{equation}
-When summing each of these contributions, one finds that $\mathcal{B}(D^0 \to \mu^+ \mu^-)_{\gamma\gamma} \simeq 10^{-13}$ is by far the largest, therefore BGHP conclude that
+When summing each of these contributions, one finds that $\mathcal{B}(D^0 \to \mu^+ \mu^-)_{\gamma\gamma} \simeq 10^{-13}$ is by far the dominant contribution to the total branching fraction, therefore BGHP conclude that
 \begin{equation}
 \mathcal{B}(D^0 \to \mu^+ \mu^-)_{\text{total}} \simeq 10^{-13}
 \end{equation}
