@@ -1,11 +1,11 @@
 \chapter{Theory and Motivation}
 \label{ch:2}
 
-This chapter lays the theoretical groundwork on which the remainder of the thesis is built and gives insight into why the rare decay $D^0 \to \mu^+ \mu^-$ is a valuable probe for the potential new physics. The chapter begins with a short survey of Quantum Field Theory (QFT), outlining how the adoption of special relativity into quantum mechanics gives rise to a QFT that is characterized by a Lagrangian and a resulting correlation function that can be calculated perturbatively. This framework then describes the computational tools for calculating these correlation functions, such as path integrals, Feynman diagrams, and the LSZ formulation, which allows the calculation of scattering amplitudes from correlation functions. 
+This chapter lays the theoretical groundwork on which the remainder of the thesis is built and gives insight into why the rare decay $D^0 \to \mu \mu$ is a valuable probe for the potential new physics. The chapter begins with a short survey of Quantum Field Theory (QFT), outlining how the adoption of special relativity into quantum mechanics gives rise to a QFT that is characterized by a Lagrangian and a resulting correlation function that can be calculated perturbatively. This framework then describes the computational tools for calculating these correlation functions, such as path integrals, Feynman diagrams, and the LSZ formulation, which allows the calculation of scattering amplitudes from correlation functions. 
 
-Next, this chapter describes the Standard Model (SM), beginning with its local gauge symmetry structure and then building the fundamental particles and interactions from the resulting Lagrangian. Special attention is paid to the electroweak portion of the Lagrangian, giving an outline of the mechanism by which the Higgs field gives mass to the $W^\pm$ and $Z$ bosons, important mediators in the $D^0 \to \mu^+ \mu^-$ decay. 
+Next, this chapter describes the Standard Model (SM), beginning with its local gauge symmetry structure and then building the fundamental particles and interactions from the resulting Lagrangian. Special attention is paid to the electroweak portion of the Lagrangian, giving an outline of the mechanism by which the Higgs field gives mass to the $W^\pm$ and $Z$ bosons, important mediators in the $D^0 \to \mu \mu$ decay. 
 
-Lastly, this chapter applies the theoretical groundwork established in its first two sections as a motivation for the $D^0 \to \mu^+ \mu^-$ search. Namely, FCNCs are defined and calculated to not be allowed at tree level in the SM. Loop contributions to the $D^0 \to \mu^+ \mu^-$ decay are shown to bring the branching fraction of the decay rate to $\simeq 10^{-13}$. The chapter ends by giving motivation as to why this makes the $D^0 \to \mu^+ \mu^-$ decay a probe of new physics and provides a brief survey of the new physics that this probe could illuminate. 
+Lastly, this chapter applies the theoretical groundwork established in its first two sections as a motivation for the $D^0 \to \mu \mu$ search. Namely, FCNCs are defined and calculated to not be allowed at tree level in the SM. Loop contributions to the $D^0 \to \mu \mu$ decay are shown to bring the branching fraction of the decay rate to $\simeq 10^{-13}$. The chapter ends by giving motivation as to why this makes the $D^0 \to \mu \mu$ decay a probe of new physics and provides a brief survey of the new physics that this probe could illuminate. 
 
 \section{The Theory of Our Universe}
 
@@ -57,7 +57,7 @@ The process of evaluating these integrals can be long and tedious. In the late 1
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=0.4\textwidth]{figures/chapter2/example_feynman_diagram.png}
-    \caption{An example feynman diagram describing the $\mu^- \to \nu_\mu \bar{\nu}_e e^-$ decay.}
+    \caption{An example feynman diagram describing the $\mu \to \nu_\mu \nu_e e$ decay.}
     \label{fig:example_feynman_diagram}
 \end{figure}
 
@@ -80,7 +80,7 @@ S_{\beta \alpha} = \braket{\beta|\alpha}
 \end{equation}
 The method of constructing this $S$-matrix from correlation function is done using the LSZ Reduction Formula, which states that the existence of particles in a QFT leads to poles in the Fourier transform of its two-point functions (correlation functions between only two operators, also known as propagators). Therefore, computing the $S$-matrix amounts to computing correlation functions using Feynman Diagrams, taking the Fourier transform, taking all the external momentum to on-shell, and then computing the residue of the pole in the propagator. 
 
-This thesis concerns itself with the branching fraction of the $D^0 \to \mu^+ \mu^-$ interaction. To compute the branching fraction from the scattering amplitude, it is first convenient to remove delta functions and constants always present in the scattering amplitude by defining the $M$-matrix as the matrix that satisfies
+This thesis concerns itself with the branching fraction of the $D^0 \to \mu \mu$ interaction. To compute the branching fraction from the scattering amplitude, it is first convenient to remove delta functions and constants always present in the scattering amplitude by defining the $M$-matrix as the matrix that satisfies
 \begin{equation}
 S_{\beta \alpha} = \delta(\beta -\alpha) + i \times(2\pi)^d \delta^d(p_{\beta}-p_{\alpha}) \mathcal{M}_{\beta \alpha}
 \end{equation}
@@ -92,7 +92,7 @@ d \Gamma(\alpha \to \beta) = (2\pi)^d \delta^d(p_{\beta}-p_{\alpha}) |\mathcal{M
 \end{equation}
 Specifically, to get a full decay width, one must integrate over all final states and their momentum that one cares about to get $\Gamma(\alpha \to \beta) = \int (2\pi)^d \delta^d(p_{\beta}-p_{\alpha}) |\mathcal{M}_{\beta \alpha}|^2 d \beta$. 
 
-This concludes the outline of how to arrive at a branching fraction for a general QFT. The next section covers the specifics of the Standard Model as a QFT and the last section outlines the computation of the $D^0 \to \mu^+ \mu^-$ decay. 
+This concludes the outline of how to arrive at a branching fraction for a general QFT. The next section covers the specifics of the Standard Model as a QFT and the last section outlines the computation of the $D^0 \to \mu \mu$ decay. 
 
 \section{The Standard Model}
 
@@ -258,9 +258,9 @@ $\mathcal{L}_h$ has already been defined in the previous section and $\mathcal{L
 \end{equation}
 Here, for notational convience we have dropped the flavor indices. $Y_{e,u,d}$ are the three Yukawa coupling term matrices. Just as the Higgs field gives mass to the $W^\pm$ and $Z$ bosons, this mechanism provides mass to the fermions in electroweak theory. 
 
-\section{The $D^0 \to \mu^+ \mu^-$ decay}
+\section{The $D^0 \to \mu \mu$ decay}
 
-In principle, now that we have written down the SM Lagrangian, one could follow the standard QFT formalism described above to calculate perturbatively $\Gamma(D^0 \to \mu^+ \mu^-)$. In practice, this is incredibly complex and involves decades of perturbative QFT formalisms. Therefore, in this section we will first categorize this decay as a FCNC and briefly summarize the heuristic structure of the calculation of $\mathcal{B}(D^0 \to \mu^+ \mu^-)$ as performed by G. Burdman, E. Golowich, J. L. Hewett, and S. Pakvasa (BGHP) \cite{ref:burdman_2002}.
+In principle, now that we have written down the SM Lagrangian, one could follow the standard QFT formalism described above to calculate perturbatively $\Gamma(D^0 \to \mu \mu)$. In practice, this is incredibly complex and involves decades of perturbative QFT formalisms. Therefore, in this section we will first categorize this decay as a FCNC and briefly summarize the heuristic structure of the calculation of $\mathcal{B}(D^0 \to \mu \mu)$ as performed by G. Burdman, E. Golowich, J. L. Hewett, and S. Pakvasa (BGHP) \cite{ref:burdman_2002}.
 
 \subsection{Flavor Changing Neutral Currents}
 
@@ -352,17 +352,17 @@ where the values of $T_3^{(f)}$, $Y^{(f)}$ and $Q^{(f)}$ can be found in table \
 
 More importantly, we confirm that no flavor-changing neutral current terms remain at tree level in the SM. More specifically, there are no terms that allow for interactions between fermions of two different flavors. Therefore, we have that $\mathcal{L}_{FCNC} = 0$ under the SM, preventing FCNC at tree level. 
 
-\subsection{The $D^0 \to \mu^+ \mu^-$ decay as a FCNC}
+\subsection{The $D^0 \to \mu \mu$ decay as a FCNC}
 
 Hadrons, such as the $D^0$ are collections of quarks in bound states. One defining property of QCD is that virtually all hadrons are in gluon-bound color-neutral states. These states therefore contain either a quark triplet (known as baryons) or a quark and an antiquark (known as mesons). $D$ mesons are known as charm mesons and are any light meson that contains a charm quark. The $D^0$ is one such meson, being the only neutral $D$ meson, composed of a charm and an anti-up quark. Note that there is also an anti-$D^0$ meson, being composed of an anti-charm and an up quark. 
 
-Now, since the $D^0$ meson is composed of a quark pair and the final state $\mu^+ \mu^-$ contains no quarks, therefore implying a flavor change. However, importantly the $D^0$ is a neutral particle, as is the $\mu^+ \mu^-$ final state. Therefore, for there to be a tree-level contribution, there must be a tree-level FCNC, which is not allowed by the Standard Model. Therefore, the $D^0 \to \mu^+ \mu^-$  must proceed via higher-order loop processes, resulting in strong suppression in the SM.
+Now, since the $D^0$ meson is composed of a quark pair and the final state $\mu \mu$ contains no quarks, therefore implying a flavor change. However, importantly the $D^0$ is a neutral particle, as is the $\mu \mu$ final state. Therefore, for there to be a tree-level contribution, there must be a tree-level FCNC, which is not allowed by the Standard Model. Therefore, the $D^0 \to \mu \mu$  must proceed via higher-order loop processes, resulting in strong suppression in the SM.
 
-G. Burdman, E. Golowich, J. L. Hewett, and S. Pakvasa (BGHP) have carried out the most complete SM analysis of the $D^0 \to \mu^+ \mu^-$ decay that includes all short and long-distance effects. 
+G. Burdman, E. Golowich, J. L. Hewett, and S. Pakvasa (BGHP) have carried out the most complete SM analysis of the $D^0 \to \mu \mu$ decay that includes all short and long-distance effects. 
 
 To begin with the short distance (SD) effects, the quark level transition arises from electroweak penguin and box diagrams, an example of which is found in Feynman diagram in Figure \ref{fig:D0_decay_diagrams}. After integrating over all possible diagrams, BGHP find that 
 \begin{equation}
-\mathcal{B}(D^0 \to \mu^+ \mu^-)_{SD} \simeq 10^{-18}
+\mathcal{B}(D^0 \to \mu \mu)_{SD} \simeq 10^{-18}
 \end{equation}
 
 \begin{figure}[ht!]
@@ -372,26 +372,26 @@ To begin with the short distance (SD) effects, the quark level transition arises
   \label{fig:D0_decay_diagrams}
 \end{figure}
 
-Next, BGHP identify two distinct long distance (LD) mechanisms, single-particle unitary contributions and two-photon contributions. The single particle unitary contributions are dominated by weak-mixing with ground-state presudoscalars, such as $\pi^0, \eta, \eta'$, followed by these pseudoscalars decaying into a dimuon final state, $P^0 \to \mu^+ \mu^-$. The branching fraction of this calculation is given by
+Next, BGHP identify two distinct long distance (LD) mechanisms, single-particle unitary contributions and two-photon contributions. The single particle unitary contributions are dominated by weak-mixing with ground-state presudoscalars, such as $\pi^0, \eta, \eta'$, followed by these pseudoscalars decaying into a dimuon final state, $P^0 \to \mu \mu$. The branching fraction of this calculation is given by
 \begin{equation}
-\mathcal{B}(D^0 \to \mu^+ \mu^-)_{\pi^0, \eta, \eta'} \simeq 2.5 \times 10^{-18}
+\mathcal{B}(D^0 \to \mu \mu)_{\pi^0, \eta, \eta'} \simeq 2.5 \times 10^{-18}
 \end{equation}
-In principle, there could be mixing with heavier $0^\pm$ resonances such as $\pi(1800)$; however, the decays of $\pi(1800) \to \mu^+\mu^-$ occur with a branching fraction likely around $10^{-12}$, leading to
+In principle, there could be mixing with heavier $0^\pm$ resonances such as $\pi(1800)$; however, the decays of $\pi(1800) \to \mu\mu$ occur with a branching fraction likely around $10^{-12}$, leading to
 \begin{equation}
-\mathcal{B}(D^0 \to \mu^+ \mu^-)_{\pi(1800)} \simeq  5.0 \times 10^{-17}
+\mathcal{B}(D^0 \to \mu \mu)_{\pi(1800)} \simeq  5.0 \times 10^{-17}
 \end{equation}
-The two-photon contributions come from the dispersive two photon decay $D^0 \to \gamma \gamma \to \mu^+ \mu^-$ shown in Figure \ref{fig:D0_decay_diagrams}. BGHP show that 
+The two-photon contributions come from the dispersive two photon decay $D^0 \to \gamma \gamma \to \mu \mu$ shown in Figure \ref{fig:D0_decay_diagrams}. BGHP show that 
 \begin{equation}
-\mathcal{B}(D^0 \to \mu^+ \mu^-)_{\gamma\gamma} \simeq 2.7 \times 10^{-5} \mathcal{B}(D^0 \to \gamma\gamma)
+\mathcal{B}(D^0 \to \mu \mu)_{\gamma\gamma} \simeq 2.7 \times 10^{-5} \mathcal{B}(D^0 \to \gamma\gamma)
 \end{equation}
 where their own calculations show that, by considering short distance contributions, long distance vector meson dominant contributions, long distance single particle unitary contributions, and long distance two-particle unitary contributions, $\mathcal{B}(D^0 \to \gamma\gamma) \simeq 10^{-8}$. Therefore, 
 \begin{equation}
-\mathcal{B}(D^0 \to \mu^+ \mu^-)_{\gamma\gamma} \simeq 10^{-13}
+\mathcal{B}(D^0 \to \mu \mu)_{\gamma\gamma} \simeq 10^{-13}
 \end{equation}
-When summing each of these contributions, one finds that $\mathcal{B}(D^0 \to \mu^+ \mu^-)_{\gamma\gamma} \simeq 10^{-13}$ is by far the dominant contribution to the total branching fraction, therefore BGHP conclude that
+When summing each of these contributions, one finds that $\mathcal{B}(D^0 \to \mu \mu)_{\gamma\gamma} \simeq 10^{-13}$ is by far the dominant contribution to the total branching fraction, therefore BGHP conclude that
 \begin{equation}
-\mathcal{B}(D^0 \to \mu^+ \mu^-)_{\text{total}} \simeq 10^{-13}
+\mathcal{B}(D^0 \to \mu \mu)_{\text{total}} \simeq 10^{-13}
 \end{equation}
 It is also worth noting that BGHP show that various new physics models significantly increase this branching fraction. However, their work on this is far out of the scope of this thesis and outlines many different new physics models, including many commonly accepted candidates for Beyond the Standard Model (BSM) physics such as Flavor Non-Universal Z' Bosons and Super Symmetry (SUSY). One such model is Flavor Non-Universal Z' Bosons, which introduce neutral Z' bosons with flavor off diagonal couplings 
 
-Due to the complexity and number of these models, we simply refer to their work to give meaningful calculations in support of new physics should a branching fraction significantly larger than $10^{-13}$ be detected. It should be clear from these calculations that putting better limits on $\mathcal{B}(D^0 \to \mu^+ \mu^-)$ acts as a meaningful probe into many new physics models, serving as the primary motivation of this work. 
+Due to the complexity and number of these models, we simply refer to their work to give meaningful calculations in support of new physics should a branching fraction significantly larger than $10^{-13}$ be detected. It should be clear from these calculations that putting better limits on $\mathcal{B}(D^0 \to \mu \mu)$ acts as a meaningful probe into many new physics models, serving as the primary motivation of this work. 

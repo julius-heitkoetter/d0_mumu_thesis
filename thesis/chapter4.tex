@@ -1,20 +1,20 @@
-\chapter{$D^0 \to \mu^+\mu^-$ Branching Fraction Measurement}
+\chapter{$D^0 \to \mu\mu$ Branching Fraction Measurement}
 \label{ch:4}
 
 \section{Analysis overview}
 
 \label{sec:analysis_overview}
 
-The goal of this analysis is to measure the branching fraction of the $D^0 \to \mu^+ \mu^-$ decay, written as $\mathcal{B}(D^0 \to \mu^+ \mu^-)$. In performing this calculation, there are three major challenges that this analysis is faced with. 
+The goal of this analysis is to measure the branching fraction of the $D^0 \to \mu \mu$ decay, written as $\mathcal{B}(D^0 \to \mu \mu)$. In performing this calculation, there are three major challenges that this analysis is faced with. 
 
-The first, and most fundamental, of these challenges is a small signal presence compared to a large combinatorial background, due to rarity of the $D^0 \to \mu^+ \mu^-$ decay. In order to address this, we use $D^0$ mesons that originated from $D^{*\pm} \to D^0 \pi^\pm$ decays, allowing us to use the additional soft pion to better reconstruct and select for signal events. By using $D^*$ decay, we decrease the number of available $D^0 \to \mu^+ \mu^-$ signal events, but also reduce the combinatorial background by a much larger factor, improving the overall quality of the analysis. 
+The first, and most fundamental, of these challenges is a small signal presence compared to a large combinatorial background, due to rarity of the $D^0 \to \mu \mu$ decay. In order to address this, we use $D^0$ mesons that originated from $D^{*\pm} \to D^0 \pi^\pm$ decays, allowing us to use the additional soft pion to better reconstruct and select for signal events. By using ${D^*}^\pm$ decay, we decrease the number of available $D^0 \to \mu \mu$ signal events, but also reduce the combinatorial background by a much larger factor, improving the overall quality of the analysis. 
 
-The second of these challenges is that the $D^*$ cross-section is not well known at CMS, making it difficult to compute the number of $D^0$ mesons in our dataset directly. Therefore, instead we use a normalization channel approach, where we count the number of events in a normalization channel with a well known branching fraction, which we pick to be $D^0 \to \pi^+ \pi^-$ due to the kinematic similarity to the $D^0 \to \mu^+ \mu^-$ decay. Therefore, the result for this analysis is obtained by extracting out $\mathcal{B}(D^0 \to \mu^+ \mu^-)$ from the following formula.
+The second of these challenges is that the ${D^*}^\pm$ cross-section is not well known at CMS, making it difficult to compute the number of $D^0$ mesons in our dataset directly. Therefore, instead we use a normalization channel approach, where we count the number of events in a normalization channel with a well known branching fraction, which we pick to be $D^0 \to \pi^\pm \pi^\pm$ due to the kinematic similarity to the $D^0 \to \mu \mu$ decay. Therefore, the result for this analysis is obtained by extracting out $\mathcal{B}(D^0 \to \mu \mu)$ from the following formula.
 \begin{equation}
-    \frac{N_{D^0 \to \mu^+  \mu^-}}{N_{D^0 \to \pi^+ \pi^-}} = \frac{\mathcal{B}(D^0 \to \mu^+ \mu^-)}{\mathcal{B}(D^0 \to \pi^+ \pi^-)}\times \frac{\epsilon_{D^*, D^0\to\mu\mu}}{\epsilon_{D^*, D^0\to\pi\pi}} \times S_{ZB} \times \text{MVA}_D \times T_{\text{corr}} 
+    \frac{N_{D^0 \to \mu  \mu}}{N_{D^0 \to \pi^\pm \pi^\pm}} = \frac{\mathcal{B}(D^0 \to \mu \mu)}{\mathcal{B}(D^0 \to \pi^\pm \pi^\pm)}\times \frac{\epsilon_{{D^*}^\pm, D^0\to\mu\mu}}{\epsilon_{{D^*}^\pm, D^0\to\pi\pi}} \times S_{ZB} \times \text{MVA}_D \times T_{\text{corr}} 
 \label{eq:main_analysis}
 \end{equation}
-where $\mathcal{B}(D^0 \to \pi^+ \pi^-)$ is well known \cite{ref:pdg2024}, $N_{D^0 \to \mu^+  \mu^-}$ and $N_{D^0 \to \pi^+ \pi^-}$ are calculated using fits to data as described in Section \ref{sec:UML}, $\epsilon_X$ is the efficiency of our selection calculated from Monte Carlo described in Section \ref{sec:selections_and_efficency}, $S_{ZB}$ is a scale factor of the data discussed in Section \ref{sec:triggers_and_datasets}, and $\text{MVA}_D,T_{\text{corr}}$ are corrections described in Section \ref{sec:efficiency_corrections}. This solution also has a nice property of reducing many of the errors that exist in both channels, reducing overall systematic error and providing a simpler analysis strategy.
+where $\mathcal{B}(D^0 \to \pi^\pm \pi^\pm)$ is well known \cite{ref:pdg2024}, $N_{D^0 \to \mu\mu}$ and $N_{D^0 \to \pi^\pm \pi^\pm}$ are calculated using fits to data as described in Section \ref{sec:UML}, $\epsilon_X$ is the efficiency of our selection calculated from Monte Carlo described in Section \ref{sec:selections_and_efficency}, $S_{ZB}$ is a scale factor of the data discussed in Section \ref{sec:triggers_and_datasets}, and $\text{MVA}_D,T_{\text{corr}}$ are corrections described in Section \ref{sec:efficiency_corrections}. This solution also has a nice property of reducing many of the errors that exist in both channels, reducing overall systematic error and providing a simpler analysis strategy.
 
 The third of these challenges is caused by in-flight $\pi \to \mu \nu$ decays, which cause pions to be misreconstructed or "faked" as muons. Due to the nature of this experiment in measuring pion and muon final states, the effect of the fake rate impacts elements of the entire analysis. To address the fake muons, this analysis performs an extensive analysis of the muon fake rate in Section \ref{sec:muon_fake_rate}. 
 
@@ -31,8 +31,8 @@ The events used for this analysis are collected from proton-proton collisions at
 
 There are two triggers used for the analysis:
 \begin{enumerate}
-    \item The \texttt{HLT\_DoubleMu4\_3\_LowMass} trigger is used to collect $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \mu^+ \mu^-$ signal events by triggering on the dimuon final product. During the collection of the data samples of the analysis, the trigger was virtually unchanged and unprescaled, making it convenient to use for signal collection.
-    \item The \texttt{HLT\_ZeroBias} trigger was used to collect $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \pi^+ \pi^-$ normalization events. Unlike the signal trigger, this trigger does not filter for a specific signature. However, the branching fraction of $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \pi^+ \pi^-$ is large enough to generate a sufficient number of desired events. During the collection of the data samples of the analysis, the trigger was virtually unchanged.
+    \item The \texttt{HLT\_DoubleMu4\_3\_LowMass} trigger is used to collect $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \mu \mu$ signal events by triggering on the dimuon final product. During the collection of the data samples of the analysis, the trigger was virtually unchanged and unprescaled, making it convenient to use for signal collection.
+    \item The \texttt{HLT\_ZeroBias} trigger was used to collect $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \pi^\pm \pi^\pm$ normalization events. Unlike the signal trigger, this trigger does not filter for a specific signature. However, the branching fraction of $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \pi^\pm \pi^\pm$ is large enough to generate a sufficient number of desired events. During the collection of the data samples of the analysis, the trigger was virtually unchanged.
 \end{enumerate}
 
 Due to the fact that the \texttt{HLT\_ZeroBias} trigger does not filter for a specific signature, it is exposed to much more data than any other dataset. The trigger selects data on every bunch crossing that occurs at CMS. As discussed in Section \ref{sec:triggers}, this is far too much data to be processed by any modern day computer. Therefore, a \textit{prescaling} is used to keep only a fraction of the events. This prescaling factor is incredibly important; a prescale factor of 100 means that there exists 100 times more events that satisfy the \texttt{HLT\_ZeroBias} requirements than reported in the dataset. The prescaling factor is set to be roughly $10^{6}$ and then measured experimentally by comparing the integrated lumonisty of the data.
@@ -88,16 +88,16 @@ Combinatorial backgrounds are signals that originate from random combinations of
 
 \subsubsection{Peaking Backgrounds}
 
-Unlike combinatorial backgrounds, peaking backgrounds must be carefully studied to ensure that the background peak in the signal region is not modeled as signal. These peaking backgrounds occur most commonly from detector misreconstruction. For example, pions can be misreconstructed as muons, resulting in some $D^0 \to \pi^+ \pi^-$ events being reconstructed as $D^0 \to \mu^+ \mu^-$ events, causing a peaking background near the signal peak. Specifically, we know that pions and kaons are the only 2 particles which are (1) common decay products of the $D^0$ and (2) are relatively frequently misreconstructed as muons. See Section \ref{sec:muon_fake_rate} on Muon Fake Rates. Therefore, the candidates for peaking background are two body hadronic decays of the $D^0$ meson and non-$D^{*\pm} \to D^0 \pi^\pm$ decays. 
+Unlike combinatorial backgrounds, peaking backgrounds must be carefully studied to ensure that the background peak in the signal region is not modeled as signal. These peaking backgrounds occur most commonly from detector misreconstruction. For example, pions can be misreconstructed as muons, resulting in some $D^0 \to \pi^\pm \pi^\pm$ events being reconstructed as $D^0 \to \mu \mu$ events, causing a peaking background near the signal peak. Specifically, we know that pions and kaons are the only 2 particles which are (1) common decay products of the $D^0$ and (2) are relatively frequently misreconstructed as muons. See Section \ref{sec:muon_fake_rate} on Muon Fake Rates. Therefore, the candidates for peaking background are two body hadronic decays of the $D^0$ meson and non-$D^{*\pm} \to D^0 \pi^\pm$ decays. 
 
 For each of the peaking backgrounds, we check their $\Delta m$ and dimuon mass against the $\Delta m$ and dimuon mass of the signal. While the non-$D^{*\pm} \to D^0 \pi^\pm$ decays exhibit a dimuon mass distribution which is virtually identical to the signal, their $\Delta m$ contribution is expected to be combinatorial so they do not overlap with the signal's signature. Therefore, he dominate two body hadronic decays of the $D^0$ meson are the only contributions to peaking background and are:
 \begin{enumerate}
-    \item $D^0 \to \pi^+ \pi^-$,
+    \item $D^0 \to \pi^\pm \pi^\pm$,
     \item $D^0 \to K^\pm \pi^\mp$,
-    \item $D^0 \to K^+ K^-$,
-    \item $D^0 \to \pi^- \mu^+ \nu_\mu$\footnote{Due to the semileptonic nature of this decay, it only has a peaking structure in $m(D^0)$, only in $\Delta m$}.
+    \item $D^0 \to K^\pm K^\pm$,
+    \item $D^0 \to \pi^\pm \mu \nu_\mu$\footnote{Due to the semileptonic nature of this decay, it only has a peaking structure in $m(D^0)$, only in $\Delta m$}.
 \end{enumerate}
-For each of these, we use \texttt{TGenPhaseSpace} to simulate the effects of the misreconstructed decays on the peaking background distributions in both $\Delta m$ and the dimuon mass and compare them to the signal distribution. As is drawn in Figure \ref{fig:reconstructed_D0_comparison}, every decay except $D^0 \to \pi^+ \pi^-$ gives a distribution which is distinct from the signal distribution in either $\Delta m$ or the dimuon mass. Therefore, the only peaking distribution which we must model and account for is $D^0 \to \pi^+ \pi^-$. 
+For each of these, we use \texttt{TGenPhaseSpace} to simulate the effects of the misreconstructed decays on the peaking background distributions in both $\Delta m$ and the dimuon mass and compare them to the signal distribution. As is drawn in Figure \ref{fig:reconstructed_D0_comparison}, every decay except $D^0 \to \pi^\pm \pi^\pm$ gives a distribution which is distinct from the signal distribution in either $\Delta m$ or the dimuon mass. Therefore, the only peaking distribution which we must model and account for is $D^0 \to \pi^\pm \pi^\pm$. 
 
 \begin{figure}[htp]
     \begin{center}
@@ -105,7 +105,7 @@ For each of these, we use \texttt{TGenPhaseSpace} to simulate the effects of the
       \includegraphics[width=0.49\textwidth]{figures/chapter4/reconstructed_delta_m.pdf}\\
     \end{center}
     \caption{
-      Comparison of normalized frequencies for various peaking background $D^0 \to \mu^+ \mu^-$ decays against the signal decay.
+      Comparison of normalized frequencies for various peaking background $D^0 \to \mu \mu$ decays against the signal decay.
       Right: Reconstructed $\Delta m$ distribution.
       Left: Reconstructed dimuon mass distribution, where decay products are forced to take the muon mass using \texttt{TGenPhaseSpace}, even for non-dimuon final states.
     }
@@ -117,13 +117,13 @@ For each of these, we use \texttt{TGenPhaseSpace} to simulate the effects of the
 
 \subsection{Monte Carlo samples}
 
-The main component of constructing the Monte Carlo (MC) simulation samples is properly modeling the $D^*$ meson by replicating their production in the CMS detector. The $D^*$ has two primary production mechanisms at the LHC:
+The main component of constructing the Monte Carlo (MC) simulation samples is properly modeling the ${D^*}^\pm$ meson by replicating their production in the CMS detector. The ${D^*}^\pm$ has two primary production mechanisms at the LHC:
 \begin{enumerate}
-    \item production through hadronization of charm quark directly from the proton-proton collision, creating prompt $D^*$ mesons close to the primary vertex; 
-    \item production through decay of other $B$ hadrons, creating displaced $D^*$ mesons from a secondary vertex.
+    \item production through hadronization of charm quark directly from the proton-proton collision, creating prompt ${D^*}^\pm$ mesons close to the primary vertex; 
+    \item production through decay of other $B$ hadrons, creating displaced ${D^*}^\pm$ mesons from a secondary vertex.
 \end{enumerate}
 
-It is important to model both of these production mechanisms of the $D^*$ decay to generate a reliable MC simulation sample, therefore both are included in the MC sample. Specifically, the first method produces a prompt soft pion in the $D^*\pm \to D^0 \pi^\pm$ process while the second method produces a displaced soft pion, resulting in significant differences in vertex parameters used in reconstruction and classification. The full complexity of the MC samples extends beyond the scope of this thesis, but Table \ref{tab:mc-samples} displays some of the most used samples.
+It is important to model both of these production mechanisms of the ${D^*}^\pm$ decay to generate a reliable MC simulation sample, therefore both are included in the MC sample. Specifically, the first method produces a prompt soft pion in the ${D^*}^\pm\pm \to D^0 \pi^\pm$ process while the second method produces a displaced soft pion, resulting in significant differences in vertex parameters used in reconstruction and classification. The full complexity of the MC samples extends beyond the scope of this thesis, but Table \ref{tab:mc-samples} displays some of the most used samples.
 
 \begin{table}
 \centering
@@ -132,29 +132,29 @@ It is important to model both of these production mechanisms of the $D^*$ decay 
     \textbf{Sample Name} & \textbf{Attributes} \\
     \hline
     DstarToD0Pi\_ & -- SoftQCD:nonDiffractive (MinBias) \\
-    D0To2Mu\_ & -- force $D^* \to D^0\pi$, $D^0 \to \mu^+\mu^-$ decay \\
-    MuFilter & -- $|\eta(D^*)| < 3.0$ \\
-    & -- $|\eta(D^0)| < 3.0$ for $D^0$ from $D^*$ \\
+    D0To2Mu\_ & -- force ${D^*}^\pm \to D^0\pi$, $D^0 \to \mu\mu$ decay \\
+    MuFilter & -- $|\eta({D^*}^\pm)| < 3.0$ \\
+    & -- $|\eta(D^0)| < 3.0$ for $D^0$ from ${D^*}^\pm$ \\
     & -- $|\eta| < 2.6$, $p_T > 3.0$ for muons from $D^0$ \\
     \hline
     DstarToD0Pi\_ & -- SoftQCD:nonDiffractive (MinBias) \\
-    D0To2Pi\_ & -- force $D^* \to D^0\pi$, $D^0 \to \pi^+\pi^-$ decay \\
-    PiFilter & -- $|\eta(D^*)| < 3.0$ \\
-    & -- $|\eta(D^0)| < 3.0$ for $D^0$ from $D^*$ \\
+    D0To2Pi\_ & -- force ${D^*}^\pm \to D^0\pi$, $D^0 \to \pi^\pm\pi^\pm$ decay \\
+    PiFilter & -- $|\eta({D^*}^\pm)| < 3.0$ \\
+    & -- $|\eta(D^0)| < 3.0$ for $D^0$ from ${D^*}^\pm$ \\
     & -- $|\eta| < 2.6$, $p_T > 3.0$ for pions from $D^0$ \\
     \hline
     DstarToD0Pi\_ & -- SoftQCD:nonDiffractive (MinBias) \\
-    D0ToKPi\_ & -- force $D^* \to D^0\pi$, $D^0 \to K^-\pi^+$ decay \\
-    KPiFilter & -- $|\eta(D^*)| < 3.0$ \\
-    & -- $|\eta(D^0)| < 3.0$ for $D^0$ from $D^*$ \\
+    D0ToKPi\_ & -- force ${D^*}^\pm \to D^0\pi$, $D^0 \to K^-\pi^+$ decay \\
+    KPiFilter & -- $|\eta({D^*}^\pm)| < 3.0$ \\
+    & -- $|\eta(D^0)| < 3.0$ for $D^0$ from ${D^*}^\pm$ \\
     & -- $|\eta| < 2.6$, $p_T > 3.0$ for pions from $D^0$ \\
     \hline
     DstarToD0Pi\_ & -- SoftQCD:nonDiffractive (MinBias) \\
-    D0To2Pi\_ & -- force $D^* \to D^0\pi$, $D^0 \to \pi^+\pi^- \to \mu^+\nu_\mu\mu^-\nu_\mu$ \\
+    D0To2Pi\_ & -- force ${D^*}^\pm \to D^0\pi$, $D^0 \to \pi^\pm\pi^\pm \to \mu^+\nu_\mu\mu\nu_\mu$ \\
     PiToMuPiFilter\_ & -- reduce pion $c\tau$ from 7.8\,m to 15.6\,cm \\
     PiLifetime0p02 & -- pion decay limits: $R < 2$\,m, $|z| < 4$\,m \\
-    & -- $|\eta(D^*)| < 3.0$ \\
-    & -- $|\eta(D^0)| < 3.0$ for $D^0$ from $D^*$ \\
+    & -- $|\eta({D^*}^\pm)| < 3.0$ \\
+    & -- $|\eta(D^0)| < 3.0$ for $D^0$ from ${D^*}^\pm$ \\
     & -- $|\eta| < 2.6$, $p_T > 3.0$ for pions from $D^0$ \\
     & -- $|\eta| < 2.6$, $p_T(\mu) > 3.0$ for muons from pions \\
     \hline
@@ -176,16 +176,16 @@ Once we have attained the data and MC samples needed for this analysis, we filte
 \subsection{Preselection}
 \label{subsec:preselection}
 
-The preselection is used to create reconstructed event candidates which pass the triggers discussed in Section \ref{subsec:data_samples}. To stay consistent between signal and normalization events, we keep a similar preselection process for both $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \mu^+ \mu^-$ and $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \pi^+ \pi^-$ events.
+The preselection is used to create reconstructed event candidates which pass the triggers discussed in Section \ref{subsec:data_samples}. To stay consistent between signal and normalization events, we keep a similar preselection process for both $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \mu \mu$ and $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \pi^\pm \pi^\pm$ events.
 
-In order to properly reconstruct the $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \mu^+ \mu^-$ and $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \pi^+ \pi^-$ events, we first must reconstruct their decay products: the muons and pion. Pions are reconstructed from charged tracks found in the tracker. These tracks are reconstructed using particle flow (PF) algorithms. The primary goal of these algorithms is to reconstruct individual particles using the data read out from the detector itself. This is made especially difficult because of the high luminosities of Run3 resulting in a large amount of \textit{pileup}, a phenomenon that occurs due to multiple proton-proton collisions happening within a very short time frame resulting in multiple collisions per event. Due to the fact that the pions used in the analysis come from the PF algorithm, they are labeled as PF candidates. Muons are reconstructed primarily using detector read out from the muon chambers. We use the well established CMS reconstruction algorithms \texttt{TrackerMuon} and \texttt{GlobalMuon} as well as use the collaboration's \texttt{LooseMuonID} for muon identification \cite{ref:sirunyan_2018}. To reduce background noise and increase detector resolution, we also cut at $p_T>4$ GeV and require a \texttt{highPurity} inner track in the tracker for both pions and muons.
+In order to properly reconstruct the $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \mu \mu$ and $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \pi^\pm \pi^\pm$ events, we first must reconstruct their decay products: the muons and pion. Pions are reconstructed from charged tracks found in the tracker. These tracks are reconstructed using particle flow (PF) algorithms. The primary goal of these algorithms is to reconstruct individual particles using the data read out from the detector itself. This is made especially difficult because of the high luminosities of Run3 resulting in a large amount of \textit{pileup}, a phenomenon that occurs due to multiple proton-proton collisions happening within a very short time frame resulting in multiple collisions per event. Due to the fact that the pions used in the analysis come from the PF algorithm, they are labeled as PF candidates. Muons are reconstructed primarily using detector read out from the muon chambers. We use the well established CMS reconstruction algorithms \texttt{TrackerMuon} and \texttt{GlobalMuon} as well as use the collaboration's \texttt{LooseMuonID} for muon identification \cite{ref:sirunyan_2018}. To reduce background noise and increase detector resolution, we also cut at $p_T>4$ GeV and require a \texttt{highPurity} inner track in the tracker for both pions and muons.
 
 Once we have the muon and/or pion candidates for the $D^0$ decay, we use vertex reconstruction to reconstruct the full decay candidate. A \textit{vertex} is the location in 3D space where a process occurred and the \textit{primary vertex} is the location of the interaction of the two colliding protons, which in our case produce the $D^{*\pm}$. Due to the short mean lifetime of the $D^{*\pm}$ ($ 6.9 \pm 1.9 \times 10^{-21} \; s$) \cite{ref:pdg2024}, we can label the $D^{*\pm} \to D^0 \pi^\pm$ vertex using the primary vertex. The kinematic vertex reconstruction begins by identifying the dimuon or dipion decay candidates fit to a common vertex (i.e two pions or two muons which came from the same decay). The two 4-momentum vectors of these two candidates are added together to get a dimuon or dipion 4-momentum vector. We call this dimuon/dipion system a $D^0$ candidate. Using the $D^0$ candidate 4-momentum vector, we calculate the transverse momentum of $D^0$ candidate and extrapolate it to its intersection with the beamline. Then, in order to determine which primary vertex the $D^{*\pm} \to D^0 \pi^\pm$ decay came from, we calculate the 3D distance between each primary vertex candidate and the extrapolated intersection point, known as the \textit{3D-impact parameter}, and find the primary vertex which minimizes this parameter. This is difficult because there are often many primary vertices in one event due to pileup. Lastly, since the decay at the primary vertex is $D^{*\pm} \to D^0 \pi^\pm$, we check if there exists a soft pion which came from the selected primary vertex \cite{ref:Prokofiev_Speer_2005}. This kinematic vertex reconstruction is then used to gather reconstructed signal and normalization events as well as refit the $D^0$ candidates to a common vertex using a kinematic vertex fitting tool, generating \textit{refitted} candidates. The events which pass this reconstruction are thus the events that pass the preselection. 
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/chapter4/vertex_reconstruction.png}
-    \caption{An example of the $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \mu^+ \mu^-$ vertex}
+    \caption{An example of the $D^{*\pm} \to D^0 \pi^\pm, D^0 \to \mu \mu$ vertex}
     \label{fig:vertex_reconstruction}
 \end{figure}
 
@@ -206,13 +206,13 @@ Using the reconstruction described in Section \ref{subsec:preselection}, we are 
     \item $l_{xy}/\sigma\left(l_{xy}\right)$: the significance of the distance in the $xy$ plane between the vertex of the $D^{*\pm} \to D^0 \pi^\pm$ decay (primary vertex) and the vertex of the $D^0 \to l l$ decay. Calculated by taking the value of the distance and dividing it by the square root of the expected variance of the distance. 
     \item $\alpha_{3D}$ : the angle between the $D^0$ momentum and flight direction. 
     \item $D^0$ vertex probability: the probability given by the $\chi^2$ fit which reconstructs the $D^0$ vertex.
-    \item $D^*$ vertex probability: the probability given by the $\chi^2$ fit which reconstructs the $D^*$ vertex.
+    \item ${D^*}^\pm$ vertex probability: the probability given by the $\chi^2$ fit which reconstructs the ${D^*}^\pm$ vertex.
 \end{enumerate}
 Note that, unless otherwise stated, the refitted variables are used over the reconstructed ones. 
 
 Using these variables, we impart a baseline selection on the preselected events. The goal of the baseline selection is to reject much of the background while keeping the signal efficiency high and not perturbing the signal shape. To achieve this, we select a $D^0$ reconstructed mass in the range of [1.75, 1.95], $D^0$ refitted mass in the range of [1.81, 1.94], reconstructed $\Delta m$ in the range of [0.135, 0.160], and refitted $\Delta m$ in the range [0.140, 0.150]. These ranges are picked such that there are large sidebands on the signal, keeping signal efficiency high.
 
-The other set of baseline selections are on the vertices themselves. We require the $D^*$ vertex probability to be greater that $0.1$ and the $D^0$ vertex probability to be greater than $0.01$. This is done such that there is some confidence in the vertex reconstruction and such that we can match the double muon trigger requirement of $0.005$. To gain further confidence in the vertex reconstruction, we limit $\alpha_{3D} < 0.1$ radians and the flight length significance to be greater than 3. Lastly, to keep the normalization channel (which is gathered from a ZeroBias trigger) under the same selection as the signal channel (which is gathered from a HLT\_DoubleMuon trigger), we require the event in the normalization channel to have fired the \texttt{HLT\_DoubleMu4\_3\_LowMass} trigger. Note, this does not mean that the specific decay we reconstruct fired the trigger, in fact usually some other particle has fired the trigger. 
+The other set of baseline selections are on the vertices themselves. We require the ${D^*}^\pm$ vertex probability to be greater that $0.1$ and the $D^0$ vertex probability to be greater than $0.01$. This is done such that there is some confidence in the vertex reconstruction and such that we can match the double muon trigger requirement of $0.005$. To gain further confidence in the vertex reconstruction, we limit $\alpha_{3D} < 0.1$ radians and the flight length significance to be greater than 3. Lastly, to keep the normalization channel (which is gathered from a ZeroBias trigger) under the same selection as the signal channel (which is gathered from a HLT\_DoubleMuon trigger), we require the event in the normalization channel to have fired the \texttt{HLT\_DoubleMu4\_3\_LowMass} trigger. Note, this does not mean that the specific decay we reconstruct fired the trigger, in fact usually some other particle has fired the trigger. 
 
 %TODO: insert table of efficiencies
 
@@ -224,13 +224,13 @@ The preselection and baseline selections optimize signal efficiency, but not ove
 
 The decision tree model used is based on the XGBoost (Extreme Gradient Boosting) library \cite{ref:chen_Guestrin_2016}, which builds a forest of regression trees trained sequentially to minimize a regularized objective function. Each tree in the sequence focuses on correcting the errors of the previous tree and the scores from the trees are combined to get a final prediction on the classification of the event from the forest. Each tree is constructed using a greedy algorithm that selects splits based on gain, with regularization terms penalizing model complexity to prevent overfitting. The loss function is binary logistic loss, which is optimized using boosting under second-order gradient information with an evaluation metric based on the area under the receiver-operating characteristic (ROC) curve, known as AUC in the literature. Each tree has a maximum depth of three and is trained using a learning rate of $\eta = 0.1$. An additional regularization is applied with an L1 trigger penalty. A minimum loss reduction threshold for tree splits, which only allows additional trees to form if their contribution causes the loss to decrease by some amount (set in this analysis to be 2.0), and a sub sample ratio, which is the fraction of training data that each tree sees (kept at 60 percent in this analysis, as is standard), are employed to additionally prevent overfitting. The model is trained for over 4000 epochs in each training round.
 
-The signal events used for training are taken from simulated $D^0 \to \mu^+ \mu^-$ MC samples. The background events are taken from the data sidebands using the $\Delta m$ parameter with a distance of over $5\sigma$ right of the expected value ($\Delta m \in [0.150, 0.155]$ GeV) and dimuon mass in the signal range of $[1.81, 2.45]$ GeV. The dimuon mass is kept in the signal range to align the training data with not obviously rejected events. Should the background training data be selected outside the signal dimuon mass window, the classification of signal and background events would become trivial, leading to a less effective model.
+The signal events used for training are taken from simulated $D^0 \to \mu \mu$ MC samples. The background events are taken from the data sidebands using the $\Delta m$ parameter with a distance of over $5\sigma$ right of the expected value ($\Delta m \in [0.150, 0.155]$ GeV) and dimuon mass in the signal range of $[1.81, 2.45]$ GeV. The dimuon mass is kept in the signal range to align the training data with not obviously rejected events. Should the background training data be selected outside the signal dimuon mass window, the classification of signal and background events would become trivial, leading to a less effective model.
 
 The variables used in the training are
 \begin{enumerate}
     \item the $p_T$ of both, muons and the soft pion;
     \item the $D^0$ vertex parameters, including point angle, flight length significance, vertex probability, 3D impact parameter, and significance of the 3D impact parameter;
-    \item the $D^*$ vertex probability;
+    \item the ${D^*}^\pm$ vertex probability;
     \item the $D^0$ mass resolution over the $D^0$ mass;
 \end{enumerate}
 
@@ -266,7 +266,7 @@ It is important that the classification parameter is not correlated with any var
 
 
 % TODO: add statement about how efficiency is calculated in this analysis using simulated data
-It is also important to note that the classifier is being trained and tested on simulated signal samples, yet for the analysis the efficiency of the classifier on real data is needed. Due to mismodeling effect in the simulation, the simulation efficiency is not necessarily the same as the data efficiency. Getting the efficiency is difficult to measure directly because the expected branching fraction of $D^0 \to \mu^+ \mu^-$ is so low that we do not have a reliable data sample for the signal. Instead, the efficiency is derived from the $D^0 \to \pi^+ \pi^-$ decay using the zero bias dataset and the $D^0 \to \pi^+ \pi^-$ MC simulation samples. The $D^0 \to \pi^+ \pi^-$ decay behaves similarly to the $D^0 \to \mu^+ \mu^-$ decay in terms of reconstruction/vertex parameters and the MVA classifier is independent of $\Delta m$ and dimuon mass in both cases, therefore the efficiency derived from $D^0 \to \pi^+ \pi^-$ is similar to the efficiency of $D^0 \to \mu^+ \mu^-$. The same classifier with the same cut is used on both the normalization channel and the signal channel, causing the $\text{MVA}_D$ efficiencies to mostly cancel in the branching fraction equation (Equation \ref{eq:main_analysis}). We calculate the efficiency in data on the $D^0 \to \pi^+ \pi^-$ decay by performing the UML fit outlined in Section \ref{subsec:normalization_channel_fit} on different $\text{MVA}_D$ cut values and comparing to the \texttt{ZeroBias} dataset. In simulated data, we are able to directly tag the signal events that were created from the simulation, so calculating the efficiency is trivial. A list of efficiency values at specific $\text{MVA}_D$ cuts are found in Table \ref{tab:mva_cut_efficiencies} and a graphical representation over a more diverse $\text{MVA}_D$ cut range is found in \ref{fig:mva_cut_efficiencies}.
+It is also important to note that the classifier is being trained and tested on simulated signal samples, yet for the analysis the efficiency of the classifier on real data is needed. Due to mismodeling effect in the simulation, the simulation efficiency is not necessarily the same as the data efficiency. Getting the efficiency is difficult to measure directly because the expected branching fraction of $D^0 \to \mu \mu$ is so low that we do not have a reliable data sample for the signal. Instead, the efficiency is derived from the $D^0 \to \pi^\pm \pi^\pm$ decay using the zero bias dataset and the $D^0 \to \pi^\pm \pi^\pm$ MC simulation samples. The $D^0 \to \pi^\pm \pi^\pm$ decay behaves similarly to the $D^0 \to \mu \mu$ decay in terms of reconstruction/vertex parameters and the MVA classifier is independent of $\Delta m$ and dimuon mass in both cases, therefore the efficiency derived from $D^0 \to \pi^\pm \pi^\pm$ is similar to the efficiency of $D^0 \to \mu \mu$. The same classifier with the same cut is used on both the normalization channel and the signal channel, causing the $\text{MVA}_D$ efficiencies to mostly cancel in the branching fraction equation (Equation \ref{eq:main_analysis}). We calculate the efficiency in data on the $D^0 \to \pi^\pm \pi^\pm$ decay by performing the UML fit outlined in Section \ref{subsec:normalization_channel_fit} on different $\text{MVA}_D$ cut values and comparing to the \texttt{ZeroBias} dataset. In simulated data, we are able to directly tag the signal events that were created from the simulation, so calculating the efficiency is trivial. A list of efficiency values at specific $\text{MVA}_D$ cuts are found in Table \ref{tab:mva_cut_efficiencies} and a graphical representation over a more diverse $\text{MVA}_D$ cut range is found in \ref{fig:mva_cut_efficiencies}.
 
 \begin{table}[htbp]
     \centering
@@ -274,10 +274,10 @@ It is also important to note that the classifier is being trained and tested on 
     \hline
     $\text{MVA}_D$ cut value & \textbf{0.74} & \textbf{0.76} & \textbf{0.78} \\
     \hline
-    $D^0 \to \pi^+ \pi^-$ Data Efficiency (from Zero Bias) & $0.722 \pm 0.088$ & $0.707 \pm 0.087$ & $0.681 \pm 0.086$ \\
-    $D^0 \to \pi^+ \pi^-$ MC Efficiency & 0.817 & 0.801 & 0.783 \\
-    $D^0 \to \mu^+ \mu^-$ MC Efficiency & 0.824 & 0.809 & 0.792 \\
-    $D^0 \to \pi^+ \pi^- \to \mu^+\nu_\mu\mu^-\bar{\nu}_\mu$ MC Efficiency & 0.806 & - & - \\
+    $D^0 \to \pi^\pm \pi^\pm$ Data Efficiency (from Zero Bias) & $0.722 \pm 0.088$ & $0.707 \pm 0.087$ & $0.681 \pm 0.086$ \\
+    $D^0 \to \pi^\pm \pi^\pm$ MC Efficiency & 0.817 & 0.801 & 0.783 \\
+    $D^0 \to \mu \mu$ MC Efficiency & 0.824 & 0.809 & 0.792 \\
+    $D^0 \to \pi^\pm \pi^\pm \to \mu \nu_\mu\mu\bar{\nu}_\mu$ MC Efficiency & 0.806 & - & - \\
     \hline
     \end{tabular}
     \caption{Summary of $\text{MVA}_D$ cut efficiencies at various cut values on various samples used throughout the analysis.}
@@ -297,37 +297,37 @@ It is also important to note that the classifier is being trained and tested on 
 As is drawn in Table \ref{tab:mva_cut_efficiencies} as well as Figure \ref{fig:mva_cut_efficiencies}, while the efficiency values are, as expected, extremely close in the MC samples, there is still a small difference between the three decay channels. To account for this small difference, we calculate a corrective efficiency factor, derived from MC. We name this corrective factor $\text{MVA}_{D, cor}$ and define it as
 \begin{equation}
     \begin{split}
-    \text{MVA}_{D,\text{cor}\;(D^0 \to \mu^+ \mu^-)} &= 
-    \frac{\epsilon_{D^0 \to \mu^+ \mu^-\; \text{ (simulation)}}}
-         {\epsilon_{D^0 \to \pi^+ \pi^-\; \text{ (simulation)}}} \\
-    \text{MVA}_{D,\text{cor}\;(D^0 \to \pi^+ \pi^- \to \mu^+ \nu_\mu \mu^- \nu_\mu)} &= 
-    \frac{\epsilon_{D^0 \to \pi^+ \pi^- \to \mu^+ \nu_\mu \mu^- \nu_\mu\; \text{ (simulation)}}}
-         {\epsilon_{D^0 \to \pi^+ \pi^-\; \text{ (simulation)}}}
+    \text{MVA}_{D,\text{cor}\;(D^0 \to \mu \mu)} &= 
+    \frac{\epsilon_{D^0 \to \mu \mu\; \text{ (simulation)}}}
+         {\epsilon_{D^0 \to \pi^\pm \pi^\pm\; \text{ (simulation)}}} \\
+    \text{MVA}_{D,\text{cor}\;(D^0 \to \pi^\pm \pi^\pm \to \mu \nu_\mu \mu \nu_\mu)} &= 
+    \frac{\epsilon_{D^0 \to \pi^\pm \pi^\pm \to \mu \nu_\mu \mu \nu_\mu\; \text{ (simulation)}}}
+         {\epsilon_{D^0 \to \pi^\pm \pi^\pm\; \text{ (simulation)}}}
     \end{split}
 \end{equation}
 From these definitions, one extrapolates to data due to the proximity of the efficiency values, meaning
 \begin{equation}
     \begin{split}
-    \epsilon_{D^0 \to \mu^+ \mu^-} \text{ (data)} &= 
-    \epsilon_{D^0 \to \pi^+ \pi^-} \text{ (data)} 
-    \times \text{MVA}_{D,\text{cor}\;(D^0 \to \mu^+ \mu^-)} \\
-    \epsilon_{D^0 \to \pi^+ \pi^- \to \mu^+ \nu_\mu \mu^- \nu_\mu} \text{ (data)} &= 
-    \epsilon_{D^0 \to \pi^+ \pi^-} \text{ (data)} 
-    \times \text{MVA}_{D,\text{cor}\;(D^0 \to \pi^+ \pi^- \to \mu^+ \nu_\mu \mu^- \nu_\mu)}
+    \epsilon_{D^0 \to \mu \mu} \text{ (data)} &= 
+    \epsilon_{D^0 \to \pi^\pm \pi^\pm} \text{ (data)} 
+    \times \text{MVA}_{D,\text{cor}\;(D^0 \to \mu \mu)} \\
+    \epsilon_{D^0 \to \pi^\pm \pi^\pm \to \mu \nu_\mu \mu \nu_\mu} \text{ (data)} &= 
+    \epsilon_{D^0 \to \pi^\pm \pi^\pm} \text{ (data)} 
+    \times \text{MVA}_{D,\text{cor}\;(D^0 \to \pi^\pm \pi^\pm \to \mu \nu_\mu \mu \nu_\mu)}
     \end{split}
 \end{equation}
 Lastly, a very conservative systematic uncertainty is assigned to the $\text{MVA}_{D, cor}$ factors of $|1-\text{MVA}_{D, cor}|$. Therefore, we get
 \begin{equation}
 \begin{split}
-    \text{MVA}_{D,\text{cor}\;(D^0 \to \mu^+ \mu^-)} &= 1.009\;\pm\;0.012 \; \text{(stat)}\;\pm\;0.009 \; \text{(sys)} \\
-    \text{MVA}_{D,\text{cor}\;(D^0 \to \pi^+ \pi^- \to \mu^+ \nu_\mu \mu^- \nu_\mu)} &= 0.987\;\pm\;0.020 \; \text{(stat)}\;\pm\;0.013 \; \text{(sys)}
+    \text{MVA}_{D,\text{cor}\;(D^0 \to \mu \mu)} &= 1.009\;\pm\;0.012 \; \text{(stat)}\;\pm\;0.009 \; \text{(sys)} \\
+    \text{MVA}_{D,\text{cor}\;(D^0 \to \pi^\pm \pi^\pm \to \mu \nu_\mu \mu \nu_\mu)} &= 0.987\;\pm\;0.020 \; \text{(stat)}\;\pm\;0.013 \; \text{(sys)}
 \end{split}
 \end{equation}
     
 \section{Unbinned Maximum Likelihood Fits}
 \label{sec:UML}
 
-Given the accurate descriptions of the datasets and selection processes used in this analysis, we are now ready to extract the two main values needed for this analysis, the number of $D^0 \to \pi^+ \pi^-$ events, denoted $N_{D^0 \to \pi^+ \pi^-}$, the number of $D^0 \to \mu^+ \mu^-$ events, denoted $N_{D^0 \to \mu^+ \mu^-}$.
+Given the accurate descriptions of the datasets and selection processes used in this analysis, we are now ready to extract the two main values needed for this analysis, the number of $D^0 \to \pi^\pm \pi^\pm$ events, denoted $N_{D^0 \to \pi^\pm \pi^\pm}$, the number of $D^0 \to \mu \mu$ events, denoted $N_{D^0 \to \mu \mu}$.
 
 In order to do this, we perform two unbinned maximum likelihood (UML) fits on the events in our data that passes the preselection, baseline selection, and MVA selection processes. Maximum likelihood (ML) fits are statistical methods used to estimate parameters of a model given observed data. A ML fit is a UML fit when the data is not binned into a histogram, but rather the specific data values for each event separately are used. UML fits define a model $f(\vec{x}; \vec{\theta}, \vec{\theta}_N)$, which is a probability density function (PDF) over some set of observed variables, $\vec{x}$ and some model parameters $\vec{\theta}$ and $\vec{\theta}_N$. The goal of a UML fit is to extract model parameters $\vec{\theta}$ given some observed data $\vec{x}_1, \vec{x}_2,...,\vec{x}_N$. $\vec{\theta}_N$ are considered nuisance parameters and are important to defining the model, but are not parameters of interest to the analysis. Once a model has been defined, a likelihood is defined as
 \begin{equation}
@@ -335,7 +335,7 @@ In order to do this, we perform two unbinned maximum likelihood (UML) fits on th
 \end{equation}
 In this formulation, the UML fit is represented as finding $\hat{\vec{\theta}} = \text{argmax}_{\vec{\theta}, \vec{\theta}_N} \mathcal{L}(\vec{\theta}, \vec{\theta}_N)$. In practice, this is not quite true. Often in applications with lots of nuisance parameters, UML fits operate using profile likelihoods. However, the point of this discussion is merely an overview of UML and the complexities will be ignored until Section \ref{subsec:cls}. 
 
-In our analysis, $\vec{\theta}$ is the true number of signal events (in the normalization channel this is $N_{D^0 \to \pi^+ \pi^-}$ and in our signal channel this is $N_{D^0 \to \mu^+ \mu^-}$), $\vec{x}$ is the $\Delta m$ and $m(D^0)$ of our data, and $\vec{\theta}_N$ are the variance parameters needed to construct the signal and background PDFs. As is drawn in Figure \ref{fig:mva_correlation_matrix_for_fit_variables}, there exists practically no correlation between $\Delta m$ and $m(D^0)$. This tells us that the 2D model is a product of 1D models. More specifically, we have that
+In our analysis, $\vec{\theta}$ is the true number of signal events (in the normalization channel this is $N_{D^0 \to \pi^\pm \pi^\pm}$ and in our signal channel this is $N_{D^0 \to \mu \mu}$), $\vec{x}$ is the $\Delta m$ and $m(D^0)$ of our data, and $\vec{\theta}_N$ are the variance parameters needed to construct the signal and background PDFs. As is drawn in Figure \ref{fig:mva_correlation_matrix_for_fit_variables}, there exists practically no correlation between $\Delta m$ and $m(D^0)$. This tells us that the 2D model is a product of 1D models. More specifically, we have that
 \begin{equation}
     f(\vec{x}; \vec{\theta}, \vec{\theta}_N) = f_{m(D^0)}(m(D^0); \vec{\theta}, \vec{\theta}_N) \times f_{\Delta m}(\Delta m; \vec{\theta}, \vec{\theta}_N)
 \end{equation}
@@ -345,11 +345,11 @@ A more precise discussion of this construction follows in the sections below. Fo
 \subsection{Normalization Channel Fit}
 \label{subsec:normalization_channel_fit}
 
-The goal of the normalization channel is to extract $N_{D^0 \to \pi^+ \pi^-}$. This is done using the \texttt{HLT\_ZeroBias} trigger dataset, as is described in Section \ref{subsec:data_samples}. Perhaps the largest difficulty of the UML fit on the normalization channel is that the \texttt{HLT\_ZeroBias} trigger dataset does not contain many of the $D^{*\pm}\to D^0 \pi^\pm, D^0 \to \pi^+ \pi^-$ signal events due the large prescaling factor of the trigger, discussed in Section \ref{subsec:data_samples}. The below Section, in part, describes in detail how this difficulty is overcome by using MC samples to inform the fit and correcting for MC mismodeling effects when needed in the final fit. 
+The goal of the normalization channel is to extract $N_{D^0 \to \pi^\pm \pi^\pm}$. This is done using the \texttt{HLT\_ZeroBias} trigger dataset, as is described in Section \ref{subsec:data_samples}. Perhaps the largest difficulty of the UML fit on the normalization channel is that the \texttt{HLT\_ZeroBias} trigger dataset does not contain many of the $D^{*\pm}\to D^0 \pi^\pm, D^0 \to \pi^\pm \pi^\pm$ signal events due the large prescaling factor of the trigger, discussed in Section \ref{subsec:data_samples}. The below Section, in part, describes in detail how this difficulty is overcome by using MC samples to inform the fit and correcting for MC mismodeling effects when needed in the final fit. 
 
 \subsubsection{Signal Model}
 
-The signal model for the normalization channel describes the $\Delta m$ and $m(D^0)$ of the $D^{*\pm}\to D^0 \pi^\pm, D^0 \to \pi^+ \pi^-$ decay. As is common to do for masses in signal distributions, the model for $m(D^0)$ is a sum of two Gaussian distributions forced to share a common mean. Similarly, the model for $\Delta m$ is a sum of three Gaussian distributions forced to share a common mean.
+The signal model for the normalization channel describes the $\Delta m$ and $m(D^0)$ of the $D^{*\pm}\to D^0 \pi^\pm, D^0 \to \pi^\pm \pi^\pm$ decay. As is common to do for masses in signal distributions, the model for $m(D^0)$ is a sum of two Gaussian distributions forced to share a common mean. Similarly, the model for $\Delta m$ is a sum of three Gaussian distributions forced to share a common mean.
 
 Due to the small number of signal events in data, the shape of this model is determined by fits to simulated MC samples. This is because the shape will be much more stable in MC compared to data, simply just because there are more events in MC. Once the shape is found using MC, it is frozen and only the number of events is allowed to float when the fit is applied to data. The signal model fit to MC is displayed in Figure \ref{fig:d0pipi_uml_fit_pipi_model}.
 
@@ -375,11 +375,11 @@ where $i$ is used to denote that each of the models has multiple width parameter
 
 We use the \texttt{HLT\_DoubleMu4\_3\_LowMass} trigger to construct a dataset with enough signal samples to construct a reliable data-driven fit shape. We then run the full normalization channel UML fit (including the background models) on this data. Comparing that to the shape obtained from MC, we can easily derive the $\mu_{\text{corr}}$ from Equation \ref{eq:shape_correction_definition}. 
 
-Initially, it might seem that one could apply the same procedure to find $\sigma_{\text{corr}}$. However, this dimuon trigger enhances the amount of $b\bar{b}$ production in the sample, which biases the width of the $D^{*\pm}\to D^0 \pi^\pm, D^0 \to \pi^+ \pi^-$ decay. Therefore, one must first properly understand that bias before applying the correction in the same way was done for the mass. To understand the bias effect between the Dimuon and Zerobias triggers, we compare $D^{*\pm}\to D^0 \pi^\pm, D^0 \to K^\pm \pi^\mp$ fits from the Dimuon and Zerobias dataset. This is possible because the Kaon decay mode is much more frequent than the pion decay mode. The fitting process is the same as before and the width correction 
+Initially, it might seem that one could apply the same procedure to find $\sigma_{\text{corr}}$. However, this dimuon trigger enhances the amount of $b\bar{b}$ production in the sample, which biases the width of the $D^{*\pm}\to D^0 \pi^\pm, D^0 \to \pi^\pm \pi^\pm$ decay. Therefore, one must first properly understand that bias before applying the correction in the same way was done for the mass. To understand the bias effect between the Dimuon and Zerobias triggers, we compare $D^{*\pm}\to D^0 \pi^\pm, D^0 \to K^\pm \pi^\mp$ fits from the Dimuon and Zerobias dataset. This is possible because the Kaon decay mode is much more frequent than the pion decay mode. The fitting process is the same as before and the width correction 
 is obtained as
 \begin{equation}
     \begin{split}
-        1+\sigma_{\text{corr}} &= \left(1+\sigma_{\text{corr, DoubleMuon}}^{D^0\to\pi^+\pi^-}\right) \\
+        1+\sigma_{\text{corr}} &= \left(1+\sigma_{\text{corr, DoubleMuon}}^{D^0\to\pi^\pm\pi^\pm}\right) \\
         &\times \frac{
             1+\sigma_{\text{corr, ZeroBias}}^{D^0\to\pi^\pm\pi^\mp}
         }{
@@ -407,7 +407,7 @@ To begin, we describe the three peaking backgrounds. The first, as most prominen
     \label{fig:d0pipi_uml_fit_kpi_model}
 \end{figure}
 
-The other two peaking backgrounds correspond to $D^0 \to \mu^+ \mu^-$ and $D^0 \to K^\pm \pi^\mp$ decays where the $D^0$ meson does not originate from a $D^*$ meson. Importantly, these have the same $m(D^0)$ shape as their $D^{*\pm} \to D^0 \pi^\pm$ counterparts, so the shape derived from their counterparts is copied exactly into their models. The $\Delta m$ of these decays, however, does not represent a peak but rather a combinatorial signature. This is due to the combinatorial nature of the production mechanisms of the $D^0$ meson that pass the selection criterion. Therefore, we fit a combinatorial background model for the $\Delta m$ values of both non-$D^{*\pm} \to D^0 \pi^\pm$ decays. 
+The other two peaking backgrounds correspond to $D^0 \to \mu \mu$ and $D^0 \to K^\pm \pi^\mp$ decays where the $D^0$ meson does not originate from a ${D^*}^\pm$ meson. Importantly, these have the same $m(D^0)$ shape as their $D^{*\pm} \to D^0 \pi^\pm$ counterparts, so the shape derived from their counterparts is copied exactly into their models. The $\Delta m$ of these decays, however, does not represent a peak but rather a combinatorial signature. This is due to the combinatorial nature of the production mechanisms of the $D^0$ meson that pass the selection criterion. Therefore, we fit a combinatorial background model for the $\Delta m$ values of both non-$D^{*\pm} \to D^0 \pi^\pm$ decays. 
 
 The combinatorial background for $m(D^0)$ is an exponential function, as is common for modeling combinatorial backgrounds of reconstructed rest masses. The combinatorial background for $\Delta m$, however, has a more complex shape than just an exponential. In this work, we use the $\texttt{RooDstD0Bg}$ function \cite{ref:verkerke2003roofit} given by
 \begin{equation}
@@ -427,7 +427,7 @@ The shape of this functions is derived from fits to the data side-band regions w
 
 \subsubsection{Fit Results}
 
-The final model used for the fit is a sum of signal model and all the background models. We check the convergence of this model on the \texttt{HLT\_DoubleMu4\_3\_LowMass} data, which contains significantly more signal events than the \texttt{HLT\_ZeroBias} trigger samples, allowing us to visually inspect the stability of the fit, as is seen in Figure \ref{fig:d0pipi_uml_fit_dimuon} and Table \ref{tab:d0pipi_uml_fit_results}. Importantly, the $D^0 \to K^\pm \pi^\mp$ decays where the $D^0$ meson does not originate from a $D^*$ meson contibutes virtually no events to the fit. Therefore, to increase the stability of the fit, we force the integral under this the non-$D^*,D^0 \to K^\pm \pi^\mp$ model to 0. 
+The final model used for the fit is a sum of signal model and all the background models. We check the convergence of this model on the \texttt{HLT\_DoubleMu4\_3\_LowMass} data, which contains significantly more signal events than the \texttt{HLT\_ZeroBias} trigger samples, allowing us to visually inspect the stability of the fit, as is seen in Figure \ref{fig:d0pipi_uml_fit_dimuon} and Table \ref{tab:d0pipi_uml_fit_results}. Importantly, the $D^0 \to K^\pm \pi^\mp$ decays where the $D^0$ meson does not originate from a ${D^*}^\pm$ meson contibutes virtually no events to the fit. Therefore, to increase the stability of the fit, we force the integral under this the non-${D^*}^\pm,D^0 \to K^\pm \pi^\mp$ model to 0. 
 
 Finally, the fit is applied to the \texttt{HLT\_ZeroBias} trigger samples. A graphical representation of the fit is drawn in Figure \ref{fig:d0pipi_uml_fit} and the results are summarized in Table \ref{tab:d0pipi_uml_fit_results}.
 
@@ -438,7 +438,7 @@ Finally, the fit is applied to the \texttt{HLT\_ZeroBias} trigger samples. A gra
       \includegraphics[width=0.49\textwidth]{figures/chapter4/normalization_fit/dm_pipiDimuon_afterMvaCut.pdf}\\
     \end{center}
     \caption{
-        The full $D^0 \to \pi^+ \pi^-$ model fit on \texttt{HLT\_ZeroBias} data, with $m(D^0)$ displayed left and $\Delta m$ displayed right.
+        The full $D^0 \to \pi^\pm \pi^\pm$ model fit on \texttt{HLT\_ZeroBias} data, with $m(D^0)$ displayed left and $\Delta m$ displayed right.
     }
     \label{fig:d0pipi_uml_fit}
 \end{figure}
@@ -448,7 +448,7 @@ Finally, the fit is applied to the \texttt{HLT\_ZeroBias} trigger samples. A gra
       \includegraphics[width=0.9\textwidth]{figures/chapter4/normalization_fit/dpipi_fit.pdf}
     \end{center}
     \caption{
-      The full $D^0 \to \pi^+ \pi^-$ model fit on \texttt{HLT\_DoubleMu4\_3\_LowMass} data, with $m(D^0)$ displayed left and $\Delta m$ displayed right. The green line follows the combinatorial model, the blue line follows the signal model, the red line follows the $D^{*\pm} \to D^0\pi^\pm, D^0 \to K^\pm \pi^\mp$ background model, the red dashed line following the non-$D^{*\pm} \to D^0\pi^\pm, D^0 \to K^\pm \pi^\mp$ background model, and the blue dashed line follows the non-$D^{*\pm} \to D^0\pi^\pm, D^0 \to \pi^+ \pi^-$ background model.
+      The full $D^0 \to \pi^\pm \pi^\pm$ model fit on \texttt{HLT\_DoubleMu4\_3\_LowMass} data, with $m(D^0)$ displayed left and $\Delta m$ displayed right. The green line follows the combinatorial model, the blue line follows the signal model, the red line follows the $D^{*\pm} \to D^0\pi^\pm, D^0 \to K^\pm \pi^\mp$ background model, the red dashed line following the non-$D^{*\pm} \to D^0\pi^\pm, D^0 \to K^\pm \pi^\mp$ background model, and the blue dashed line follows the non-$D^{*\pm} \to D^0\pi^\pm, D^0 \to \pi^\pm \pi^\pm$ background model.
     }
     \label{fig:d0pipi_uml_fit_dimuon}
 \end{figure}
@@ -461,20 +461,20 @@ Finally, the fit is applied to the \texttt{HLT\_ZeroBias} trigger samples. A gra
     \toprule
     \textbf{\texttt{HLT\_DoubleMu4\_3\_LowMass} data}& Fitted count & Fitted error  \\
     \midrule
-    $D^*, D^0 \to \pi\pi$ Yield        & 23787 & $\pm$509 \\
-    $D^*, D^0 \to K\pi$ Yield          & 21558  & $\pm$749 \\
+    ${D^*}^\pm, D^0 \to \pi\pi$ Yield        & 23787 & $\pm$509 \\
+    ${D^*}^\pm, D^0 \to K\pi$ Yield          & 21558  & $\pm$749 \\
     Combinatorial Yield               & 155088 & $\pm$1722 \\
-    non--$D^*$, $D^0 \to \pi\pi$ Yield & 2140   & $\pm$685 \\
-    non--$D^*$, $D^0 \to K\pi$ Yield   & 181     & $\pm$1410 \\
+    non--${D^*}^\pm$, $D^0 \to \pi\pi$ Yield & 2140   & $\pm$685 \\
+    non--${D^*}^\pm$, $D^0 \to K\pi$ Yield   & 181     & $\pm$1410 \\
     \bottomrule
     \toprule
     \textbf{\texttt{HLT\_ZeroBias} data} & Fitted count & Fitted error \\
     \midrule
-    $D^*, D^0 \to \pi\pi$ Yield        & 195 & $\pm$17 \\
-    $D^*, D^0 \to K\pi$ Yield          & 74  & $\pm$21 \\
+    ${D^*}^\pm, D^0 \to \pi\pi$ Yield        & 195 & $\pm$17 \\
+    ${D^*}^\pm, D^0 \to K\pi$ Yield          & 74  & $\pm$21 \\
     Combinatorial Yield               & 140 & $\pm$20 \\
-    non--$D^*$, $D^0 \to \pi\pi$ Yield & 0   & $\pm$11 \\
-    non--$D^*$, $D^0 \to K\pi$ Yield   & 0     & $\pm$0 \\
+    non--${D^*}^\pm$, $D^0 \to \pi\pi$ Yield & 0   & $\pm$11 \\
+    non--${D^*}^\pm$, $D^0 \to K\pi$ Yield   & 0     & $\pm$0 \\
     \bottomrule
     \bottomrule
     \end{tabular}
@@ -485,14 +485,14 @@ Finally, the fit is applied to the \texttt{HLT\_ZeroBias} trigger samples. A gra
 \subsection{Signal Channel Fit}
 \label{subsec:signal_channel_uml}
 
-The goal of the signal channel is to extract $N_{D^0 \to \mu^+ \mu^-}$. This is done using the \linebreak[4]\texttt{HLT\_DoubleMu4\_3\_LowMass}
+The goal of the signal channel is to extract $N_{D^0 \to \mu \mu}$. This is done using the \linebreak[4]\texttt{HLT\_DoubleMu4\_3\_LowMass}
 trigger dataset, as is described in Section \ref{subsec:backgrounds}. As with the normalization channel, the largest difficult of this UML fit is the lack of signal events due to the small branching fraction of the $D^0$ meson. Similarly to the normalization channel, the signal channel uses MC samples to inform the shapes for data, applying corrections when needed. Additionally, the results of the normalization channel are used to fix the background yields. These techniques are described in the remaineder of the section.
 
 It is worth mentioning that much of the machinery needed for this fit has been developed in Section \ref{subsec:normalization_channel_fit} and is therefore not repeated here. Namely, this section focuses on the differences in the signal channel that require special attention.
 
 \subsubsection{Signal Model}
 
-The signal model for the normalization channel describes the $\Delta m$ and $m(D^0)$ of the $D^{*\pm}\to D^0 \pi^\pm, D^0 \to \pi^+ \pi^-$ decay. The same procedure for determining the normalization channel signal model is used in determining this signal model, with the mean and width corrections derived from the normalization channel.
+The signal model for the normalization channel describes the $\Delta m$ and $m(D^0)$ of the $D^{*\pm}\to D^0 \pi^\pm, D^0 \to \pi^\pm \pi^\pm$ decay. The same procedure for determining the normalization channel signal model is used in determining this signal model, with the mean and width corrections derived from the normalization channel.
 
 The signal model fit to MC is drawn in Figure \ref{fig:d0mumu_uml_fit}.
 
@@ -511,15 +511,15 @@ The signal model fit to MC is drawn in Figure \ref{fig:d0mumu_uml_fit}.
 
 As is evident from Section \ref{subsec:backgrounds}, there are 2 $D^{*\pm} \to D^0 \pi^\pm$ peaking backgrounds and a combinatorial background to consider in the normalization channel. Note that the non-$D^{*\pm} \to D^0 \pi^\pm$ backgrounds which were discussed extensively in the normalization channel are not relevant here due to the large uncertainty of the combinatorial background compared to the expected yield from these backgrounds. Therefore, any non-$D^{*\pm} \to D^0 \pi^\pm$ backgrounds are considered combinatorial and considered in the combinatorial model.
 
-The two peaking backgrounds are $D^{*\pm} \to D^0 \pi^\pm$ processes where the $D^0$ decays via either $D^0 \to \pi^+ \pi^- \to \mu^+ \nu_\mu \mu^- \bar{\nu}_\mu$ (hadronic mode) or via $D^0 \to \pi^- \mu^+ \nu_\mu$ (semileptonic mode). Both of these models are developed using the same process as the signal mode. Namely, the models are built out of sums of Gaussian distributions just like in the signal channel. Their shape is determined by fitting to MC samples, and their means and widths are corrected for using the correction derived in the normalization channel fit. 
+The two peaking backgrounds are $D^{*\pm} \to D^0 \pi^\pm$ processes where the $D^0$ decays via either $D^0 \to \pi^\pm \pi^\pm \to \mu \nu_\mu \mu \bar{\nu}_\mu$ (hadronic mode) or via $D^0 \to \\pi^\pm \mu \nu_\mu$ (semileptonic mode). Both of these models are developed using the same process as the signal mode. Namely, the models are built out of sums of Gaussian distributions just like in the signal channel. Their shape is determined by fitting to MC samples, and their means and widths are corrected for using the correction derived in the normalization channel fit. 
 
-In the normalization channel, the yields of these models were left floating. In this channel, there are so few events that allowing for this would destabilize the fit. However, we have already calculated $N_{D^0 \to \pi^+ \pi^-} = 195 \pm 17$ in Section \ref{subsec:normalization_channel_fit} and the branching fractions of $\mathcal{B}(D^0 \to \pi^+ \pi^-) = (1.454 \pm 0.024) \times 10^{-3}$ and $\mathcal{B}(D^0 \to \pi^-\mu^+ \nu_\mu) = (2.67 \pm 0.12) \times 10^{-3}$ are well known \cite{ref:pdg2024}. Lastly, in Section \ref{sec:muon_fake_rate}, we calculate the fake rate, $f_{\pi \to \mu}$, or the rate at which pions decay to muons in the detector, which occurs once in the semi-leptonic mode and twice in the hadronic mode.
+In the normalization channel, the yields of these models were left floating. In this channel, there are so few events that allowing for this would destabilize the fit. However, we have already calculated $N_{D^0 \to \pi^\pm \pi^\pm} = 195 \pm 17$ in Section \ref{subsec:normalization_channel_fit} and the branching fractions of $\mathcal{B}(D^0 \to \pi^\pm \pi^\pm) = (1.454 \pm 0.024) \times 10^{-3}$ and $\mathcal{B}(D^0 \to \\pi^\pm\mu \nu_\mu) = (2.67 \pm 0.12) \times 10^{-3}$ are well known \cite{ref:pdg2024}. Lastly, in Section \ref{sec:muon_fake_rate}, we calculate the fake rate, $f_{\pi \to \mu}$, or the rate at which pions decay to muons in the detector, which occurs once in the semi-leptonic mode and twice in the hadronic mode.
 
 Using these qualities, as well as efficiency and MC corrections, we can write
 \begin{equation}
 \begin{split}
-    \frac{N_{D^0 \to \pi^+ \pi^- \to \mu^+ \nu_\mu \mu^- \bar{\nu}_\mu}}{N_{D^0 \to \pi^+ \pi^-}} &= \left(f_{\pi \to \mu}\right)^2 \times \frac{\epsilon_{D^*, D^0\to\pi\pi\to\mu\mu}}{\epsilon_{D^*, D^0\to\pi\pi}} \times S_{ZB} \times \text{MVA}_D \times T_{\text{corr}} \\
-    \frac{N_{D^0 \to \pi^- \mu^+ \nu_\mu}}{N_{D^0 \to \pi^+ \pi^-}} &=\frac{\mathcal{B}_{D^0 \to \pi^- \mu^ \nu_\mu}}{\mathcal{B}_{D^0 \to \pi^+ \pi^-}} \times \left(f_{\pi \to \mu}\right) \times \frac{\epsilon_{D^*, D^0\to\pi\mu\nu}}{\epsilon_{D^*, D^0\to\pi\pi}} \times S_{ZB} \times \text{MVA}_D \times T_{\text{corr}}
+    \frac{N_{D^0 \to \pi^+ \pi^\pm \to \mu^+ \nu_\mu \mu \bar{\nu}_\mu}}{N_{D^0 \to \pi^+ \pi^\pm}} &= \left(f_{\pi \to \mu}\right)^2 \times \frac{\epsilon_{D^*, D^0\to\pi\pi\to\mu\mu}}{\epsilon_{D^*, D^0\to\pi\pi}} \times S_{ZB} \times \text{MVA}_D \times T_{\text{corr}} \\
+    \frac{N_{D^0 \to \pi^\pm \mu^+ \nu_\mu}}{N_{D^0 \to \pi^+ \pi^\pm}} &=\frac{\mathcal{B}_{D^0 \to \pi^\pm \mu^ \nu_\mu}}{\mathcal{B}_{D^0 \to \pi^+ \pi^\pm}} \times \left(f_{\pi \to \mu}\right) \times \frac{\epsilon_{D^*, D^0\to\pi\mu\nu}}{\epsilon_{D^*, D^0\to\pi\pi}} \times S_{ZB} \times \text{MVA}_D \times T_{\text{corr}}
     \label{eq:peaking_background_yield_calculation}
 \end{split}
 \end{equation}
@@ -531,7 +531,7 @@ where $S_{ZB}$ is the trigger prescaling factor discussed in Section $\ref{subse
       \includegraphics[width=0.49\textwidth]{figures/chapter4/signal_fit/d0pimunu_2022_2023_0_dm.pdf}\\
     \end{center}
     \caption{
-      The $D^{*\pm} \to D^0\pi^\pm, D^0 \to \pi^- \mu^+ \nu_\mu$ model fit on MC samples, with $m(D^0)$ displayed left and $\Delta m$ displayed right.
+      The $D^{*\pm} \to D^0\pi^\pm, D^0 \to \\pi^\pm \mu \nu_\mu$ model fit on MC samples, with $m(D^0)$ displayed left and $\Delta m$ displayed right.
     }
     \label{fig:d0pimunu_uml_fit}
 \end{figure}
@@ -542,7 +542,7 @@ where $S_{ZB}$ is the trigger prescaling factor discussed in Section $\ref{subse
       \includegraphics[width=0.49\textwidth]{figures/chapter4/signal_fit/d0pipimm_2022_2023_0_dm.pdf}\\
     \end{center}
     \caption{
-      The $D^{*\pm} \to D^0\pi^\pm, D^0 \to \pi^+ \pi^- \to \mu^+ \nu_\mu \mu^- \bar{\nu}_\mu$ model fit on MC samples, with $m(D^0)$ displayed left and $\Delta m$ displayed right.
+      The $D^{*\pm} \to D^0\pi^\pm, D^0 \to \pi^\pm \pi^\pm \to \mu \nu_\mu \mu \bar{\nu}_\mu$ model fit on MC samples, with $m(D^0)$ displayed left and $\Delta m$ displayed right.
     }
     \label{fig:d0munumunu_uml_fit}
 \end{figure}
@@ -563,14 +563,14 @@ The process for determining the combinatorial model is kept the same as for the 
 
 \subsubsection{Fit Results}
 
-The final model used for the fit is a sum of signal model and all the background models. One important note is to emphasize that the signal shape and peaking background shape are entirely deriving from MC, the peaking background yield is determined from Equation \ref{eq:peaking_background_yield_calculation}, and combinatorial background shape and yield are determined by the data side-bands. Therefore, the only parameter of this fit is the actual parameter of interest, namely the $N_{D^0 \to \pi^+ \pi^-}$ events. 
+The final model used for the fit is a sum of signal model and all the background models. One important note is to emphasize that the signal shape and peaking background shape are entirely deriving from MC, the peaking background yield is determined from Equation \ref{eq:peaking_background_yield_calculation}, and combinatorial background shape and yield are determined by the data side-bands. Therefore, the only parameter of this fit is the actual parameter of interest, namely the $N_{D^0 \to \pi^\pm \pi^\pm}$ events. 
 
 The results of this fit are only seen after unblinding the data in as discussed in Section \ref{sec:analysis_overview}. The results are presented in Section \ref{subsec:final_result}.
 
 \section{Muon Fake Rates}
 \label{sec:muon_fake_rate}
 
-A muon fake occurs in this analysis when a pion decay product is measured as muon. This most commonly occurs due to in-flight pion decays, $\pi \to \mu \nu$, but can also occur due to detector misreconstruction. As a result, the more common $D^0 \to \pi^+ \pi^-$ process can mimic genuine $D^0 \to \mu^+ \mu^-$ events when the pions decay in flight, producing muons that are misidentified as signal and causing a significant challenge to this analysis. Therefore, a clear and precise understanding of the muon fake rate must be achieved to be used throughout the rest of the analysis. The below method was first developed to search for the $B^0 \to \mu^+ \mu^-$ decay \cite{ref:2023b0mumu}. Below we summarize the most relevant aspects of the procedure and results for the \texttt{Loose} muon identification system, the \texttt{highPurity} inner track quality requirements, tracker muon, and global muon requirements. These requirements reflect the selection critierion for the rest of the analysis described in Section \ref{subsec:preselection} and Section \ref{subsec:baseline_selection}.
+A muon fake occurs in this analysis when a pion decay product is measured as muon. This most commonly occurs due to in-flight pion decays, $\pi \to \mu \nu$, but can also occur due to detector misreconstruction. As a result, the more common $D^0 \to \pi^\pm \pi^\pm$ process can mimic genuine $D^0 \to \mu \mu$ events when the pions decay in flight, producing muons that are misidentified as signal and causing a significant challenge to this analysis. Therefore, a clear and precise understanding of the muon fake rate must be achieved to be used throughout the rest of the analysis. The below method was first developed to search for the $B^0 \to \mu \mu$ decay \cite{ref:2023b0mumu}. Below we summarize the most relevant aspects of the procedure and results for the \texttt{Loose} muon identification system, the \texttt{highPurity} inner track quality requirements, tracker muon, and global muon requirements. These requirements reflect the selection critierion for the rest of the analysis described in Section \ref{subsec:preselection} and Section \ref{subsec:baseline_selection}.
 
 \subsection{Data Samples and Selections}
 
@@ -578,7 +578,7 @@ To get a reliable prediction for muon fake rates we need to be able to simulate 
 
 For MC studies of muon fake rates, several background samples are used to provide a realistic modeling of processes that can produce hadrons misidentified as muons. Drell-Yan samples with dileptons and two associated jets are included, both in the low-mass (10-50 GeV) and high-mass (above 50 GeV) regimes, generated using the \texttt{amcatnloFXFX} and \texttt{madgraphMLM} frameworks interfaced with \texttt{pythia8}. A dedicated sample of Drell-Yan to dielectrons is also included to help disentangle muon-specific effects. Additionally, \texttt{$W\to l \nu$} events with jets and \texttt{t$\bar{\text{t}}$} events in the lepton+jets final state are included to capture fake muons arising in high-activity environments with real leptons and multiple jets. All samples are produced at $\sqrt{s} = 13.6$ TeV and use the \texttt{TuneCP5} parton shower configuration.
 
-To study muon fakes originating from pions we use $K_S^0 \to \pi^+ \pi^-$ control sample. The selection requirements are:
+To study muon fakes originating from pions we use $K_S^0 \to \pi^\pm \pi^\pm$ control sample. The selection requirements are:
 \begin{itemize}
 \item $p_{T}^{\pi_1}>1$ GeV,
 \item $p_{T}^{\pi_2}>4$ GeV,
@@ -599,14 +599,14 @@ To study muon fakes originating from pions we use $K_S^0 \to \pi^+ \pi^-$ contro
 
 To measure the fake rate we perform an extended binned maximum likelihood fit to
 $\pi^{+}\pi^{-}$ and $\mu^{\pm}\pi^{\pm}$ mass distribution to extract
-the event yield of $K_S^0 \to \pi^+ \pi^-$ and $K_S^0 \to \mu^\pm \pi^\mp$ events. The model used to describe the signal and combinatorial background component are a Crystall Ball added to a  Gaussian centered at the same mean and a 2nd order Bernstein polynomial function, respectively. The signal shape in the $K_S^0 \to \mu^\pm \pi^\mp$ distribution is fixed from the $K_S^0 \to \pi^+ \pi^-$  distribution to avoid the different signal shape due to the low statistics. One of the fit projection is shown in the Figure~\ref{fig:fit_example_pion}
+the event yield of $K_S^0 \to \pi^\pm \pi^\pm$ and $K_S^0 \to \mu^\pm \pi^\mp$ events. The model used to describe the signal and combinatorial background component are a Crystall Ball added to a  Gaussian centered at the same mean and a 2nd order Bernstein polynomial function, respectively. The signal shape in the $K_S^0 \to \mu^\pm \pi^\mp$ distribution is fixed from the $K_S^0 \to \pi^\pm \pi^\pm$  distribution to avoid the different signal shape due to the low statistics. One of the fit projection is shown in the Figure~\ref{fig:fit_example_pion}
 
 \begin{figure}[!h]
   \begin{center}
     \includegraphics[width=0.49\textwidth]{figures/chapter4/fakerate/Combined_data_combined_522_2022_ks_trigger_lxy_hv0_Mass_allbin_bla.pdf}
     \includegraphics[width=0.49\textwidth]{figures/chapter4/fakerate/Combined_data_combined_522_2022_ks_trigger_lxy_hv0_Mass_muid_20_allbin_bla.pdf}\\
   \end{center}
-  \caption{Mass projection from $K_S^0 \to \pi^+ \pi^-$ decays in the $\mu$
+  \caption{Mass projection from $K_S^0 \to \pi^\pm \pi^\pm$ decays in the $\mu$
     $p_{T}$ range 4-40.0 GeV using 2022 data before (left) and after(right) soft muon MVA ID cut.
     The green dashed line is for the signal distribution, the red
     dotted line is for combinatorial background, and the result of the
@@ -615,7 +615,7 @@ the event yield of $K_S^0 \to \pi^+ \pi^-$ and $K_S^0 \to \mu^\pm \pi^\mp$ event
   \label{fig:fit_example_pion}
 \end{figure}
 
-The fake rate is estimated in bins of muon $p_{T}$. For each $K_S^0 \to \pi^+ \pi^-$ candidate we check $p_{T}$ and acceptance for both pions and add the $K_S^0$ candidate to the appropriate $p_{T}$ bin (\ref{fig:fakerates}).
+The fake rate is estimated in bins of muon $p_{T}$. For each $K_S^0 \to \pi^\pm \pi^\pm$ candidate we check $p_{T}$ and acceptance for both pions and add the $K_S^0$ candidate to the appropriate $p_{T}$ bin (\ref{fig:fakerates}).
 
 \begin{figure}[!h]
   \begin{center}
@@ -790,11 +790,11 @@ Now that the statistical formulation for the final result is complete, we turn b
 
 As mentioned in Section \ref{subsec:mva}, one of the major benefits of using an $\text{MVA}_D$ cut parameter is that we can tune it to best improve analysis sensitivity. This is done using the technology developed in Section \ref{subsubsec:sensitivity_scanning_limits} with two important distinctions to highlight.
 
-Firstly, one might assume that the parameter of interest is the output of the signal channel UML fit, $N_{D^0 \to \mu^+ \mu^-}$. However, this is not quite true as the parameter that we wish to put a limit on is the actual branching fraction $\mathcal{B}(D^0 \to \mu^+ \mu^-)$. The discussion in Section \ref{subsec:signal_channel_uml} is extended to the calculation of $\mathcal{B}(D^0 \to \mu^+ \mu^-)$, resulting in 
+Firstly, one might assume that the parameter of interest is the output of the signal channel UML fit, $N_{D^0 \to \mu \mu}$. However, this is not quite true as the parameter that we wish to put a limit on is the actual branching fraction $\mathcal{B}(D^0 \to \mu \mu)$. The discussion in Section \ref{subsec:signal_channel_uml} is extended to the calculation of $\mathcal{B}(D^0 \to \mu \mu)$, resulting in 
 \begin{equation}
-    \frac{N_{D^0 \to \mu^+  \mu^-}}{N_{D^0 \to \pi^+ \pi^-}} = \frac{\mathcal{B}(D^0 \to \mu^+ \mu^-)}{\mathcal{B}(D^0 \to \pi^+ \pi^-)}\times \frac{\epsilon_{D^*, D^0\to\mu\mu}}{\epsilon_{D^*, D^0\to\pi\pi}} \times S_{ZB} \times \text{MVA}_D \times T_{\text{corr}} 
+    \frac{N_{D^0 \to \mu\mu}}{N_{D^0 \to \pi^\pm \pi^\pm}} = \frac{\mathcal{B}(D^0 \to \mu \mu)}{\mathcal{B}(D^0 \to \pi^\pm \pi^\pm)}\times \frac{\epsilon_{{D^*}^\pm, D^0\to\mu\mu}}{\epsilon_{{D^*}^\pm, D^0\to\pi\pi}} \times S_{ZB} \times \text{MVA}_D \times T_{\text{corr}} 
 \end{equation}
-where the variables are the same as defined in Equation \ref{eq:peaking_background_yield_calculation}. Therefore, to perform the sensitivity scan we do not just calculate $N_{D^0 \to \mu^+ \mu^-}$ under different toy experiments, but rather perform the entire calculation required to derive $\mathcal{B}(D^0 \to \mu^+ \mu^-)$, including the calculation of $\epsilon_X$ and $N_{D^0 \to \pi^+ \pi^-}$ at various $\text{MVA}_D$ working points. Luckily, there are some parameters that do not change, such as $T_{\text{corr}}$ or $S_{ZB}$, so some computation is saved.
+where the variables are the same as defined in Equation \ref{eq:peaking_background_yield_calculation}. Therefore, to perform the sensitivity scan we do not just calculate $N_{D^0 \to \mu \mu}$ under different toy experiments, but rather perform the entire calculation required to derive $\mathcal{B}(D^0 \to \mu \mu)$, including the calculation of $\epsilon_X$ and $N_{D^0 \to \pi^\pm \pi^\pm}$ at various $\text{MVA}_D$ working points. Luckily, there are some parameters that do not change, such as $T_{\text{corr}}$ or $S_{ZB}$, so some computation is saved.
 
 The other important distinction is that under the $\texttt{HLT\_ZeroBias}$ trigger, there are simply too few data points to produce an effective sensitivity scan result. Therefore, to avoid being biased by data fluctuations that prevail when signal events are rare, we include five additional zero bias data. The five triggers corresponding to the datasets are:
 \begin{enumerate}
@@ -824,7 +824,7 @@ The results of this scan are shown in Figure \ref{fig:sensitivity_scan}. The bes
 
 Finally, we present the final result. After applying the formalism developed in Section \ref{subsubsec:limit_calculation_theory} and unblinding the data, we find that the upper limit on the branching fraction at a $90(95)\%$ confidence level is
 \begin{equation}
-    \mathcal{B}(D^0 \to \mu^+ \mu^-) < 2.1(2.4) \times 10^{-9} 
+    \mathcal{B}(D^0 \to \mu \mu) < 2.1(2.4) \times 10^{-9} 
 \end{equation}
 Table \ref{tab:final_observed_yeild} shows the central values of the observed yields for each decay channel studied in this analysis and Figure \ref{fig:final_observed_fit} displays the final fit on the observed data.
 
@@ -834,9 +834,9 @@ Table \ref{tab:final_observed_yeild} shows the central values of the observed yi
     \hline
     \textbf{Observed Yields} & \textbf{Values} \\
     \hline
-    $N_{D^0 \rightarrow \mu^+\mu^-}$ & $139 \pm 123$ \\
-    $N_{D^0 \rightarrow \pi^+\pi^-}$ & $220 \pm 58$ \\
-    $N_{D^0 \rightarrow \pi^-\mu+\nu_\mu}$ & $207 \pm 40$ \\
+    $N_{D^0 \rightarrow \mu\mu}$ & $139 \pm 123$ \\
+    $N_{D^0 \rightarrow \pi^\pm\pi^\pm}$ & $220 \pm 58$ \\
+    $N_{D^0 \rightarrow \pi^\pm\mu\nu_\mu}$ & $207 \pm 40$ \\
     $N_{\text{comb}}$ & $126185 \pm 366$ \\
     $N_{\text{total}}$ & 126752 \\
     \hline
