@@ -1,11 +1,11 @@
 \chapter{Theory and Motivation}
 \label{ch:2}
 
-This chapter lays the theoretical groundwork on which the remainder of the thesis is built and gives insight into why the rare decay $D^0 \to \mu^+ \mu^-$ is a valuable probe for the new physics. The chapter begins with a short survey of Quantum Field Theory (QFT), outlining how the adoption of special relativity into quantum mechanics gives rise to a QFT that is characterized by a Lagrangian and a resulting correlation function that can be calculated perturbatively. This framework then describes the computational tools for calculating these correlation functions, such as path integrals, Feynman diagrams, and the LSZ formulation, which allows the calculation of scattering amplitudes from correlation functions. 
+This chapter lays the theoretical groundwork on which the remainder of the thesis is built and gives insight into why the rare decay $D^0 \to \mu^+ \mu^-$ is a valuable probe for the potential new physics. The chapter begins with a short survey of Quantum Field Theory (QFT), outlining how the adoption of special relativity into quantum mechanics gives rise to a QFT that is characterized by a Lagrangian and a resulting correlation function that can be calculated perturbatively. This framework then describes the computational tools for calculating these correlation functions, such as path integrals, Feynman diagrams, and the LSZ formulation, which allows the calculation of scattering amplitudes from correlation functions. 
 
 Next, this chapter describes the Standard Model (SM), beginning with its local gauge symmetry structure and then building the fundamental particles and interactions from the resulting Lagrangian. Special attention is paid to the electroweak portion of the Lagrangian, giving an outline of the mechanism by which the Higgs field gives mass to the $W^\pm$ and $Z$ bosons, important mediators in the $D^0 \to \mu^+ \mu^-$ decay. 
 
-Lastly, this chapter applies the theoretical groundwork established in its first two sections as a motivation for the $D^0 \to \mu^+ \mu^-$ search. Namely, FCNCs are defined and calculated to be not allowed at tree level in the SM. Loop contributions to the $D^0 \to \mu^+ \mu^-$ decay are calculated to bring the branching fraction of the decay rate to $\simeq 10^{-13}$. The chapter ends by giving motivation as to why this makes the $D^0 \to \mu^+ \mu^-$ decay a probe of new physics and provides a brief survey of the new physics that this probe could illuminate. 
+Lastly, this chapter applies the theoretical groundwork established in its first two sections as a motivation for the $D^0 \to \mu^+ \mu^-$ search. Namely, FCNCs are defined and calculated to not be allowed at tree level in the SM. Loop contributions to the $D^0 \to \mu^+ \mu^-$ decay are shown to bring the branching fraction of the decay rate to $\simeq 10^{-13}$. The chapter ends by giving motivation as to why this makes the $D^0 \to \mu^+ \mu^-$ decay a probe of new physics and provides a brief survey of the new physics that this probe could illuminate. 
 
 \section{The Theory of Our Universe}
 
@@ -15,9 +15,9 @@ However we know that the SM cannot be the complete theory of our universe due to
 
 Therefore, physics analyses are often in search of BSM physics at small length scales to build a theory of particle physics that could solve many of the problems with the SM. Importantly, the SM is a quantum field theory, 
 
-\section{Quantum Field Theory \cite{ref:harlow2024}}
+\section{Quantum Field Theory}
 
-Heuristically speaking, Quantum Field Theory (QFT) is a mathematical framework developed to unify the theories of classical special relativity and non-relativistic quantum mechanics. In the late 1920s, non-relativistic quantum mechanics had developed to a mature theory, modeling many of the phenomena that the physics of the 19th century simply couldn't explain. However, when put into context with Einstein's theory of special relativity, there were two central problems: 
+Heuristically speaking, Quantum Field Theory (QFT)\cite{ref:harlow2024} is a mathematical framework developed to unify the theories of classical special relativity and non-relativistic quantum mechanics. In the late 1920s, non-relativistic quantum mechanics had developed to a mature theory, modeling many of the phenomena that the physics of the 19th century simply couldn't explain. However, when put into context with Einstein's theory of special relativity, there were two central problems: 
 \begin{enumerate}
     \item Velocities and momenta are strictly non-relativistic 
     \item Interactions are instantaneous. 
@@ -52,7 +52,7 @@ where $A$ is a symmetric matrix determined by the action $S_\epsilon$. This can 
 \begin{equation}
 \int d^{d-1} x e^{\frac{1}{2}x^TAx + B^Tx} = \frac{1}{\sqrt{ \det\left( \frac{A}{2\pi}\right) } } e^{\frac{1}{2}B^T A^{-1} B}
 \end{equation}
-The process of evaluating these integrals can be long and tedious. In the late 1940s, Richard Feynman introduced the Feynman Diagram as a graphical method for writing down these integrals along with Feynman Rules describing how to graphically evaluate correlation functions without needing to explicitly compute the path integral. While Feynman diagrams are often interpreted as collision diagrams, it is important to remember their one-to-one relationship with path integrals of correlation functions. Once the Feynman Rules have been derived from the path integral of a specific QFT, they can be applied to get correlation functions. An example of a Feynman diagram can be seen in figure \ref{fig:example_feynman_diagram}.
+The process of evaluating these integrals can be long and tedious. In the late 1940s, Richard Feynman introduced the Feynman Diagram as a graphical method for writing down these integrals along with Feynman Rules describing how to graphically evaluate correlation functions without needing to explicitly compute the path integral. While Feynman diagrams are often interpreted as collision diagrams, it is important to remember their one-to-one relationship with path integrals of correlation functions. Once the Feynman Rules have been derived from the path integral of a specific QFT, they can be applied to get correlation functions. An example of a Feynman diagram can be seen in Figure \ref{fig:example_feynman_diagram}.
 
 \begin{figure}[ht!]
     \centering
@@ -106,11 +106,11 @@ The three local symmetries of the Standard Model are in fact gauge symmetries. T
 \begin{equation}
 \mathcal{L}_{SM} = \mathcal{L}_{EW} + \mathcal{L}_{QCD}
 \end{equation}
-In the following sections, we will analyze each of these Lagrangians independently, showing how they give rise to the various particles in the SM and their interactions. As a preview, the particles of the Standard Model and their quantum numbers are summarized in figure \ref{fig:particles_of_the_SM}. 
+In the following sections, we will analyze each of these Lagrangians independently, showing how they give rise to the various particles in the SM and their interactions. As a preview, the particles of the Standard Model and their quantum numbers are summarized in Figure \ref{fig:particles_of_the_SM}. 
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/chapter2/particles_of_the_SM.png}
+    \includegraphics[width=1.0\textwidth]{figures/chapter2/particles_of_the_SM.png}
     \caption{The particles of the Standard Model}
     \label{fig:particles_of_the_SM}
 \end{figure}
@@ -203,7 +203,7 @@ Now, there is one more subtlety that must be addressed before introducing the La
 
 Therefore, we must introduce a scalar field that is allowed to break the $SU(2) \times U(1)$ symmetry and give rise to $Z$ and $W^\pm$ masses. This field is known as the Higgs field. While an in-depth discussion of the Higgs mechanism is out of the scope of this thesis, a short discussion should suffice to understand the EW Lagrangian.
 
-In order to give mass to the $W^\pm$ and $Z$ bosons, the field we add must allow for the full Lagrangian to remain invariant while resulting in a ground state that is not. One good way to think of this is known as the Mexican hat potential, given by $f(r, \theta) = (r^2 - v^2)$ shown in figure \ref{fig:Mexican_hat_potential}. This potential is completely rotationally symmetric, but the ground state lies away from the origin at $r = v$, meaning the ground state itself is not spherically symmetric. Additionally it satisfies all other properties of a valid potential by being continuous, well defined, and bounded from below. Therefore, we introduce a doublet under $SU(2)$, given by
+In order to give mass to the $W^\pm$ and $Z$ bosons, the field we add must allow for the full Lagrangian to remain invariant while resulting in a ground state that is not. One good way to think of this is known as the Mexican hat potential, given by $f(r, \theta) = (r^2 - v^2)$ shown in Figure \ref{fig:Mexican_hat_potential}. This potential is completely rotationally symmetric, but the ground state lies away from the origin at $r = v$, meaning the ground state itself is not spherically symmetric. Additionally it satisfies all other properties of a valid potential by being continuous, well defined, and bounded from below. Therefore, we introduce a doublet under $SU(2)$, given by
 \begin{equation}
 h = \begin{pmatrix}
 h^+ \\ h^0
@@ -223,7 +223,7 @@ To see that indeed this gives the $W$ and $Z$ bosons mass, we write down the Lag
 \mathcal{L}_{h} = (D_{\mu}h)(D^\mu h) - \lambda\left(|h|^2- \frac{v}{2}\right)^2
 \label{eq:higg-field-lagrangian}
 \end{equation}
-where $D_\mu = (\partial_\mu - \frac{ig}{2}\tau^a A^a_\mu - \frac{ig'Y}{2}B_\mu)$. Here $\tau^a$ (also known as the Pauli matrices) and $YI$ are the generators of $SU(2)$ and $U(1)$. Their corresponding eigenvalues are labeled as $T_a$\footnote{$T_a$ is actually the eigenvalue of $\frac{\tau^a}{2}$} and $Y$; they are known as the weak isospin and weak hypercharge quantum numbers and a convenient basis is often $T^2 = T_1^2 + T_2^2 + T_3^2$, $T_3$, and $Y$. Separately, note that $\lambda\left(|h|^2- \frac{v}{2}\right)^2$ is exactly a rescaled Mexican hat potential. Now, it is straightforward to see that this Lagrangian contains the terms
+where $D_\mu = (\partial_\mu - \frac{ig}{2}\tau^a A^a_\mu - \frac{ig'Y}{2}B_\mu)$. Here $\tau^a$ (also known as the Pauli matrices) and $YI$ are the generators of $SU(2)$ and $U(1)$. Their corresponding eigenvalues are labeled as $T_a$ and $Y$; they are known as the weak isospin and weak hypercharge quantum numbers and a convenient basis is often $T^2 = T_1^2 + T_2^2 + T_3^2$, $T_3$, and $Y$. A small note that $T_a$ is actually the eigenvalue of $\frac{\tau^a}{2}$, but can be discussed as an eigenvalue of $\tau^a$. Separately, note that $\lambda\left(|h|^2- \frac{v}{2}\right)^2$ is exactly a rescaled Mexican hat potential. Now, it is straightforward to see that this Lagrangian contains the terms
 \begin{equation}
 \frac{v^2}{8}\left[g^2\left((A^{1}_{\mu})^2 + (A^{2}_{\mu})^2\right) + (gA_{\mu}^3 - g' B_{\mu})\right]
 \end{equation}
@@ -258,7 +258,7 @@ $\mathcal{L}_h$ has already been defined in the previous section and $\mathcal{L
 \end{equation}
 Here, for notational convience we have dropped the flavor indices. $Y_{e,u,d}$ are the three Yukawa coupling term matrices. Just as the Higgs field gives mass to the $W^\pm$ and $Z$ bosons, this mechanism provides mass to the fermions in electroweak theory. 
 
-\section{The $D^0 \to \mu^+ \mu^-$ decay.}
+\section{The $D^0 \to \mu^+ \mu^-$ decay}
 
 In principle, now that we have written down the SM Lagrangian, one could follow the standard QFT formalism described above to calculate perturbatively $\Gamma(D^0 \to \mu^+ \mu^-)$. In practice, this is incredibly complex and involves decades of perturbative QFT formalisms. Therefore, in this section we will first categorize this decay as a FCNC and briefly summarize the heuristic structure of the calculation of $\mathcal{B}(D^0 \to \mu^+ \mu^-)$ as performed by G. Burdman, E. Golowich, J. L. Hewett, and S. Pakvasa (BGHP) \cite{ref:burdman_2002}.
 
@@ -266,15 +266,15 @@ In principle, now that we have written down the SM Lagrangian, one could follow 
 
 Flavor changing neutral currents (FCNCs) are interactions that change the flavor of a fermion without altering its electric charge. 
 
-The SM forbids FCNCs explicitly at tree level. Processes that are flavor-changing with neutral currents must occur through loop processes that result in a neutral current, the details of which are discussed later. To illustrate this explicitly, we start with the gluon-fermion interaction terms of the Lagrangian which we derived earlier. Namely we have that the interaction terms can be pulled out of equation \ref{eq:fermion_kinetic_term} to give us
+The SM forbids FCNCs explicitly at tree level. Processes that are flavor-changing with neutral currents must occur through loop processes that result in a neutral current, the details of which are discussed later. To illustrate this explicitly, we start with the gluon-fermion interaction terms of the Lagrangian which we derived earlier. Namely we have that the interaction terms can be pulled out of Equation \ref{eq:fermion_kinetic_term} to give us
 \begin{equation}
 \mathcal{L}_{gf} = \sum_{f=\{ Q, L, u, d, e\}} \bar{f}_{i} \gamma^\mu \left(\partial_\mu - \frac{ig}{2} \tau^a A^a_\mu - ig' \frac{Y}{2} B_\mu\right)f_{i}
 \end{equation}
-We now rotate into the Weinberg basis, using $\tau^\pm = \frac{\tau^1 \pm i\tau^2}{\sqrt{2}}$ and $W^\pm$ defined as in equation \ref{eq:Weinberg_mixing}. This gives us
+We now rotate into the Weinberg basis, using $\tau^\pm = \frac{\tau^1 \pm i\tau^2}{\sqrt{2}}$ and $W^\pm$ defined as in Equation \ref{eq:Weinberg_mixing}. This gives us
 \begin{equation}
 \mathcal{L}_{gf} = \sum_{f=\{ Q, L, u, d, e\}} \bar{f}_{i} \gamma^\mu \left(\partial_\mu - \frac{ig}{\sqrt{2}} (W^+_\mu\tau^+ + W_\mu^- \tau^-) -\frac{g}{2} A^3_\mu\tau^3 - \frac{g'}{2}B_\mu Y\right)f_{i}
 \end{equation}
-From this, we can easily isolate $\mathcal{L}_{gf}$ into neutral currents and charged currents, as $\tau^\pm$ is the charged operator.\footnote{This fact is not explicitly proven here, but can be shown by writing out $\tau^\pm$ in the doublet basis and then noticing that $\tau^+$ converts the lower component into the upper one while $\tau^-$ does the opposite. This causes the weak isospin eigenvalue to change while keeping hypercharge constant, resulting a change in electric charge, $Q = I_3 + Y/2$} Therefore, we have that the neutral current interactions are given by
+From this, we can easily isolate $\mathcal{L}_{gf}$ into neutral currents and charged currents, as $\tau^\pm$ is the charged operator.This fact is not explicitly proven here, but can be shown by writing out $\tau^\pm$ in the doublet basis and then noticing that $\tau^+$ converts the lower component into the upper one while $\tau^-$ does the opposite. This causes the weak isospin eigenvalue to change while keeping hypercharge constant, resulting a change in electric charge, $Q = I_3 + Y/2$. Therefore, we have that the neutral current interactions are given by
 \begin{equation}
 \mathcal{L}_{NC} = \sum_{f=\{ Q, L, u, d, e\}} \bar{f}_{i} \gamma^\mu \left( -\frac{g}{2} A^3_\mu\tau^3 - \frac{g'}{2}B_\mu Y\right)f_{i}
 \end{equation}
@@ -312,7 +312,7 @@ u_{iL} \\ d_{iL}
 \label{eq:large-eq-for-FCNC-candidates}
 \end{split}
 \end{equation}
-Now, we can consolidate this significantly by introducing $e = g\sin(\theta_W) = g'\cos(\theta_W)$\footnote{The second equality can be verified by using $\tan(\theta_W) = \frac{g'}{g}$}, $A^3_\mu = \cos(\theta_W)Z_\mu + \sin(\theta_W)A_\mu$, and $B_\mu = -\sin(\theta_W)Z_\mu + \cos(\theta_W) A_\mu$. The second two equations can be derived from equation \ref{eq:Weinberg_mixing}. Additionally, we can use the weak isospin and weak hypercharge eigenvalues $I_3$ and $Y$, defined below equation \ref{eq:higg-field-lagrangian}.  It is also useful to define the electric charge eigenvalue, $Q = I_3 + Y/2$. Using this, we can greatly simplify equation \ref{eq:large-eq-for-FCNC-candidates} to
+Now, we can consolidate this significantly by introducing $e = g\sin(\theta_W) = g'\cos(\theta_W)$ where the second equality can be verified by using $\tan(\theta_W) = \frac{g'}{g}$, $A^3_\mu = \cos(\theta_W)Z_\mu + \sin(\theta_W)A_\mu$, and $B_\mu = -\sin(\theta_W)Z_\mu + \cos(\theta_W) A_\mu$. The second two equations can be derived from Equation \ref{eq:Weinberg_mixing}. Additionally, we can use the weak isospin and weak hypercharge eigenvalues $I_3$ and $Y$, defined below Equation \ref{eq:higg-field-lagrangian}.  It is also useful to define the electric charge eigenvalue, $Q = I_3 + Y/2$. Using this, we can greatly simplify Equation \ref{eq:large-eq-for-FCNC-candidates} to
 \begin{equation}
 \begin{split}
 \mathcal{L}_{\text{FCNC Candidates}} &= -\sum_{f = u_{L},d_{L},l_{L}, \nu_{L}} \left[\frac{e}{\sin(\theta_{W})\cos(\theta_{W})} \bar{f}_{i}\gamma^\mu Z_{\mu}\left(T_{3}^{(f)} -Q^{(f)}\sin^2(\theta_{W})\right)\bar{f}_{i}\right]\\
@@ -360,7 +360,7 @@ Now, since the $D^0$ meson is composed of a quark pair and the final state $\mu^
 
 G. Burdman, E. Golowich, J. L. Hewett, and S. Pakvasa (BGHP) have carried out the most complete SM analysis of the $D^0 \to \mu^+ \mu^-$ decay that includes all short and long-distance effects. 
 
-To begin with the short distance (SD) effects, the quark level transition arises from electroweak penguin and box diagrams, an example of which is found in Feynman diagram in figure \ref{fig:D0_decay_diagrams}. After integrating over all possible diagrams, BGHP find that 
+To begin with the short distance (SD) effects, the quark level transition arises from electroweak penguin and box diagrams, an example of which is found in Feynman diagram in Figure \ref{fig:D0_decay_diagrams}. After integrating over all possible diagrams, BGHP find that 
 \begin{equation}
 \mathcal{B}(D^0 \to \mu^+ \mu^-)_{SD} \simeq 10^{-18}
 \end{equation}
@@ -380,7 +380,7 @@ In principle, there could be mixing with heavier $0^\pm$ resonances such as $\pi
 \begin{equation}
 \mathcal{B}(D^0 \to \mu^+ \mu^-)_{\pi(1800)} \simeq  5.0 \times 10^{-17}
 \end{equation}
-The two-photon contributions come from the dispersive two photon decay $D^0 \to \gamma \gamma \to \mu^+ \mu^-$ shown in figure \ref{fig:D0_decay_diagrams}. BGHP show that 
+The two-photon contributions come from the dispersive two photon decay $D^0 \to \gamma \gamma \to \mu^+ \mu^-$ shown in Figure \ref{fig:D0_decay_diagrams}. BGHP show that 
 \begin{equation}
 \mathcal{B}(D^0 \to \mu^+ \mu^-)_{\gamma\gamma} \simeq 2.7 \times 10^{-5} \mathcal{B}(D^0 \to \gamma\gamma)
 \end{equation}
